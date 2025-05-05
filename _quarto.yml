@@ -1,27 +1,40 @@
 project:
   type: website
   output-dir: docs
-  
+
 website:
-  title: "MY WEB SITE"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - projects.qmd
-    tools:
-      - icon: twitter
-        href: https://twitter.com/
-      - icon: github
-        href: https://github.com/YOURUSERNAME/YOURREPO
+  title: "Zhengyang (John) Fei"
+  site-url: "https://kuan-liu.github.io/"
   page-footer:
-    right: "Built with [Quarto](https://quarto.org/)"
-    left: "&copy; Copyright 2023, YOUR NAME"
+    right: "This page is built with [Quarto](https://quarto.org/)."
+    left: "Zhengyang Fei, University of Toronto @ 2025"
+  navbar:
+    right:
+      - href: index.qmd
+        text: About
+      - text: "CV"
+        href: resume.qmd
+      - href: project.qmd
+        text: Projects
+      - href: blog.qmd
+        text: Blog
+      - href: teaching.qmd
+        text: Teaching
+      - icon: github
+        href: https://github.com/johnyzyfei/
+      - icon: linkedin
+        href: https://www.linkedin.com/in/zhengyang-fei
 
 format:
   html:
-    theme: cerulean
+    theme: Zephyr
+    css: styles.css
     toc: true
 
-editor: source
+editor: visual
 
+execute:
+  freeze: auto
+
+engine: knitr
+        
