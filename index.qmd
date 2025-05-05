@@ -1,19 +1,37 @@
 ---
-title: "About Me"
+title: "Zhengyang (John) Fei"
 about:
-  id: me
-  template: broadside
-  image: img/profile.png
+  id: main-content
+  template: trestles
+  image: images/zhengyang_fei.jpg
+  image-shape: round
+  links:
+     - icon: envelope
+       href: johnyzyfei.fei@outlook.com
+     - icon: github
+       href: https://github.com/johnyzyfei
+     - icon: linkedin
+       href: https://www.linkedin.com/in/zhengyang-fei
+
+format:
+  html:
+    page-layout: full
+    css: custom.css
+class: homepage
 ---
 
-:::{#me}
+<p>
 
-## Goals
+Hi, I'm <strong>John Fei</strong>,
 
-## Education
+<p>a <strong>Biostatistics MSc candidate</strong> at the University of Toronto with an emphasis in Artificial Intelligence and Data Science. I also have the privilege to work as a <strong>Student Researcher</strong> at the Institute for Better Health, Trillium Health Partners, under the supervision of Dr. Simona Minotti.</p>
 
-## Experience
+<p>My research spans areas including <strong>patient experience and hospital quality improvement</strong>, where I analyze large-scale survey data to identify factors influencing care outcomes, as well as <strong>biomarker analysis for juvenile arthritis</strong>, where I support statistical modeling and clinical interpretation in collaboration with healthcare researchers.</p>
 
-:::
+<p>I earned my <strong>HBSc in Statistics and Mathematics</strong> from Toronto in 2024, where my passion for health science, data science, and education blossomed while working with Dr. Asal Aslemand and others.</p>
 
-Thanks for checking out my web site!
+<p>
+
+Beyond academics, music has always been a source of joy for me. My favourite artsits include: John Mayer, Guns N' Roses, Linkin Park, and Jay Chou.
+
+</div>
