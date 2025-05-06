@@ -1,3 +1,9 @@
 ---
 title: "STA107 Summer 2025 Notes"
 ---
+
+This page contains tutorial notes for STA107 Summer 2025. 
+
+# Week 1
+
+# Week 2
