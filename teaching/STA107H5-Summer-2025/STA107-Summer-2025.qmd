@@ -1,5 +1,5 @@
 ---
-title: "STA107 Summer 2025 Notes"
+title: "STA107 Summer 2025"
 ---
 
 This page contains tutorial notes for STA107 Summer 2025.
