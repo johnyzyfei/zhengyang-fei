@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "resume.html",
-    "href": "resume.html",
-    "title": "Resume",
-    "section": "",
-    "text": "Download Resume"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Zhengyang (John) Fei",
-    "section": "",
-    "text": "Hi, I’m John Fei,\n\na Biostatistics MSc candidate at the University of Toronto with an emphasis in Artificial Intelligence and Data Science. I also have the privilege to work as a Student Researcher at the Institute for Better Health, Trillium Health Partners, under the supervision of Dr. Simona Minotti.\n\n\nMy research spans areas including patient experience and hospital quality improvement, where I analyze large-scale survey data to identify factors influencing care outcomes, as well as biomarker analysis for juvenile arthritis, where I support statistical modeling and clinical interpretation in collaboration with healthcare researchers.\n\n\nI earned my HBSc in Statistics and Mathematics from Toronto in 2024, where my passion for health science, data science, and education blossomed while working with Dr. Asal Aslemand and others.\n\n\nBeyond academics, music has always been a source of joy for me. My favourite artsits include: John Mayer, Guns N’ Roses, Linkin Park, and Jay Chou."
-  },
-  {
     "objectID": "teaching.html",
     "href": "teaching.html",
     "title": "Zhengyang (John) Fei",
@@ -23,14 +9,63 @@
   {
     "objectID": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html",
     "href": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html",
-    "title": "MAT232-Summer-2025",
+    "title": "MAT232 Summer 2025",
     "section": "",
     "text": "This page contains tutorial notes for STA107 Summer 2025.\n\nWeek 1\nThis should update, right?\n\n\nWeek 2"
   },
   {
+    "objectID": "projects/dimp.html",
+    "href": "projects/dimp.html",
+    "title": "DIMP Package",
+    "section": "",
+    "text": "Deletion after IMPutation (DIMP) is an R package that serves as a wrapper around the mice package. It performs multiple imputation on a dataset, then removes the imputed values for a specified outcome variable. This approach allows imputed covariates to be used in downstream analyses while avoiding analysis on imputed outcomes, which can introduce bias when the outcome is not missing at random."
+  },
+  {
+    "objectID": "projects/dimp.html#introduction",
+    "href": "projects/dimp.html#introduction",
+    "title": "DIMP Package",
+    "section": "",
+    "text": "Deletion after IMPutation (DIMP) is an R package that serves as a wrapper around the mice package. It performs multiple imputation on a dataset, then removes the imputed values for a specified outcome variable. This approach allows imputed covariates to be used in downstream analyses while avoiding analysis on imputed outcomes, which can introduce bias when the outcome is not missing at random."
+  },
+  {
+    "objectID": "projects/dimp.html#demonstration",
+    "href": "projects/dimp.html#demonstration",
+    "title": "DIMP Package",
+    "section": "2. Demonstration",
+    "text": "2. Demonstration\nSuppose we have the following original dataset.\n\n\n\nY\nX1\nX2\nX3\n\n\n\n\n1\n2\n5\nNA\n\n\n0\nNA\n4\n2\n\n\nNA\n4\n2\n4\n\n\n\nAfter calling ‘dimp()’,\n\n\n\nY\nX1\nX2\nX3\n\n\n\n\n1\n2\n5\n2\n\n\n0\n3\n4\n2\n\n\nNA\n4\n2\n4\n\n\n\n\n\n\nY\nX1\nX2\nX3\n\n\n\n\n1\n2\n5\n3\n\n\n0\n2\n4\n2\n\n\nNA\n4\n2\n4\n\n\n\n\n\n\nY\nX1\nX2\nX3\n\n\n\n\n1\n2\n5\n2\n\n\n0\n2\n4\n2\n\n\nNA\n4\n2\n4"
+  },
+  {
+    "objectID": "projects/dimp.html#r-code",
+    "href": "projects/dimp.html#r-code",
+    "title": "DIMP Package",
+    "section": "3. R code",
+    "text": "3. R code\n\nlibrary(mice)\nlibrary(dimp)\n\n# Create a mids object\nexampledata &lt;- airquality\nmice_obj &lt;- mice(exampledata, m = 5, maxit = 5, seed = 123)\n\n\n iter imp variable\n  1   1  Ozone  Solar.R\n  1   2  Ozone  Solar.R\n  1   3  Ozone  Solar.R\n  1   4  Ozone  Solar.R\n  1   5  Ozone  Solar.R\n  2   1  Ozone  Solar.R\n  2   2  Ozone  Solar.R\n  2   3  Ozone  Solar.R\n  2   4  Ozone  Solar.R\n  2   5  Ozone  Solar.R\n  3   1  Ozone  Solar.R\n  3   2  Ozone  Solar.R\n  3   3  Ozone  Solar.R\n  3   4  Ozone  Solar.R\n  3   5  Ozone  Solar.R\n  4   1  Ozone  Solar.R\n  4   2  Ozone  Solar.R\n  4   3  Ozone  Solar.R\n  4   4  Ozone  Solar.R\n  4   5  Ozone  Solar.R\n  5   1  Ozone  Solar.R\n  5   2  Ozone  Solar.R\n  5   3  Ozone  Solar.R\n  5   4  Ozone  Solar.R\n  5   5  Ozone  Solar.R\n\n# Deletion\nmice_obj_deleted &lt;- dimp(mice_obj, \"Ozone\") # datasets in this object have missing outcomes\n\n\n\n\n\n\n\nNote\n\n\n\nThis package was created by Mark Asuncion, Ting Lin, John Fei, Luke Bai and Jason Dang as part of the group project for CHL 8010 F2: Statistical Programming and Computation for Health Data (Instructor: Dr. Aya Mitani) offered by the Dalla Lana School of Public Health at the University of Toronto (Fall 2024)."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Zhengyang (John) Fei",
+    "section": "",
+    "text": "Hi, I’m John Fei,\n\na Biostatistics MSc candidate at the University of Toronto with an emphasis in Artificial Intelligence and Data Science. I also have the privilege to work as a Student Researcher at the Institute for Better Health, Trillium Health Partners, under the supervision of Dr. Simona Minotti.\n\n\nMy research spans areas including patient experience and hospital quality improvement, where I analyze large-scale survey data to identify factors influencing care outcomes, as well as biomarker analysis for juvenile arthritis, where I support statistical modeling and clinical interpretation in collaboration with healthcare researchers.\n\n\nI earned my HBSc in Statistics and Mathematics from Toronto in 2024, where my passion for health science, data science, and education blossomed while working with Dr. Asal Aslemand and others.\n\n\nBeyond academics, music has always been a source of joy for me. My favorite artists include: John Mayer, Guns N’ Roses, Linkin Park, and Jay Chou."
+  },
+  {
+    "objectID": "project.html",
+    "href": "project.html",
+    "title": "Zhengyang (John) Fei",
+    "section": "",
+    "text": "DIMP Package\n\n\n\nR\n\n\ntable\n\n\n\nA utility to delete imputed outcome values after multiple imputation.\n\n\n\n\n\n\nNov 30, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Resume",
+    "section": "",
+    "text": "Download Resume"
+  },
+  {
     "objectID": "teaching/STA107H5-Summer-2025/STA107-Summer-2025.html",
     "href": "teaching/STA107H5-Summer-2025/STA107-Summer-2025.html",
-    "title": "STA107 Summer 2025 Notes",
+    "title": "STA107 Summer 2025",
     "section": "",
     "text": "This page contains tutorial notes for STA107 Summer 2025.\n\nWeek 1\n\n\nWeek 2"
   }

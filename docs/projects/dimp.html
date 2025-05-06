@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-11-30">
+<meta name="description" content="A utility to delete imputed outcome values after multiple imputation.">
 
-<title>STA107 Summer 2025 – Zhengyang (John) Fei</title>
+<title>DIMP Package – Zhengyang (John) Fei</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -78,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Zhengyang (John) Fei</span>
     </a>
   </div>
@@ -89,23 +125,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../resume.html"> 
+    <a class="nav-link" href="../resume.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../project.html"> 
+    <a class="nav-link" href="../project.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.qmd"> 
+    <a class="nav-link" href="../blog.qmd"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../teaching.html"> 
+    <a class="nav-link" href="../teaching.html"> 
 <span class="menu-text">Teaching</span></a>
   </li>  
   <li class="nav-item compact">
@@ -134,8 +170,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#week-1" id="toc-week-1" class="nav-link active" data-scroll-target="#week-1">Week 1</a></li>
-  <li><a href="#week-2" id="toc-week-2" class="nav-link" data-scroll-target="#week-2">Week 2</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">1. Introduction</a></li>
+  <li><a href="#demonstration" id="toc-demonstration" class="nav-link" data-scroll-target="#demonstration">2. Demonstration</a></li>
+  <li><a href="#r-code" id="toc-r-code" class="nav-link" data-scroll-target="#r-code">3. R code</a></li>
   </ul>
 </nav>
     </div>
@@ -144,14 +181,29 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">STA107 Summer 2025</h1>
-</div>
+<h1 class="title">DIMP Package</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">table</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    A utility to delete imputed outcome values after multiple imputation.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 30, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -161,12 +213,189 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This page contains tutorial notes for STA107 Summer 2025.</p>
-<section id="week-1" class="level1">
-<h1>Week 1</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">1. Introduction</h2>
+<p><a href="https://github.com/gmasuncion/dimp">Deletion after IMPutation (DIMP)</a> is an R package that serves as a wrapper around the mice package. It performs multiple imputation on a dataset, then removes the imputed values for a specified outcome variable. This approach allows imputed covariates to be used in downstream analyses while avoiding analysis on imputed outcomes, which can introduce bias when the outcome is not missing at random.</p>
 </section>
-<section id="week-2" class="level1">
-<h1>Week 2</h1>
+<section id="demonstration" class="level2">
+<h2 class="anchored" data-anchor-id="demonstration">2. Demonstration</h2>
+<p>Suppose we have the following original dataset.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Y</th>
+<th>X1</th>
+<th>X2</th>
+<th>X3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2</td>
+<td>5</td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>NA</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>NA</td>
+<td>4</td>
+<td>2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>After calling ‘dimp()’,</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Y</th>
+<th>X1</th>
+<th>X2</th>
+<th>X3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2</td>
+<td>5</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>3</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>NA</td>
+<td>4</td>
+<td>2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Y</th>
+<th>X1</th>
+<th>X2</th>
+<th>X3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2</td>
+<td>5</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>2</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>NA</td>
+<td>4</td>
+<td>2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Y</th>
+<th>X1</th>
+<th>X2</th>
+<th>X3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>2</td>
+<td>5</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>2</td>
+<td>4</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>NA</td>
+<td>4</td>
+<td>2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="r-code" class="level2">
+<h2 class="anchored" data-anchor-id="r-code">3. R code</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dimp)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a mids object</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>exampledata <span class="ot">&lt;-</span> airquality</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>mice_obj <span class="ot">&lt;-</span> <span class="fu">mice</span>(exampledata, <span class="at">m =</span> <span class="dv">5</span>, <span class="at">maxit =</span> <span class="dv">5</span>, <span class="at">seed =</span> <span class="dv">123</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ iter imp variable
+  1   1  Ozone  Solar.R
+  1   2  Ozone  Solar.R
+  1   3  Ozone  Solar.R
+  1   4  Ozone  Solar.R
+  1   5  Ozone  Solar.R
+  2   1  Ozone  Solar.R
+  2   2  Ozone  Solar.R
+  2   3  Ozone  Solar.R
+  2   4  Ozone  Solar.R
+  2   5  Ozone  Solar.R
+  3   1  Ozone  Solar.R
+  3   2  Ozone  Solar.R
+  3   3  Ozone  Solar.R
+  3   4  Ozone  Solar.R
+  3   5  Ozone  Solar.R
+  4   1  Ozone  Solar.R
+  4   2  Ozone  Solar.R
+  4   3  Ozone  Solar.R
+  4   4  Ozone  Solar.R
+  4   5  Ozone  Solar.R
+  5   1  Ozone  Solar.R
+  5   2  Ozone  Solar.R
+  5   3  Ozone  Solar.R
+  5   4  Ozone  Solar.R
+  5   5  Ozone  Solar.R</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Deletion</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mice_obj_deleted <span class="ot">&lt;-</span> <span class="fu">dimp</span>(mice_obj, <span class="st">"Ozone"</span>) <span class="co"># datasets in this object have missing outcomes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This package was created by Mark Asuncion, Ting Lin, John Fei, Luke Bai and Jason Dang as part of the group project for CHL 8010 F2: Statistical Programming and Computation for Health Data (Instructor: Dr.&nbsp;Aya Mitani) offered by the Dalla Lana School of Public Health at the University of Toronto (Fall 2024).</p>
+</div>
+</div>
 
 
 </section>

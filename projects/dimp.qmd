@@ -1,0 +1,58 @@
+---
+title: "DIMP Package"
+categories: [R, table]
+date: "2024-11-30"
+description: "A utility to delete imputed outcome values after multiple imputation."
+---
+
+## 1. Introduction
+[Deletion after IMPutation (DIMP)](https://github.com/gmasuncion/dimp) is an R package that serves as a wrapper around the mice package. It performs multiple imputation on a dataset, then removes the imputed values for a specified outcome variable. This approach allows imputed covariates to be used in downstream analyses while avoiding analysis on imputed outcomes, which can introduce bias when the outcome is not missing at random.
+
+
+## 2. Demonstration
+Suppose we have the following original dataset.
+
+| Y    | X1   | X2   | X3   |
+|------|------|------|------|
+| 1    | 2    | 5    | NA   | 
+| 0    | NA   | 4    | 2    |
+| NA   | 4    | 2    | 4    |
+
+After calling 'dimp()', 
+
+| Y    | X1   | X2   | X3   |
+|------|------|------|------|
+| 1    | 2    | 5    | 2    | 
+| 0    | 3    | 4    | 2    |
+| NA   | 4    | 2    | 4    |
+
+| Y    | X1   | X2   | X3   |
+|------|------|------|------|
+| 1    | 2    | 5    | 3    | 
+| 0    | 2    | 4    | 2    |
+| NA   | 4    | 2    | 4    |
+
+| Y    | X1   | X2   | X3   |
+|------|------|------|------|
+| 1    | 2    | 5    | 2    | 
+| 0    | 2    | 4    | 2    |
+| NA   | 4    | 2    | 4    |
+
+
+## 3. R code
+
+```{r, warning=FALSE, message=FALSE}
+library(mice)
+library(dimp)
+
+# Create a mids object
+exampledata <- airquality
+mice_obj <- mice(exampledata, m = 5, maxit = 5, seed = 123)
+
+# Deletion
+mice_obj_deleted <- dimp(mice_obj, "Ozone") # datasets in this object have missing outcomes
+```
+
+::: callout-note
+This package was created by Mark Asuncion, Ting Lin, John Fei, Luke Bai and Jason Dang as part of the group project for CHL 8010 F2: Statistical Programming and Computation for Health Data (Instructor: Dr. Aya Mitani) offered by the Dalla Lana School of Public Health at the University of Toronto (Fall 2024).
+:::

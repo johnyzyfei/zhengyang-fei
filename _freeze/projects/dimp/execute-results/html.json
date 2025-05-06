@@ -1,0 +1,15 @@
+{
+  "hash": "a2e72c2934d6253aac48bc436511895c",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"DIMP Package\"\ncategories: [R, table]\ndate: \"2024-11-30\"\ndescription: \"A utility to delete imputed outcome values after multiple imputation.\"\n---\n\n\n\n## 1. Introduction\n[Deletion after IMPutation (DIMP)](https://github.com/gmasuncion/dimp) is an R package that serves as a wrapper around the mice package. It performs multiple imputation on a dataset, then removes the imputed values for a specified outcome variable. This approach allows imputed covariates to be used in downstream analyses while avoiding analysis on imputed outcomes, which can introduce bias when the outcome is not missing at random.\n\n\n## 2. Demonstration\nSuppose we have the following original dataset.\n\n| Y    | X1   | X2   | X3   |\n|------|------|------|------|\n| 1    | 2    | 5    | NA   | \n| 0    | NA   | 4    | 2    |\n| NA   | 4    | 2    | 4    |\n\nAfter calling 'dimp()', \n\n| Y    | X1   | X2   | X3   |\n|------|------|------|------|\n| 1    | 2    | 5    | 2    | \n| 0    | 3    | 4    | 2    |\n| NA   | 4    | 2    | 4    |\n\n| Y    | X1   | X2   | X3   |\n|------|------|------|------|\n| 1    | 2    | 5    | 3    | \n| 0    | 2    | 4    | 2    |\n| NA   | 4    | 2    | 4    |\n\n| Y    | X1   | X2   | X3   |\n|------|------|------|------|\n| 1    | 2    | 5    | 2    | \n| 0    | 2    | 4    | 2    |\n| NA   | 4    | 2    | 4    |\n\n\n## 3. R code\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(mice)\nlibrary(dimp)\n\n# Create a mids object\nexampledata <- airquality\nmice_obj <- mice(exampledata, m = 5, maxit = 5, seed = 123)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n\n iter imp variable\n  1   1  Ozone  Solar.R\n  1   2  Ozone  Solar.R\n  1   3  Ozone  Solar.R\n  1   4  Ozone  Solar.R\n  1   5  Ozone  Solar.R\n  2   1  Ozone  Solar.R\n  2   2  Ozone  Solar.R\n  2   3  Ozone  Solar.R\n  2   4  Ozone  Solar.R\n  2   5  Ozone  Solar.R\n  3   1  Ozone  Solar.R\n  3   2  Ozone  Solar.R\n  3   3  Ozone  Solar.R\n  3   4  Ozone  Solar.R\n  3   5  Ozone  Solar.R\n  4   1  Ozone  Solar.R\n  4   2  Ozone  Solar.R\n  4   3  Ozone  Solar.R\n  4   4  Ozone  Solar.R\n  4   5  Ozone  Solar.R\n  5   1  Ozone  Solar.R\n  5   2  Ozone  Solar.R\n  5   3  Ozone  Solar.R\n  5   4  Ozone  Solar.R\n  5   5  Ozone  Solar.R\n```\n\n\n:::\n\n```{.r .cell-code}\n# Deletion\nmice_obj_deleted <- dimp(mice_obj, \"Ozone\") # datasets in this object have missing outcomes\n```\n:::\n\n\n\n::: callout-note\nThis package was created by Mark Asuncion, Ting Lin, John Fei, Luke Bai and Jason Dang as part of the group project for CHL 8010 F2: Statistical Programming and Computation for Health Data (Instructor: Dr. Aya Mitani) offered by the Dalla Lana School of Public Health at the University of Toronto (Fall 2024).\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
