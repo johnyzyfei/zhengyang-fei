@@ -1,4 +1,8 @@
 ---
+title: Projects
+page-layout: full
+image: images/dice.jpg  # optional
+
 listing:
   contents: projects
   sort: "date desc"
@@ -6,6 +10,4 @@ listing:
   categories: true
   sort-ui: false
   filter-ui: true
-page-layout: full
-title-block-banner: true
 ---

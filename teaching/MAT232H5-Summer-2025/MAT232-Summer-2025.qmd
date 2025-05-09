@@ -5,7 +5,7 @@ title: "MAT232 Summer 2025"
 This page contains tutorial notes for STA107 Summer 2025.
 
 # Week 1
-This should update, right?
+
 
 
 # Week 2
