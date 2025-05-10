@@ -7,7 +7,7 @@ about:
   image-shape: round
   links:
      - icon: envelope
-       href: johnyzyfei.fei@outlook.com
+       href: mailto:johnyzyfei.fei@outlook.com
      - icon: github
        href: https://github.com/johnyzyfei
      - icon: linkedin

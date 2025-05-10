@@ -1,0 +1,26 @@
+/* Light mode navbar color override */
+.navbar {
+  background-color: #2c3e50 !important;  /* dark slate blue */
+}
+
+/* Navbar link text color in light mode */
+.navbar .navbar-brand,
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+}
+
+/* Optional: hover color for navbar links */
+.navbar-nav .nav-link:hover {
+  color: #ffd54f !important; /* golden hover */
+}
+
+/* Dark mode navbar override */
+html[data-theme='dark'] .navbar {
+  background-color: #1a1a1a !important; /* dark background */
+}
+
+/* Dark mode navbar text color */
+html[data-theme='dark'] .navbar .navbar-brand,
+html[data-theme='dark'] .navbar-nav .nav-link {
+  color: #e0e0e0 !important;
+}
