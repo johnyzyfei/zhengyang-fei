@@ -6,38 +6,38 @@ description: "A utility to delete imputed outcome values after multiple imputati
 ---
 
 ## 1. Introduction
+
 [Deletion after IMPutation (DIMP)](https://github.com/gmasuncion/dimp) is an R package that serves as a wrapper around the mice package. It performs multiple imputation on a dataset, then removes the imputed values for a specified outcome variable. This approach allows imputed covariates to be used in downstream analyses while avoiding analysis on imputed outcomes, which can introduce bias when the outcome is not missing at random.
 
-
 ## 2. Demonstration
+
 Suppose we have the following original dataset.
 
-| Y    | X1   | X2   | X3   |
-|------|------|------|------|
-| 1    | 2    | 5    | NA   | 
-| 0    | NA   | 4    | 2    |
-| NA   | 4    | 2    | 4    |
+| Y   | X1  | X2  | X3  |
+|-----|-----|-----|-----|
+| 1   | 2   | 5   | NA  |
+| 0   | NA  | 4   | 2   |
+| NA  | 4   | 2   | 4   |
 
 After calling 'dimp()', 
 
-| Y    | X1   | X2   | X3   |
-|------|------|------|------|
-| 1    | 2    | 5    | 2    | 
-| 0    | 3    | 4    | 2    |
-| NA   | 4    | 2    | 4    |
+| Y   | X1  | X2  | X3  |
+|-----|-----|-----|-----|
+| 1   | 2   | 5   | 2   |
+| 0   | 3   | 4   | 2   |
+| NA  | 4   | 2   | 4   |
 
-| Y    | X1   | X2   | X3   |
-|------|------|------|------|
-| 1    | 2    | 5    | 3    | 
-| 0    | 2    | 4    | 2    |
-| NA   | 4    | 2    | 4    |
+| Y   | X1  | X2  | X3  |
+|-----|-----|-----|-----|
+| 1   | 2   | 5   | 3   |
+| 0   | 2   | 4   | 2   |
+| NA  | 4   | 2   | 4   |
 
-| Y    | X1   | X2   | X3   |
-|------|------|------|------|
-| 1    | 2    | 5    | 2    | 
-| 0    | 2    | 4    | 2    |
-| NA   | 4    | 2    | 4    |
-
+| Y   | X1  | X2  | X3  |
+|-----|-----|-----|-----|
+| 1   | 2   | 5   | 2   |
+| 0   | 2   | 4   | 2   |
+| NA  | 4   | 2   | 4   |
 
 ## 3. R code
 

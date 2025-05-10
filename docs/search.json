@@ -67,7 +67,35 @@
     "href": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html",
     "title": "MAT232: Calculus of Several Variables",
     "section": "",
-    "text": "This page contains tutorial notes for MAT232H5 Calculus of Several Variables Summer 2025 under the instruction of Dr. Elio Mazzeo.\nWeek 1 tutorial notes Here"
+    "text": "This page contains tutorial notes for MAT232H5 Calculus of Several Variables Summer 2025 under the instruction of Dr. Elio Mazzeo."
+  },
+  {
+    "objectID": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#parametric-equations",
+    "href": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#parametric-equations",
+    "title": "MAT232: Calculus of Several Variables",
+    "section": "Parametric Equations",
+    "text": "Parametric Equations\nWeek 2 tutorial notes TBP\nSuppose there is a third variable \\(t\\) (called a parameter), we can parameterize \\(x\\) and \\(y\\) by the equations \\[\\begin{align*}\nx &= f(t) \\\\\ny &= y(t)\n\\end{align*}\\] where \\(a \\le t \\le b\\) which has initial point \\((f(a), g(a))\\) and terminal point \\((f(b), g(b))\\)."
+  },
+  {
+    "objectID": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#first-derivative-for-parametric-equations",
+    "href": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#first-derivative-for-parametric-equations",
+    "title": "MAT232: Calculus of Several Variables",
+    "section": "First Derivative for Parametric Equations",
+    "text": "First Derivative for Parametric Equations\nSuppose that \\(f,g\\) are differentiable functions and we need to find the tangent line at a point on the parametric curve \\(x = f(t)\\) and \\(y = g(t)\\), where y is also a differentiable function of \\(x\\). If \\(dx/dt \\ne 0\\), then the slopes of the parametric curve is given by \\[\\begin{align*}\n\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#second-derivative-for-parametric-equations",
+    "href": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#second-derivative-for-parametric-equations",
+    "title": "MAT232: Calculus of Several Variables",
+    "section": "Second Derivative for Parametric Equations",
+    "text": "Second Derivative for Parametric Equations\nFurthermore suppose that \\(y\\) is a twice differentiable function of \\(x\\), then at any point \\(dx/dt \\ne 0\\) and \\[\\begin{align*}\n\\frac{d^2y}{dx^2}\n&= \\frac{d}{dx} \\left( \\frac{dy}{dx} \\right) = \\frac{ \\dfrac{d}{dt} \\left( \\dfrac{dy}{dx} \\right) }{ \\dfrac{dx}{dt} }\n\\end{align*}\\]"
+  },
+  {
+    "objectID": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#arc-length-for-parametric-equations",
+    "href": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#arc-length-for-parametric-equations",
+    "title": "MAT232: Calculus of Several Variables",
+    "section": "Arc Length for Parametric Equations",
+    "text": "Arc Length for Parametric Equations\nSuppose that a curve C can be described by the parametric equations \\(x = f(t)\\) and \\(y = g(t)\\), where \\(\\alpha \\le t \\le \\beta\\). Furthermore, suppose that \\(f', g'\\) are continuous in \\(\\alpha \\le t \\le \\beta\\). Then the length of C is given by \\[\\begin{align*}\nL = \\int_{\\alpha}^{\\beta} \\sqrt{ \\left( \\frac{dx}{dt} \\right)^2 + \\left( \\frac{dy}{dt} \\right)^2 } \\, dt\n\\end{align*}\\]"
   },
   {
     "objectID": "teaching/STA237H1-Summer-2025/STA237-Summer-2025.html",
