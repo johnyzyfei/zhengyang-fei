@@ -39,4 +39,6 @@ execute:
   freeze: auto
 
 engine: knitr
-        
+
+resources:
+  - images/dice.jpg

@@ -1,7 +1,8 @@
 ---
-title: "MAT232 Summer 2025"
+title: "MAT232: Calculus of Several Variables"
+description: 'Notes for MAT232 Summer 2025'
 ---
 
-This page contains tutorial notes for [MAT232H5 Calculus of Several Variables](https://utm.calendar.utoronto.ca/course/mat232h5]) Summer 2025 under the instruction of [Dr. Elio Mazzeo](https://www.utm.utoronto.ca/math-cs-stats/people/elio-mazzeo).
+This page contains tutorial notes for [MAT232H5 Calculus of Several Variables](https://utm.calendar.utoronto.ca/course/mat232h5%5D) Summer 2025 under the instruction of [Dr. Elio Mazzeo](https://www.utm.utoronto.ca/math-cs-stats/people/elio-mazzeo).
 
-Week 1 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week1.pdf){download=week1}
+Week 1 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week1.pdf){download="week1"}

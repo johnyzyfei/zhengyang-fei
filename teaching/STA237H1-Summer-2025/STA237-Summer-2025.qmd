@@ -1,8 +1,10 @@
 ---
-title: "STA237-Summer-2025"
+title: "STA237: Probability, Statistics and Data Analysis I"
+image: dice.png
+description: 'Notes for STA237 Summer 2025'
 ---
 
-This page contains tutorial notes for [STA237H1](https://artsci.calendar.utoronto.ca/course/sta237h1) Summer 2025 under the instruction of [Dr. Gracia Yunruo Dong](https://graciadong.github.io/).
+Acknowledgements: This page contains tutorial notes for [STA237H1 Probability, Statistics and Data Analysis I](https://artsci.calendar.utoronto.ca/course/sta237h1) Summer 2025 under the instruction of [Dr. Gracia Yunruo Dong](https://graciadong.github.io/).
 
 # Week 1
 

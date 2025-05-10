@@ -1,7 +1,6 @@
 ---
 title: Teaching
 page-layout: full
-image: images/dice.jpg  
 
 listing:
   contents: teaching
@@ -11,4 +10,3 @@ listing:
   sort-ui: false
   filter-ui: true
 ---
-
