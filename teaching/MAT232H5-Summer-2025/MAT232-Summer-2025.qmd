@@ -1,6 +1,7 @@
 ---
 title: "MAT232: Calculus of Several Variables"
 image: curve.png
+categories: [Calculus]
 description: 'Notes for MAT232 Summer 2025'
 toc-depth: 1
 ---
