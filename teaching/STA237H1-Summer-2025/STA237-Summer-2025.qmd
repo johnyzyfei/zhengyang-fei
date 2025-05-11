@@ -1,6 +1,7 @@
 ---
 title: "STA237: Probability, Statistics and Data Analysis I"
 image: dice.png
+categories: [Probability, R, Simulations]
 description: 'Notes for STA237 Summer 2025'
 ---
 
