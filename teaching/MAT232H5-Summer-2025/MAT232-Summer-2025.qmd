@@ -8,27 +8,24 @@ toc-depth: 1
 
 This page contains tutorial notes for [MAT232H5 Calculus of Several Variables](https://utm.calendar.utoronto.ca/course/mat232h5%5D) Summer 2025 under the instruction of [Dr. Elio Mazzeo](https://www.utm.utoronto.ca/math-cs-stats/people/elio-mazzeo).
 
-
 # Week 1
 
 Week 1 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week1.pdf){download="week1"}
 
 # Week 2
+
 ## Parametric Equations
 
 Week 2 tutorial notes [TBP](){download="week2"}
 
-Suppose there is a third variable $t$ (called a parameter), we can *parameterize* $x$ and $y$ by the equations 
-\begin{align*}
+Suppose there is a third variable $t$ (called a parameter), we can *parameterize* $x$ and $y$ by the equations \begin{align*}
 x &= f(t) \\
 y &= y(t)
-\end{align*}
-where $a \le t \le b$ which has initial point $(f(a), g(a))$ and terminal point $(f(b), g(b))$.
+\end{align*} where $a \le t \le b$ which has initial point $(f(a), g(a))$ and terminal point $(f(b), g(b))$.
 
 ## First Derivative for Parametric Equations
 
-Suppose that $f,g$ are differentiable functions and we need to find the tangent line at a point on the parametric curve $x = f(t)$ and $y = g(t)$, where y is also a differentiable function of $x$. If $dx/dt \ne 0$, then the slopes of the parametric curve is given by 
-\begin{align*}
+Suppose that $f,g$ are differentiable functions and we need to find the tangent line at a point on the parametric curve $x = f(t)$ and $y = g(t)$, where y is also a differentiable function of $x$. If $dx/dt \ne 0$, then the slopes of the parametric curve is given by \begin{align*}
 \frac{dy}{dx} = \frac{dy/dt}{dx/dt}
 \end{align*}
 
@@ -41,10 +38,6 @@ Furthermore suppose that $y$ is a twice differentiable function of $x$, then at 
 
 ## Arc Length for Parametric Equations
 
-Suppose that a curve C can be described by the parametric equations $x = f(t)$ and $y = g(t)$, where $\alpha \le t \le \beta$. Furthermore, suppose that $f', g'$ are continuous in $\alpha \le t \le \beta$. Then the length of C is given by 
-\begin{align*}
+Suppose that a curve C can be described by the parametric equations $x = f(t)$ and $y = g(t)$, where $\alpha \le t \le \beta$. Furthermore, suppose that $f', g'$ are continuous in $\alpha \le t \le \beta$. Then the length of C is given by \begin{align*}
 L = \int_{\alpha}^{\beta} \sqrt{ \left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 } \, dt
 \end{align*}
-
-
-

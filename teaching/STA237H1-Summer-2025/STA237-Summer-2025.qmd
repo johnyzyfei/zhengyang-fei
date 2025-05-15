@@ -3,6 +3,7 @@ title: "STA237: Probability, Statistics and Data Analysis I"
 image: dice.png
 categories: [Probability, R, Simulations]
 description: 'Notes for STA237 Summer 2025'
+toc-depth: 1
 ---
 
 Acknowledgements: This page contains tutorial notes for [STA237H1 Probability, Statistics and Data Analysis I](https://artsci.calendar.utoronto.ca/course/sta237h1) Summer 2025 under the instruction of [Dr. Gracia Yunruo Dong](https://graciadong.github.io/).
@@ -158,4 +159,57 @@ P(\text{at least one shared})
 &= 1 - 0.7639 \\
 &= \boxed{0.2361}
 \end{align*}
+:::
+
+-----------------------------------------------------------------
+# Week 2
+
+::: {.callout-question collapse="true"}
+### Question 1
+
+Suppose that the moment generating function of $Y$ is given by
+$$M_Y(t) = e^{(a+b)(e^t - 1)}$$
+
+where $a > 0$ and $b > 0$. Use this mgf to find the 
+
+a) expected value of $Y$ and 
+b) the variance of $Y$.
+:::
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+
+:::
+
+::: {.callout-question collapse="true"}
+### Question 2
+Suppose $X$ has a Discrete Uniform Distribution over the values $x = 1,2,3,4,5$.
+
+b) Find the mgf of $X$
+c) Compute $\mathbb{E}(X)$ and $\mathbb{V}(X)$ two ways: by using the definitions, and by using the mgf you found in part b
+:::
+
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+
+:::
+
+::: {.callout-question collapse="true"}
+### Question 3
+Of the thousands of the volunteers who donate blood at a clinic, $80\%$ have the Rhesus (Rh) factor present in their blood. For the purposes of this question, assume the population size is very large (ie., we can use methods that assume sampling with replacement).
+
+a) If six volunteers are randomly selected, what is the probability that no one has the Rh factor?
+
+b) If six volunteers are randomly selected, what is the probability that at most four have the Rh factor?
+
+c) What if we were interested in the smallest number of volunteers who must be randomly selected if we want to be at least $90\%$ certain we will obtain at least four donors with the Rh factor? Can we answer this question using a Binomial Distribution? If so, answer this question. If not, explain why a Binomial distribution is not an appropriate model in this situation.
+:::
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+
 :::
