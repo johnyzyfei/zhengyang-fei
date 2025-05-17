@@ -169,6 +169,7 @@ window.Quarto = {
   <ul>
   <li><a href="#week-1" id="toc-week-1" class="nav-link active" data-scroll-target="#week-1">Week 1</a></li>
   <li><a href="#week-2" id="toc-week-2" class="nav-link" data-scroll-target="#week-2">Week 2</a></li>
+  <li><a href="#week-3" id="toc-week-3" class="nav-link" data-scroll-target="#week-3">Week 3</a></li>
   </ul>
 </nav>
     </div>
@@ -216,25 +217,71 @@ window.Quarto = {
 x &amp;= f(t) \\
 y &amp;= y(t)
 \end{align*}\]</span> where <span class="math inline">\(a \le t \le b\)</span> which has initial point <span class="math inline">\((f(a), g(a))\)</span> and terminal point <span class="math inline">\((f(b), g(b))\)</span>.</p>
-</section>
-<section id="first-derivative-for-parametric-equations" class="level2">
-<h2 class="anchored" data-anchor-id="first-derivative-for-parametric-equations">First Derivative for Parametric Equations</h2>
-<p>Suppose that <span class="math inline">\(f,g\)</span> are differentiable functions and we need to find the tangent line at a point on the parametric curve <span class="math inline">\(x = f(t)\)</span> and <span class="math inline">\(y = g(t)\)</span>, where y is also a differentiable function of <span class="math inline">\(x\)</span>. If <span class="math inline">\(dx/dt \ne 0\)</span>, then the slopes of the parametric curve is given by <span class="math display">\[\begin{align*}
+<p>Now, we would like to find derivatives and compute arclengths of the parametric curves, much like we did with functions. Suppose that <span class="math inline">\(f,g\)</span> are differentiable functions and we need to find the tangent line at a point on the parametric curve <span class="math inline">\(x = f(t)\)</span> and <span class="math inline">\(y = g(t)\)</span>, where y is also a differentiable function of <span class="math inline">\(x\)</span>. If <span class="math inline">\(dx/dt \ne 0\)</span>, then the slopes of the parametric curve is given by <span class="math display">\[\begin{align*}
 \frac{dy}{dx} = \frac{dy/dt}{dx/dt}
 \end{align*}\]</span></p>
-</section>
-<section id="second-derivative-for-parametric-equations" class="level2">
-<h2 class="anchored" data-anchor-id="second-derivative-for-parametric-equations">Second Derivative for Parametric Equations</h2>
 <p>Furthermore suppose that <span class="math inline">\(y\)</span> is a twice differentiable function of <span class="math inline">\(x\)</span>, then at any point <span class="math inline">\(dx/dt \ne 0\)</span> and <span class="math display">\[\begin{align*}
 \frac{d^2y}{dx^2}
 &amp;= \frac{d}{dx} \left( \frac{dy}{dx} \right) = \frac{ \dfrac{d}{dt} \left( \dfrac{dy}{dx} \right) }{ \dfrac{dx}{dt} }
 \end{align*}\]</span></p>
-</section>
-<section id="arc-length-for-parametric-equations" class="level2">
-<h2 class="anchored" data-anchor-id="arc-length-for-parametric-equations">Arc Length for Parametric Equations</h2>
-<p>Suppose that a curve C can be described by the parametric equations <span class="math inline">\(x = f(t)\)</span> and <span class="math inline">\(y = g(t)\)</span>, where <span class="math inline">\(\alpha \le t \le \beta\)</span>. Furthermore, suppose that <span class="math inline">\(f', g'\)</span> are continuous in <span class="math inline">\(\alpha \le t \le \beta\)</span>. Then the length of C is given by <span class="math display">\[\begin{align*}
+<p>Suppose that a curve C can be described by the parametric equations <span class="math inline">\(x = f(t)\)</span> and <span class="math inline">\(y = g(t)\)</span>, where <span class="math inline">\(\alpha \le t \le \beta\)</span>. Additionally, suppose that <span class="math inline">\(f', g'\)</span> are continuous in <span class="math inline">\(\alpha \le t \le \beta\)</span>. Then the length of C is given by <span class="math display">\[\begin{align*}
 L = \int_{\alpha}^{\beta} \sqrt{ \left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 } \, dt
 \end{align*}\]</span></p>
+</section>
+</section>
+<section id="week-3" class="level1">
+<h1>Week 3</h1>
+<section id="polar-coordinates" class="level2">
+<h2 class="anchored" data-anchor-id="polar-coordinates">Polar Coordinates</h2>
+<p>Week 3 tutorial notes <a href="" download="week3">TBP</a></p>
+<p>So far we have been working exclusively in the Cartesian/rectangular coordinate system. As we will see in the near future, this is not always the easiest coordinate system to work in. In this section, we will introduce the polar coordinate system.</p>
+<p><span class="math display">\[\begin{align*}
+x &amp;= r \cos{\theta}, \hspace{0.5cm} y = r \sin{\theta} \\
+r^2 &amp;= x^2 + y^2, \hspace{0.5cm} \tan{\theta} = \frac{y}{x}
+\end{align*}\]</span></p>
+<p>The second line of equation is used to help convert back and forth from the Cartesian coordinate system and the polar coordinate system.</p>
+<p>To find a tangent line to the polar curve <span class="math inline">\(r = f{(\theta)}\)</span>, we regard <span class="math inline">\(\theta\)</span> as a parameter and write its parametric equations as</p>
+<p><span class="math display">\[\begin{align*}
+x = r \cos{\theta} = f(\theta) \cos{\theta}, \hspace{0.5cm} y = r \sin{\theta}\sin{(\theta)} \\
+\end{align*}\]</span></p>
+<p>Then following the equation of slope for parametric curves and the product rule,</p>
+<p><span class="math display">\[\frac{dy}{dx} = \frac{dy/d \theta}{dx/ d \theta} = \frac{\frac{dr}{d \theta} \sin{\theta} + r \cos{\theta}}{\frac{dr}{d \theta} \cos{\theta} - r \sin{\theta}}\]</span></p>
+<p>We can locate horizontal tangents by finding points where <span class="math inline">\(dy/d\theta = 0\)</span> given that <span class="math inline">\(dx/d\theta \ne 0\)</span>. Likewise, vertical tangents can be found where <span class="math inline">\(dx/d\theta = 0\)</span> given that <span class="math inline">\(dy/d\theta \ne 0\)</span>.</p>
+</section>
+<section id="equation-of-a-parabola-ellipse-hyperbola-and-sphere" class="level2">
+<h2 class="anchored" data-anchor-id="equation-of-a-parabola-ellipse-hyperbola-and-sphere">Equation of a Parabola, Ellipse, Hyperbola, and Sphere</h2>
+<p>Parabola: <span class="math display">\[\begin{align*}
+x^2 = 4py, \hspace{0.5cm} \text{or} \hspace{0.5cm} y^2 = 4px  \\
+\end{align*}\]</span></p>
+<p>Ellipse: <span class="math display">\[\begin{align*}
+\frac{x^2}{a^2} + \frac{y^2}{b^2} &amp;= 1, \hspace{0.5cm} \text{where} \hspace{0.5cm} a \ge b &gt; 0  \hspace{0.5cm} \text{or} \\
+\frac{x^2}{b^2} + \frac{y^2}{a^2} &amp;= 1, \hspace{0.5cm} \text{where} \hspace{0.5cm} a \ge b &gt; 0
+\end{align*}\]</span></p>
+<p>Hyperbola: <span class="math display">\[\begin{align*}
+\frac{x^2}{a^2} - \frac{y^2}{b^2} &amp;= 1, \hspace{0.5cm} \text{where} \hspace{0.5cm} a \ge b &gt; 0  \hspace{0.5cm} \text{or} \\
+\frac{y^2}{b^2} - \frac{x^2}{a^2} &amp;= 1, \hspace{0.5cm} \text{where} \hspace{0.5cm} a \ge b &gt; 0
+\end{align*}\]</span></p>
+<p>Sphere: <span class="math display">\[\begin{align*}
+(x-h)^2 + (y-k)^2 + (z-l)^2 = r^2 \hspace{0.5cm} \text{where the center is located at $(h, k, l)$ with radius $r$}
+\end{align*}\]</span></p>
+</section>
+<section id="linear-algebra-in-3d-part-i" class="level2">
+<h2 class="anchored" data-anchor-id="linear-algebra-in-3d-part-i">Linear Algebra in 3D (Part I)</h2>
+<p>In 3D space, a point is represented as <span class="math inline">\((x, y, z)\)</span>.</p>
+<p>An equation in terms of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> defines a curve in the 2D space <span class="math inline">\(\mathbb{R}^2\)</span>, while an equation in terms of <span class="math inline">\(x, y\)</span> and <span class="math inline">\(z\)</span> defines a surface in 3D space <span class="math inline">\(\mathbb{R}^3\)</span>.</p>
+<p>Given two points <span class="math inline">\(P(x_1, y_1, z_1)\)</span> and <span class="math inline">\(Q(x_2, y_2, z_2)\)</span>, the distance between them is: <span class="math display">\[\begin{align*}
+|PQ| = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2} \\
+\end{align*}\]</span></p>
+<p>A vector is a quantity with both magnitude and direction. Given two points <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span>, the vector from <span class="math inline">\(P\)</span> to <span class="math inline">\(Q\)</span> is defined by the difference of their coordinates: <span class="math display">\[\begin{align*}
+\bar{a} = \langle x_2 - x_1,\, y_2 - y_1,\, z_2 - z_1 \rangle
+\end{align*}\]</span></p>
+<p>To find the magnitude (or norm) of a vector <span class="math inline">\(\vec{a} = (a_1, a_2, a_3) \in \mathbb{R}^3\)</span>, we compute: <span class="math display">\[|\vec{a}| = \sqrt{a_1^2 + a_2^2 + a_3^2}\]</span> The standard basis vectors in <span class="math inline">\(\mathbb{R}^3\)</span> is given by <span class="math display">\[
+\vec{i} = \langle 1, 0, 0 \rangle, \quad
+\vec{j} = \langle 0, 1, 0 \rangle, \quad
+\vec{k} = \langle 0, 0, 1 \rangle
+\]</span></p>
+<p>This is particularly useful as any vector in <span class="math inline">\(\mathbb{R}^3\)</span> can be written as: <span class="math display">\[\vec{a} = a_1\vec{i} + a_2\vec{j} + a_3\vec{k}\]</span></p>
+<p>A unit vector is any vector with magnitute of <span class="math inline">\(1\)</span>. The standard basis is an example of a unit vector. To convert any vector into a unit vector: <span class="math display">\[\vec{u} = \frac{\vec{a}}{|\vec{a}|} = \frac{\vec{a}}{\|\vec{a}\|} = \frac{\vec{a}}{\sqrt{a_1^2 + a_2^2 + a_3^2}}\]</span></p>
 
 
 </section>
