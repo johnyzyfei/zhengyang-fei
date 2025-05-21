@@ -161,55 +161,162 @@ P(\text{at least one shared})
 \end{align*}
 :::
 
------------------------------------------------------------------
+------------------------------------------------------------------------
+
 # Week 2
 
 ::: {.callout-question collapse="true"}
 ### Question 1
 
-Suppose that the moment generating function of $Y$ is given by
-$$M_Y(t) = e^{(a+b)(e^t - 1)}$$
+Suppose that the moment generating function of $Y$ is given by $$M_Y(t) = e^{(a+b)(e^t - 1)}$$
 
-where $a > 0$ and $b > 0$. Use this mgf to find the 
+where $a > 0$ and $b > 0$. Use this mgf to find the
 
-a) expected value of $Y$ and 
-b) the variance of $Y$.
+a)  expected value of $Y$ and
+b)  the variance of $Y$.
 :::
 
 ::: {.callout-tip collapse="true"}
 ### Solution
+a) The expected value of $Y$ is the first derivative of the mgf evaluated at $t = 0$:
+$$\mathbb{E}[Y] = M_Y'(0)$$
+Hence, 
+$$M_Y'(t) = \frac{d}{dt} e^{(a+b)(e^t - 1)} = e^{(a+b)(e^t - 1)} \cdot (a+b)e^t$$
+Evaluated at $t = 0$:
+$$\mathbb{E}(Y) = M_Y'(0) = e^{(a+b)(1 - 1)} \cdot (a+b) \cdot 1 = (a + b)$$
 
+------------------------------------------------------------------------
 
+b) The variance of $Y$ is:
+$$\mathrm{Var}(Y) = M_Y''(0) - \left( M_Y'(0) \right)^2$$
+
+Hence, 
+\begin{align*}
+M_Y''(t) &= \frac{d}{dt} \left[ e^{(a+b)(e^t - 1)} \cdot (a+b)e^t \right] \\
+&= e^{(a+b)(e^t - 1)} \cdot (a+b)e^t \cdot \left[ (a+b)e^t + 1 \right]
+\end{align*}
+
+Evaluate at $t = 0$:
+$$M_Y''(0) = 1 \cdot (a+b) \cdot \left[ (a+b)(1) + 1 \right] = (a + b)^2 + (a + b)$$
+Lastly,
+$$\mathrm{Var}(Y) = (a + b)^2 + (a + b) - (a + b)^2 = a + b$$
 :::
+
+::: callout-note
+**Fact: Uniqueness of mgfs**.
+If two random variables $X$ and $Y$ have mgfs $M_X(t)$ and $M_Y(t)$, and there exists an open interval around $t = 0$ where both mgfs exist and are equal, then $$X = Y$$ That is, $X$ and $Y$ have the same distribution.
+:::
+
+
 
 ::: {.callout-question collapse="true"}
 ### Question 2
+
 Suppose $X$ has a Discrete Uniform Distribution over the values $x = 1,2,3,4,5$.
 
-b) Find the mgf of $X$
-c) Compute $\mathbb{E}(X)$ and $\mathbb{V}(X)$ two ways: by using the definitions, and by using the mgf you found in part b
+a) Sketch the pmf and cdf. 
+b)  Find the mgf of $X$.
+c)  Compute $\mathbb{E}(X)$ and $\mathbb{V}(X)$ two ways: by using the definitions, and by using the mgf you found in part b.
 :::
-
 
 ::: {.callout-tip collapse="true"}
 ### Solution
+To plot the pmf and cdf in R:
+```{r}
+x <- 1:5
 
+# PMF: Each has equal probability
+pmf <- rep(1/5, length(x))
+
+# CDF: Cumulative sum of PMF
+cdf <- cumsum(pmf)
+
+# Plot PMF
+plot(x, pmf, type="h", lwd=2, col="blue", ylim=c(0, 1),
+     main="PMF of X", ylab="P(X = x)", xlab="x")
+points(x, pmf, pch=16, col="blue")
+
+# Plot CDF
+plot(x, cdf, type="s", lwd=2, col="red",
+     main="CDF of X", ylab="P(X ≤ x)", xlab="x")
+points(x, cdf, pch=16, col="red")
+
+```
+Next, we find the mgf. 
+By definition,
+
+$$M_X(t) = \mathbb{E}[e^{tX}] = \sum_{x=1}^{5} e^{tx} \cdot \frac{1}{5} = \frac{1}{5} \left( e^t + e^{2t} + e^{3t} + e^{4t} + e^{5t} \right)$$
+
+Lastly, we compute $\mathbb{E}(X)$ and $\mathbb{V}(X)$.
+
+First way: by definition
+
+$$\mathbb{E}(X) = \frac{1}{5}(1 + 2 + 3 + 4 + 5) = \frac{15}{5} = 3$$
+$$\mathbb{E}(X^2) = \frac{1}{5}(1^2 + 2^2 + 3^2 + 4^2 + 5^2) = \frac{1}{5}(55) = 11$$
+$$\mathrm{Var}(X) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2 = 11 - 3^2 = 11 - 9 = 2$$
+
+Second way: MFG approach
+$$M_X(t) = \frac{1}{5} \left( e^t + e^{2t} + e^{3t} + e^{4t} + e^{5t} \right)$$
+First derivative and evaluate at $t = 0$
+$$M_X'(t) = \frac{1}{5} \left( e^t \cdot 1 + e^{2t} \cdot 2 + e^{3t} \cdot 3 + e^{4t} \cdot 4 + e^{5t} \cdot 5 \right)$$
+
+$$M_X'(0) = \frac{1}{5}(1 + 2 + 3 + 4 + 5) = 3$$
+Second derivative and evaluate at $t = 0$
+$$M_X''(t) = \frac{1}{5} \left( e^t \cdot 1^2 + e^{2t} \cdot 2^2 + e^{3t} \cdot 3^2 + e^{4t} \cdot 4^2 + e^{5t} \cdot 5^2 \right)$$
+$$M_X''(0) = \frac{1}{5}(1 + 4 + 9 + 16 + 25) = \frac{55}{5} = 11$$
+
+Lastly,
+$$\mathrm{Var}(X) = M_X''(0) - \left( M_X'(0) \right)^2 = 11 - 9 = 2$$
 
 :::
 
 ::: {.callout-question collapse="true"}
+
+
 ### Question 3
+
 Of the thousands of the volunteers who donate blood at a clinic, $80\%$ have the Rhesus (Rh) factor present in their blood. For the purposes of this question, assume the population size is very large (ie., we can use methods that assume sampling with replacement).
 
-a) If six volunteers are randomly selected, what is the probability that no one has the Rh factor?
+a)  If six volunteers are randomly selected, what is the probability that no one has the Rh factor?
 
-b) If six volunteers are randomly selected, what is the probability that at most four have the Rh factor?
+b)  If six volunteers are randomly selected, what is the probability that at most four have the Rh factor?
 
-c) What if we were interested in the smallest number of volunteers who must be randomly selected if we want to be at least $90\%$ certain we will obtain at least four donors with the Rh factor? Can we answer this question using a Binomial Distribution? If so, answer this question. If not, explain why a Binomial distribution is not an appropriate model in this situation.
+c)  What if we were interested in the smallest number of volunteers who must be randomly selected if we want to be at least $90\%$ certain we will obtain at least four donors with the Rh factor? Can we answer this question using a Binomial Distribution? If so, answer this question. If not, explain why a Binomial distribution is not an appropriate model in this situation.
 :::
 
 ::: {.callout-tip collapse="true"}
 ### Solution
+We model this situation using the Binomial distribution, which is appropriate when the population is large, the number of trials $n$ is fixed, outcomes are binary (success or failure), and trials are independent. Although the true model is hypergeometric due to sampling without replacement, the large population size makes the Binomial a good approximation, as sampling with and without replacement become nearly equivalent (in fact, one can show via the pmfs that $\lim_{N \to \infty}$ Hypergeometric$(N, K = pN, n)$ = Binomial $(n, p)$).
 
+With this in mind, let $X \sim$ binom$(n, p = 0.8)$ where $p =$ probability that a volunteer has the Rh factor. 
+
+Let $X \sim \text{Binomial}(n = 6, p = 0.8)$, where $X$ is the number of people with the Rh factor. Then, $$P(X = 0) = \binom{6}{0}(0.8)^0(0.2)^6 = 1 \cdot 1 \cdot (0.2)^6 = \boxed{0.000064}$$
+
+In R,
+```{r}
+dbinom(0, 6, 0.8)
+```
+
+
+Let $X \sim \text{Binomial}(n = 6, p = 0.8)$, where $X$ is the number of people with the Rh factor. Then $$P(X \leq 4) = 1 - P(X = 5) - P(X = 6) $$. Note that
+
+
+\begin{aligned}
+P(X = 5) &= \binom{6}{5}(0.8)^5(0.2)^1 = 6 \cdot 0.32768 \cdot 0.2 = 0.39322 \\
+P(X = 6) &= \binom{6}{6}(0.8)^6(0.2)^0 = 1 \cdot 0.262144 \cdot 1 = 0.26214 \\
+\end{aligned}
+
+
+Hence, $$P(X \leq 4) = 1 - 0.39322 - 0.26214 = \boxed{0.34464}$$
+
+In R,
+```{r}
+pbinom(4, 6, 0.8)
+```
+
+
+In this scenario, the number of trials $n$ is not fixed anymore since we are adjusting $n$ to find the smallest number of volunteers. Hence, a binomial distribution would not be appropriate anymore (see part a solution for a detailed requirement for modelling using binomial distribution). 
+
+We would use trial and error approach, computing $P(X \ge 4)$ for different binomial distributions to determine the smallest $n$ where $P(X \ge 4)$ is at least $0.9$.
 
 :::

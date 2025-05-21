@@ -500,41 +500,41 @@ Solution
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-
+<ol type="a">
+<li>The expected value of <span class="math inline">\(Y\)</span> is the first derivative of the mgf evaluated at <span class="math inline">\(t = 0\)</span>: <span class="math display">\[\mathbb{E}[Y] = M_Y'(0)\]</span> Hence, <span class="math display">\[M_Y'(t) = \frac{d}{dt} e^{(a+b)(e^t - 1)} = e^{(a+b)(e^t - 1)} \cdot (a+b)e^t\]</span> Evaluated at <span class="math inline">\(t = 0\)</span>: <span class="math display">\[\mathbb{E}(Y) = M_Y'(0) = e^{(a+b)(1 - 1)} \cdot (a+b) \cdot 1 = (a + b)\]</span></li>
+</ol>
+<hr>
+<ol start="2" type="a">
+<li>The variance of <span class="math inline">\(Y\)</span> is: <span class="math display">\[\mathrm{Var}(Y) = M_Y''(0) - \left( M_Y'(0) \right)^2\]</span></li>
+</ol>
+<p>Hence, <span class="math display">\[\begin{align*}
+M_Y''(t) &amp;= \frac{d}{dt} \left[ e^{(a+b)(e^t - 1)} \cdot (a+b)e^t \right] \\
+&amp;= e^{(a+b)(e^t - 1)} \cdot (a+b)e^t \cdot \left[ (a+b)e^t + 1 \right]
+\end{align*}\]</span></p>
+<p>Evaluate at <span class="math inline">\(t = 0\)</span>: <span class="math display">\[M_Y''(0) = 1 \cdot (a+b) \cdot \left[ (a+b)(1) + 1 \right] = (a + b)^2 + (a + b)\]</span> Lastly, <span class="math display">\[\mathrm{Var}(Y) = (a + b)^2 + (a + b) - (a + b)^2 = a + b\]</span></p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Fact: Uniqueness of mgfs</strong>. If two random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have mgfs <span class="math inline">\(M_X(t)\)</span> and <span class="math inline">\(M_Y(t)\)</span>, and there exists an open interval around <span class="math inline">\(t = 0\)</span> where both mgfs exist and are equal, then <span class="math display">\[X = Y\]</span> That is, <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have the same distribution.</p>
 </div>
 </div>
 <section id="question-2-1" class="level3 callout-question" data-collapse="true">
 <h3 class="anchored" data-anchor-id="question-2-1">Question 2</h3>
 <p>Suppose <span class="math inline">\(X\)</span> has a Discrete Uniform Distribution over the values <span class="math inline">\(x = 1,2,3,4,5\)</span>.</p>
-<ol start="2" type="a">
-<li>Find the mgf of <span class="math inline">\(X\)</span></li>
-<li>Compute <span class="math inline">\(\mathbb{E}(X)\)</span> and <span class="math inline">\(\mathbb{V}(X)\)</span> two ways: by using the definitions, and by using the mgf you found in part b</li>
-</ol>
-</section>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-</div>
-<section id="question-3-1" class="level3 callout-question" data-collapse="true">
-<h3 class="anchored" data-anchor-id="question-3-1">Question 3</h3>
-<p>Of the thousands of the volunteers who donate blood at a clinic, <span class="math inline">\(80\%\)</span> have the Rhesus (Rh) factor present in their blood. For the purposes of this question, assume the population size is very large (ie., we can use methods that assume sampling with replacement).</p>
 <ol type="a">
-<li><p>If six volunteers are randomly selected, what is the probability that no one has the Rh factor?</p></li>
-<li><p>If six volunteers are randomly selected, what is the probability that at most four have the Rh factor?</p></li>
-<li><p>What if we were interested in the smallest number of volunteers who must be randomly selected if we want to be at least <span class="math inline">\(90\%\)</span> certain we will obtain at least four donors with the Rh factor? Can we answer this question using a Binomial Distribution? If so, answer this question. If not, explain why a Binomial distribution is not an appropriate model in this situation.</p></li>
+<li>Sketch the pmf and cdf.</li>
+<li>Find the mgf of <span class="math inline">\(X\)</span>.</li>
+<li>Compute <span class="math inline">\(\mathbb{E}(X)\)</span> and <span class="math inline">\(\mathbb{V}(X)\)</span> two ways: by using the definitions, and by using the mgf you found in part b.</li>
 </ol>
 </section>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -549,7 +549,96 @@ Solution
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-
+<p>To plot the pmf and cdf in R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># PMF: Each has equal probability</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>pmf <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">5</span>, <span class="fu">length</span>(x))</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># CDF: Cumulative sum of PMF</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>cdf <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(pmf)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot PMF</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, pmf, <span class="at">type=</span><span class="st">"h"</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">"blue"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"PMF of X"</span>, <span class="at">ylab=</span><span class="st">"P(X = x)"</span>, <span class="at">xlab=</span><span class="st">"x"</span>)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, pmf, <span class="at">pch=</span><span class="dv">16</span>, <span class="at">col=</span><span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="STA237-Summer-2025_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot CDF</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, cdf, <span class="at">type=</span><span class="st">"s"</span>, <span class="at">lwd=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">"red"</span>,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main=</span><span class="st">"CDF of X"</span>, <span class="at">ylab=</span><span class="st">"P(X ≤ x)"</span>, <span class="at">xlab=</span><span class="st">"x"</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, cdf, <span class="at">pch=</span><span class="dv">16</span>, <span class="at">col=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="STA237-Summer-2025_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Next, we find the mgf. By definition,</p>
+<p><span class="math display">\[M_X(t) = \mathbb{E}[e^{tX}] = \sum_{x=1}^{5} e^{tx} \cdot \frac{1}{5} = \frac{1}{5} \left( e^t + e^{2t} + e^{3t} + e^{4t} + e^{5t} \right)\]</span></p>
+<p>Lastly, we compute <span class="math inline">\(\mathbb{E}(X)\)</span> and <span class="math inline">\(\mathbb{V}(X)\)</span>.</p>
+<p>First way: by definition</p>
+<p><span class="math display">\[\mathbb{E}(X) = \frac{1}{5}(1 + 2 + 3 + 4 + 5) = \frac{15}{5} = 3\]</span> <span class="math display">\[\mathbb{E}(X^2) = \frac{1}{5}(1^2 + 2^2 + 3^2 + 4^2 + 5^2) = \frac{1}{5}(55) = 11\]</span> <span class="math display">\[\mathrm{Var}(X) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2 = 11 - 3^2 = 11 - 9 = 2\]</span></p>
+<p>Second way: MFG approach <span class="math display">\[M_X(t) = \frac{1}{5} \left( e^t + e^{2t} + e^{3t} + e^{4t} + e^{5t} \right)\]</span> First derivative and evaluate at <span class="math inline">\(t = 0\)</span> <span class="math display">\[M_X'(t) = \frac{1}{5} \left( e^t \cdot 1 + e^{2t} \cdot 2 + e^{3t} \cdot 3 + e^{4t} \cdot 4 + e^{5t} \cdot 5 \right)\]</span></p>
+<p><span class="math display">\[M_X'(0) = \frac{1}{5}(1 + 2 + 3 + 4 + 5) = 3\]</span> Second derivative and evaluate at <span class="math inline">\(t = 0\)</span> <span class="math display">\[M_X''(t) = \frac{1}{5} \left( e^t \cdot 1^2 + e^{2t} \cdot 2^2 + e^{3t} \cdot 3^2 + e^{4t} \cdot 4^2 + e^{5t} \cdot 5^2 \right)\]</span> <span class="math display">\[M_X''(0) = \frac{1}{5}(1 + 4 + 9 + 16 + 25) = \frac{55}{5} = 11\]</span></p>
+<p>Lastly, <span class="math display">\[\mathrm{Var}(X) = M_X''(0) - \left( M_X'(0) \right)^2 = 11 - 9 = 2\]</span></p>
+</div>
+</div>
+</div>
+<section id="question-3-1" class="level3 callout-question" data-collapse="true">
+<h3 class="anchored" data-anchor-id="question-3-1">Question 3</h3>
+<p>Of the thousands of the volunteers who donate blood at a clinic, <span class="math inline">\(80\%\)</span> have the Rhesus (Rh) factor present in their blood. For the purposes of this question, assume the population size is very large (ie., we can use methods that assume sampling with replacement).</p>
+<ol type="a">
+<li><p>If six volunteers are randomly selected, what is the probability that no one has the Rh factor?</p></li>
+<li><p>If six volunteers are randomly selected, what is the probability that at most four have the Rh factor?</p></li>
+<li><p>What if we were interested in the smallest number of volunteers who must be randomly selected if we want to be at least <span class="math inline">\(90\%\)</span> certain we will obtain at least four donors with the Rh factor? Can we answer this question using a Binomial Distribution? If so, answer this question. If not, explain why a Binomial distribution is not an appropriate model in this situation.</p></li>
+</ol>
+</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We model this situation using the Binomial distribution, which is appropriate when the population is large, the number of trials <span class="math inline">\(n\)</span> is fixed, outcomes are binary (success or failure), and trials are independent. Although the true model is hypergeometric due to sampling without replacement, the large population size makes the Binomial a good approximation, as sampling with and without replacement become nearly equivalent (in fact, one can show via the pmfs that <span class="math inline">\(\lim_{N \to \infty}\)</span> Hypergeometric<span class="math inline">\((N, K = pN, n)\)</span> = Binomial <span class="math inline">\((n, p)\)</span>).</p>
+<p>With this in mind, let <span class="math inline">\(X \sim\)</span> binom<span class="math inline">\((n, p = 0.8)\)</span> where <span class="math inline">\(p =\)</span> probability that a volunteer has the Rh factor.</p>
+<p>Let <span class="math inline">\(X \sim \text{Binomial}(n = 6, p = 0.8)\)</span>, where <span class="math inline">\(X\)</span> is the number of people with the Rh factor. Then, <span class="math display">\[P(X = 0) = \binom{6}{0}(0.8)^0(0.2)^6 = 1 \cdot 1 \cdot (0.2)^6 = \boxed{0.000064}\]</span></p>
+<p>In R,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.4e-05</code></pre>
+</div>
+</div>
+<p>Let <span class="math inline">\(X \sim \text{Binomial}(n = 6, p = 0.8)\)</span>, where <span class="math inline">\(X\)</span> is the number of people with the Rh factor. Then <span class="math display">\[P(X \leq 4) = 1 - P(X = 5) - P(X = 6) \]</span>. Note that</p>
+<span class="math display">\[\begin{aligned}
+P(X = 5) &amp;= \binom{6}{5}(0.8)^5(0.2)^1 = 6 \cdot 0.32768 \cdot 0.2 = 0.39322 \\
+P(X = 6) &amp;= \binom{6}{6}(0.8)^6(0.2)^0 = 1 \cdot 0.262144 \cdot 1 = 0.26214 \\
+\end{aligned}\]</span>
+<p>Hence, <span class="math display">\[P(X \leq 4) = 1 - 0.39322 - 0.26214 = \boxed{0.34464}\]</span></p>
+<p>In R,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.34464</code></pre>
+</div>
+</div>
+<p>In this scenario, the number of trials <span class="math inline">\(n\)</span> is not fixed anymore since we are adjusting <span class="math inline">\(n\)</span> to find the smallest number of volunteers. Hence, a binomial distribution would not be appropriate anymore (see part a solution for a detailed requirement for modelling using binomial distribution).</p>
+<p>We would use trial and error approach, computing <span class="math inline">\(P(X \ge 4)\)</span> for different binomial distributions to determine the smallest <span class="math inline">\(n\)</span> where <span class="math inline">\(P(X \ge 4)\)</span> is at least <span class="math inline">\(0.9\)</span>.</p>
 </div>
 </div>
 </div>
