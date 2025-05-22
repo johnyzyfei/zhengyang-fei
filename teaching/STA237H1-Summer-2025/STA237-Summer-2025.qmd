@@ -178,50 +178,40 @@ b)  the variance of $Y$.
 
 ::: {.callout-tip collapse="true"}
 ### Solution
-a) The expected value of $Y$ is the first derivative of the mgf evaluated at $t = 0$:
-$$\mathbb{E}[Y] = M_Y'(0)$$
-Hence, 
-$$M_Y'(t) = \frac{d}{dt} e^{(a+b)(e^t - 1)} = e^{(a+b)(e^t - 1)} \cdot (a+b)e^t$$
-Evaluated at $t = 0$:
-$$\mathbb{E}(Y) = M_Y'(0) = e^{(a+b)(1 - 1)} \cdot (a+b) \cdot 1 = (a + b)$$
+
+a)  The expected value of $Y$ is the first derivative of the mgf evaluated at $t = 0$: $$\mathbb{E}[Y] = M_Y'(0)$$ Hence, $$M_Y'(t) = \frac{d}{dt} e^{(a+b)(e^t - 1)} = e^{(a+b)(e^t - 1)} \cdot (a+b)e^t$$ Evaluated at $t = 0$: $$\mathbb{E}(Y) = M_Y'(0) = e^{(a+b)(1 - 1)} \cdot (a+b) \cdot 1 = (a + b)$$
 
 ------------------------------------------------------------------------
 
-b) The variance of $Y$ is:
-$$\mathrm{Var}(Y) = M_Y''(0) - \left( M_Y'(0) \right)^2$$
+b)  The variance of $Y$ is: $$\mathrm{Var}(Y) = M_Y''(0) - \left( M_Y'(0) \right)^2$$
 
-Hence, 
-\begin{align*}
+Hence, \begin{align*}
 M_Y''(t) &= \frac{d}{dt} \left[ e^{(a+b)(e^t - 1)} \cdot (a+b)e^t \right] \\
 &= e^{(a+b)(e^t - 1)} \cdot (a+b)e^t \cdot \left[ (a+b)e^t + 1 \right]
 \end{align*}
 
-Evaluate at $t = 0$:
-$$M_Y''(0) = 1 \cdot (a+b) \cdot \left[ (a+b)(1) + 1 \right] = (a + b)^2 + (a + b)$$
-Lastly,
-$$\mathrm{Var}(Y) = (a + b)^2 + (a + b) - (a + b)^2 = a + b$$
+Evaluate at $t = 0$: $$M_Y''(0) = 1 \cdot (a+b) \cdot \left[ (a+b)(1) + 1 \right] = (a + b)^2 + (a + b)$$ Lastly, $$\mathrm{Var}(Y) = (a + b)^2 + (a + b) - (a + b)^2 = a + b$$
 :::
 
 ::: callout-note
-**Fact: Uniqueness of mgfs**.
-If two random variables $X$ and $Y$ have mgfs $M_X(t)$ and $M_Y(t)$, and there exists an open interval around $t = 0$ where both mgfs exist and are equal, then $$X = Y$$ That is, $X$ and $Y$ have the same distribution.
+**Fact: Uniqueness of mgfs**. If two random variables $X$ and $Y$ have mgfs $M_X(t)$ and $M_Y(t)$, and there exists an open interval around $t = 0$ where both mgfs exist and are equal, then $$X = Y$$ That is, $X$ and $Y$ have the same distribution.
 :::
-
-
 
 ::: {.callout-question collapse="true"}
 ### Question 2
 
 Suppose $X$ has a Discrete Uniform Distribution over the values $x = 1,2,3,4,5$.
 
-a) Sketch the pmf and cdf. 
+a)  Sketch the pmf and cdf.
 b)  Find the mgf of $X$.
 c)  Compute $\mathbb{E}(X)$ and $\mathbb{V}(X)$ two ways: by using the definitions, and by using the mgf you found in part b.
 :::
 
 ::: {.callout-tip collapse="true"}
 ### Solution
+
 To plot the pmf and cdf in R:
+
 ```{r}
 x <- 1:5
 
@@ -242,8 +232,8 @@ plot(x, cdf, type="s", lwd=2, col="red",
 points(x, cdf, pch=16, col="red")
 
 ```
-Next, we find the mgf. 
-By definition,
+
+Next, we find the mgf. By definition,
 
 $$M_X(t) = \mathbb{E}[e^{tX}] = \sum_{x=1}^{5} e^{tx} \cdot \frac{1}{5} = \frac{1}{5} \left( e^t + e^{2t} + e^{3t} + e^{4t} + e^{5t} \right)$$
 
@@ -251,28 +241,16 @@ Lastly, we compute $\mathbb{E}(X)$ and $\mathbb{V}(X)$.
 
 First way: by definition
 
-$$\mathbb{E}(X) = \frac{1}{5}(1 + 2 + 3 + 4 + 5) = \frac{15}{5} = 3$$
-$$\mathbb{E}(X^2) = \frac{1}{5}(1^2 + 2^2 + 3^2 + 4^2 + 5^2) = \frac{1}{5}(55) = 11$$
-$$\mathrm{Var}(X) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2 = 11 - 3^2 = 11 - 9 = 2$$
+$$\mathbb{E}(X) = \frac{1}{5}(1 + 2 + 3 + 4 + 5) = \frac{15}{5} = 3$$ $$\mathbb{E}(X^2) = \frac{1}{5}(1^2 + 2^2 + 3^2 + 4^2 + 5^2) = \frac{1}{5}(55) = 11$$ $$\mathrm{Var}(X) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2 = 11 - 3^2 = 11 - 9 = 2$$
 
-Second way: MFG approach
-$$M_X(t) = \frac{1}{5} \left( e^t + e^{2t} + e^{3t} + e^{4t} + e^{5t} \right)$$
-First derivative and evaluate at $t = 0$
-$$M_X'(t) = \frac{1}{5} \left( e^t \cdot 1 + e^{2t} \cdot 2 + e^{3t} \cdot 3 + e^{4t} \cdot 4 + e^{5t} \cdot 5 \right)$$
+Second way: MFG approach $$M_X(t) = \frac{1}{5} \left( e^t + e^{2t} + e^{3t} + e^{4t} + e^{5t} \right)$$ First derivative and evaluate at $t = 0$ $$M_X'(t) = \frac{1}{5} \left( e^t \cdot 1 + e^{2t} \cdot 2 + e^{3t} \cdot 3 + e^{4t} \cdot 4 + e^{5t} \cdot 5 \right)$$
 
-$$M_X'(0) = \frac{1}{5}(1 + 2 + 3 + 4 + 5) = 3$$
-Second derivative and evaluate at $t = 0$
-$$M_X''(t) = \frac{1}{5} \left( e^t \cdot 1^2 + e^{2t} \cdot 2^2 + e^{3t} \cdot 3^2 + e^{4t} \cdot 4^2 + e^{5t} \cdot 5^2 \right)$$
-$$M_X''(0) = \frac{1}{5}(1 + 4 + 9 + 16 + 25) = \frac{55}{5} = 11$$
+$$M_X'(0) = \frac{1}{5}(1 + 2 + 3 + 4 + 5) = 3$$ Second derivative and evaluate at $t = 0$ $$M_X''(t) = \frac{1}{5} \left( e^t \cdot 1^2 + e^{2t} \cdot 2^2 + e^{3t} \cdot 3^2 + e^{4t} \cdot 4^2 + e^{5t} \cdot 5^2 \right)$$ $$M_X''(0) = \frac{1}{5}(1 + 4 + 9 + 16 + 25) = \frac{55}{5} = 11$$
 
-Lastly,
-$$\mathrm{Var}(X) = M_X''(0) - \left( M_X'(0) \right)^2 = 11 - 9 = 2$$
-
+Lastly, $$\mathrm{Var}(X) = M_X''(0) - \left( M_X'(0) \right)^2 = 11 - 9 = 2$$
 :::
 
 ::: {.callout-question collapse="true"}
-
-
 ### Question 3
 
 Of the thousands of the volunteers who donate blood at a clinic, $80\%$ have the Rhesus (Rh) factor present in their blood. For the purposes of this question, assume the population size is very large (ie., we can use methods that assume sampling with replacement).
@@ -286,37 +264,185 @@ c)  What if we were interested in the smallest number of volunteers who must be 
 
 ::: {.callout-tip collapse="true"}
 ### Solution
+
 We model this situation using the Binomial distribution, which is appropriate when the population is large, the number of trials $n$ is fixed, outcomes are binary (success or failure), and trials are independent. Although the true model is hypergeometric due to sampling without replacement, the large population size makes the Binomial a good approximation, as sampling with and without replacement become nearly equivalent (in fact, one can show via the pmfs that $\lim_{N \to \infty}$ Hypergeometric$(N, K = pN, n)$ = Binomial $(n, p)$).
 
-With this in mind, let $X \sim$ binom$(n, p = 0.8)$ where $p =$ probability that a volunteer has the Rh factor. 
+With this in mind, let $X \sim$ binom$(n, p = 0.8)$ where $p =$ probability that a volunteer has the Rh factor.
 
 Let $X \sim \text{Binomial}(n = 6, p = 0.8)$, where $X$ is the number of people with the Rh factor. Then, $$P(X = 0) = \binom{6}{0}(0.8)^0(0.2)^6 = 1 \cdot 1 \cdot (0.2)^6 = \boxed{0.000064}$$
 
 In R,
+
 ```{r}
 dbinom(0, 6, 0.8)
 ```
 
-
-Let $X \sim \text{Binomial}(n = 6, p = 0.8)$, where $X$ is the number of people with the Rh factor. Then $$P(X \leq 4) = 1 - P(X = 5) - P(X = 6) $$. Note that
-
+Let $X \sim \text{Binomial}(n = 6, p = 0.8)$, where $X$ is the number of people with the Rh factor. Then $$P(X \leq 4) = 1 - P(X = 5) - P(X = 6) $$ Note that
 
 \begin{aligned}
 P(X = 5) &= \binom{6}{5}(0.8)^5(0.2)^1 = 6 \cdot 0.32768 \cdot 0.2 = 0.39322 \\
 P(X = 6) &= \binom{6}{6}(0.8)^6(0.2)^0 = 1 \cdot 0.262144 \cdot 1 = 0.26214 \\
 \end{aligned}
 
-
 Hence, $$P(X \leq 4) = 1 - 0.39322 - 0.26214 = \boxed{0.34464}$$
 
 In R,
+
 ```{r}
 pbinom(4, 6, 0.8)
 ```
 
-
-In this scenario, the number of trials $n$ is not fixed anymore since we are adjusting $n$ to find the smallest number of volunteers. Hence, a binomial distribution would not be appropriate anymore (see part a solution for a detailed requirement for modelling using binomial distribution). 
+In this scenario, the number of trials $n$ is not fixed anymore since we are adjusting $n$ to find the smallest number of volunteers. Hence, a binomial distribution would not be appropriate anymore (see part a solution for a detailed requirement for modelling using binomial distribution).
 
 We would use trial and error approach, computing $P(X \ge 4)$ for different binomial distributions to determine the smallest $n$ where $P(X \ge 4)$ is at least $0.9$.
-
 :::
+
+# Week 3
+::: {.callout-question collapse="true"}
+### Question 1
+
+Applicants for a new student internship are accepted with probability $p = 0.15$ independently from person to person in the order the applicants are received. Several hundred people are expected to apply. The number of students they will accept is $10$.
+
+a) Find the probability that it will take no more than $100$ applicants to find $10$ students to accept for the program.
+b) Find the expected value of the number of interviews they will have to undertake to accept $10$ interns.
+c) Calculate the standard deviation for the number of interviews.
+:::
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+Let $X \sim \text{NB}(10, 0.15)$ be the number of interviews.
+
+Then we wish to find
+$$P(X \leq 100) = \sum_{x=10}^{100} \binom{x - 1}{r - 1} 0.15^{10}(1 - 0.15)^{x - 10} = 0.945$$
+In R, 
+```{r}
+pnbinom(100-10, 10, 0.15)
+```
+
+
+
+To visualize the pmf, we use the R code
+```{r}
+# Parameters
+r <- 10       # number of successes
+p <- 0.15     # probability of success
+max_x <- 150  # max number of trials
+
+# Create x values (total trials)
+x_vals <- r:(r + max_x - 1)  # total trials from 10 to 159
+
+# Compute probabilities for failures = 0 to 149
+probs <- dnbinom(0:(max_x - 1), size = r, prob = p)
+
+# Plotting
+barplot(
+  probs,
+  names.arg = x_vals,
+  xlab = "Number of trials (x)",
+  ylab = "P(X = x)",
+  main = expression(X %~% NegBin(10, 0.15)),
+  cex.names = 0.7  # shrink axis labels to avoid overlap
+)
+```
+
+
+
+We use the formula of expected value of negative binomial distribution
+$$\mathbb{E}(X) = \frac{10}{0.15} = 66.66$$
+
+We use the formula of variance of negative binomial distribution, then square root it
+$$\sigma = \sqrt{ \frac{10(1 - 0.15)}{0.15^2} } = 19.43$$
+:::
+
+::: {.callout-question collapse="true"}
+### Question 2
+
+An insurance policy costs \$400 and will pay policy holders \$40,000 if they suffer a major injury (resulting in hospitalization) or \$10,000 if they suffer a minor injury (resulting in lost time from work but no hospitalization). The company estimates that each year, 1 in every 5000 of their policyholders has a major injury, and 1 in 1000 has a minor injury. Let \( X \) be the profit on an insurance policy. The probability model for the profit on a policy is shown in the following table:
+
+
+\begin{array}{|c|c|c|}
+\hline
+\text{Type} & X & P(X = x) \\
+\hline
+\text{Major Injury} & -\$39,\!600 & \dfrac{1}{5000} \\
+\text{Minor Injury} & -\$9,\!600 & \dfrac{1}{1000} \\
+\text{Neither} & \$400 & \dfrac{4994}{5000} \\
+\hline
+\end{array}
+
+
+On the Week 4 course reflection, you found $\mathbb{E}(X) = \$382$ and $\text{SD}(X) = \$648$ based on this probability model using the definitions of $\mathbb{E}(X)$ and $\text{SD}(X)$.
+
+**a)** Find the moment generating function (mgf) for $X$ and use it to find $\mathbb{E}(X)$ and $\text{SD}(X)$.
+
+**b)** Suppose that 10,000 customers purchased this insurance policy in 2023.  
+  (i) Simulate 10,000 values of the profit on a policy in R using the above probability model.  
+  (ii) What is the average of the simulated profits? How does this compare to the theoretical value?  
+  (iii) What is the standard deviation of the simulated profits? How does this compare to the theoretical value?
+:::
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+Let $X$ be the amount of profit on an insurance policy.
+
+We first find the mgf. By definition,
+$$M_X(t) = \mathbb{E}(e^{tX}) = e^{-39600t} \cdot \frac{1}{5000}
+       + e^{-9600t} \cdot \frac{1}{1000}
+       + e^{400t} \cdot \frac{4994}{5000}$$
+
+Next we differientiate the mgf.
+$$
+M_X'(t) = \frac{d}{dt} M_X(t) 
+= -39600 e^{-39600t} \cdot \frac{1}{5000}
+- 9600 e^{-9600t} \cdot \frac{1}{1000}
++ 400 e^{400t} \cdot \frac{4994}{5000}
+$$
+$$
+M_X''(t) = (39600)^2 e^{-39600t} \cdot \frac{1}{5000}
++ (9600)^2 e^{-9600t} \cdot \frac{1}{1000}
++ (400)^2 e^{400t} \cdot \frac{4994}{5000}
+$$
+
+We get the expected value at $t=0$ of $M_X'(t)$:
+$$
+\mathbb{E}(X) = M_X'(0) = (-39600) \cdot \frac{1}{5000} 
++ (-9600) \cdot \frac{1}{1000} 
++ 400 \cdot \frac{4994}{5000} = \boxed{382}
+$$
+
+Similarly we get the second moment, evaluating  $t=0$ of $M_X''(t)$:
+$$M_X''(0) = 39600^2 \cdot \frac{1}{5000}
++ 9600^2 \cdot \frac{1}{1000}
++ 400^2 \cdot \frac{4994}{5000} = 565472000
+$$
+
+Lastly we find the SD:
+$$\text{SD}(X) = \sqrt{M_X''(0) - [M_X'(0)]^2} = \sqrt{565472000 - 382^2} = \sqrt{565326076} \approx \boxed{648}$$
+
+To simulate using R
+```{r}
+set.seed(123)  # for reproducibility
+
+# Define possible outcomes and their probabilities
+outcomes <- c(-39600, -9600, 400)
+probs <- c(1/5000, 1/1000, 4994/5000)
+
+# Simulate 10,000 profits
+simulated_profits <- sample(outcomes, size = 10000, replace = TRUE, prob = probs)
+```
+
+To get the average of the simulated profits,
+```{r}
+mean(simulated_profits)
+```
+We see it is very close to the theoretocal expected value $382$
+
+Lastly, to get the standard deviation,
+```{r}
+sd(simulated_profits)
+```
+We see it is very close to the theoretical standard deviation of $648$
+:::
+
