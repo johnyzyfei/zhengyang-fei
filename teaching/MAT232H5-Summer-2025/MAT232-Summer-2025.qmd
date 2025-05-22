@@ -14,52 +14,50 @@ Week 1 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week1.pdf){download=
 
 # Week 2
 
-## Parametric Equations
+Week 2 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week2.pdf){download="week2"}
 
-Week 2 tutorial notes [TBP](){download="week2"}
+## Parametric Equations
 
 Suppose there is a third variable $t$ (called a parameter), we can *parameterize* $x$ and $y$ by the equations \begin{align*}
 x &= f(t) \\
 y &= y(t)
 \end{align*} where $a \le t \le b$ which has initial point $(f(a), g(a))$ and terminal point $(f(b), g(b))$.
 
-
 Now, we would like to find derivatives and compute arclengths of the parametric curves, much like we did with functions. Suppose that $f,g$ are differentiable functions and we need to find the tangent line at a point on the parametric curve $x = f(t)$ and $y = g(t)$, where y is also a differentiable function of $x$. If $dx/dt \ne 0$, then the slopes of the parametric curve is given by \begin{align*}
 \frac{dy}{dx} = \frac{dy/dt}{dx/dt}
 \end{align*}
-
 
 Furthermore suppose that $y$ is a twice differentiable function of $x$, then at any point $dx/dt \ne 0$ and \begin{align*}
 \frac{d^2y}{dx^2} 
 &= \frac{d}{dx} \left( \frac{dy}{dx} \right) = \frac{ \dfrac{d}{dt} \left( \dfrac{dy}{dx} \right) }{ \dfrac{dx}{dt} }
 \end{align*}
 
-
 Suppose that a curve C can be described by the parametric equations $x = f(t)$ and $y = g(t)$, where $\alpha \le t \le \beta$. Additionally, suppose that $f', g'$ are continuous in $\alpha \le t \le \beta$. Then the length of C is given by \begin{align*}
 L = \int_{\alpha}^{\beta} \sqrt{ \left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 } \, dt
 \end{align*}
 
 # Week 3
+
+Week 3 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week3.pdf){download="week3"}
+
 ## Polar Coordinates
 
-Week 3 tutorial notes [TBP](){download="week3"}
-
-So far we have been working exclusively in the Cartesian/rectangular coordinate system. As we will see in the near future, this is not always the easiest coordinate system to work in. In this section, we will introduce the polar coordinate system. 
+So far we have been working exclusively in the Cartesian/rectangular coordinate system. As we will see in the near future, this is not always the easiest coordinate system to work in. In this section, we will introduce the polar coordinate system.
 
 \begin{align*}
 x &= r \cos{\theta}, \hspace{0.5cm} y = r \sin{\theta} \\
 r^2 &= x^2 + y^2, \hspace{0.5cm} \tan{\theta} = \frac{y}{x}
 \end{align*}
 
-The second line of equation is used to help convert back and forth from the Cartesian coordinate system and the polar coordinate system. 
+The second line of equation is used to help convert back and forth from the Cartesian coordinate system and the polar coordinate system.
 
-To find a tangent line to the polar curve $r = f{(\theta)}$, we regard $\theta$ as a parameter and write its parametric equations as 
+To find a tangent line to the polar curve $r = f{(\theta)}$, we regard $\theta$ as a parameter and write its parametric equations as
 
 \begin{align*}
 x = r \cos{\theta} = f(\theta) \cos{\theta}, \hspace{0.5cm} y = r \sin{\theta}\sin{(\theta)} \\
 \end{align*}
 
-Then following the equation of slope for parametric curves and the product rule, 
+Then following the equation of slope for parametric curves and the product rule,
 
 $$\frac{dy}{dx} = \frac{dy/d \theta}{dx/ d \theta} = \frac{\frac{dr}{d \theta} \sin{\theta} + r \cos{\theta}}{\frac{dr}{d \theta} \cos{\theta} - r \sin{\theta}}$$
 
@@ -67,28 +65,23 @@ We can locate horizontal tangents by finding points where $dy/d\theta = 0$ given
 
 ## Equation of a Parabola, Ellipse, Hyperbola, and Sphere
 
-Parabola:
-\begin{align*}
+Parabola: \begin{align*}
 x^2 = 4py, \hspace{0.5cm} \text{or} \hspace{0.5cm} y^2 = 4px  \\
 \end{align*}
 
-Ellipse:
-\begin{align*}
+Ellipse: \begin{align*}
 \frac{x^2}{a^2} + \frac{y^2}{b^2} &= 1, \hspace{0.5cm} \text{where} \hspace{0.5cm} a \ge b > 0  \hspace{0.5cm} \text{or} \\
 \frac{x^2}{b^2} + \frac{y^2}{a^2} &= 1, \hspace{0.5cm} \text{where} \hspace{0.5cm} a \ge b > 0 
 \end{align*}
 
-Hyperbola:
-\begin{align*}
+Hyperbola: \begin{align*}
 \frac{x^2}{a^2} - \frac{y^2}{b^2} &= 1, \hspace{0.5cm} \text{where} \hspace{0.5cm} a \ge b > 0  \hspace{0.5cm} \text{or} \\
 \frac{y^2}{b^2} - \frac{x^2}{a^2} &= 1, \hspace{0.5cm} \text{where} \hspace{0.5cm} a \ge b > 0 
 \end{align*}
 
-Sphere:
-\begin{align*}
+Sphere: \begin{align*}
 (x-h)^2 + (y-k)^2 + (z-l)^2 = r^2 \hspace{0.5cm} \text{where the center is located at $(h, k, l)$ with radius $r$}
 \end{align*}
-
 
 ## Linear Algebra in 3D (Part I)
 
@@ -96,29 +89,159 @@ In 3D space, a point is represented as $(x, y, z)$.
 
 An equation in terms of $x$ and $y$ defines a curve in the 2D space $\mathbb{R}^2$, while an equation in terms of $x, y$ and $z$ defines a surface in 3D space $\mathbb{R}^3$.
 
-Given two points $P(x_1, y_1, z_1)$ and $Q(x_2, y_2, z_2)$, the distance between them is:
-\begin{align*}
+Given two points $P(x_1, y_1, z_1)$ and $Q(x_2, y_2, z_2)$, the distance between them is: \begin{align*}
 |PQ| = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2 + (z_2 - z_1)^2} \\
 \end{align*}
 
-A vector is a quantity with both magnitude and direction. Given two points $P$ and $Q$, the vector from $P$ to $Q$ is defined by the difference of their coordinates:
-\begin{align*}
+A vector is a quantity with both magnitude and direction. Given two points $P$ and $Q$, the vector from $P$ to $Q$ is defined by the difference of their coordinates: \begin{align*}
 \bar{a} = \langle x_2 - x_1,\, y_2 - y_1,\, z_2 - z_1 \rangle
 \end{align*}
 
-To find the magnitude (or norm) of a vector $\vec{a} = (a_1, a_2, a_3) \in \mathbb{R}^3$, we compute:
-$$|\vec{a}| = \sqrt{a_1^2 + a_2^2 + a_3^2}$$
-The standard basis vectors in $\mathbb{R}^3$ is given by 
+To find the magnitude (or norm) of a vector $\vec{a} = (a_1, a_2, a_3) \in \mathbb{R}^3$, we compute: $$|\vec{a}| = \sqrt{a_1^2 + a_2^2 + a_3^2}$$ The standard basis vectors in $\mathbb{R}^3$ is given by 
 $$
 \vec{i} = \langle 1, 0, 0 \rangle, \quad
 \vec{j} = \langle 0, 1, 0 \rangle, \quad
 \vec{k} = \langle 0, 0, 1 \rangle
 $$
 
-This is particularly useful as any vector in $\mathbb{R}^3$ can be written as:
-$$\vec{a} = a_1\vec{i} + a_2\vec{j} + a_3\vec{k}$$
+This is particularly useful as any vector in $\mathbb{R}^3$ can be written as: $$\vec{a} = a_1\vec{i} + a_2\vec{j} + a_3\vec{k}$$
 
-A unit vector is any vector with magnitute of $1$. The standard basis is an example of a unit vector. To convert any vector into a unit vector:
-$$\vec{u} = \frac{\vec{a}}{|\vec{a}|} = \frac{\vec{a}}{\|\vec{a}\|} = \frac{\vec{a}}{\sqrt{a_1^2 + a_2^2 + a_3^2}}$$
+A unit vector is any vector with magnitute of $1$. The standard basis is an example of a unit vector. To convert any vector into a unit vector: $$\vec{u} = \frac{\vec{a}}{|\vec{a}|} = \frac{\vec{a}}{\|\vec{a}\|} = \frac{\vec{a}}{\sqrt{a_1^2 + a_2^2 + a_3^2}}$$
 
+
+# Week 4
+
+Week 4 tutorial notes [TBP](){download="week4"}
+
+## Linear Algebra in 3D (Part II)
+
+In this section, we continue from last week's discussion about linear algebra in $\mathbb{R}^3$ by introducing the dot product, cross product, and the forms of equations of lines and planes.
+
+Let $\vec{a} = \langle a_1, a_2, a_3 \rangle$ and $\vec{b} = \langle b_1, b_2, b_3 \rangle$. The dot product is given by 
+$$\vec{a} \cdot \vec{b} = \langle a_1, a_2, a_3 \rangle \cdot \langle b_1, b_2, b_3 \rangle
+= a_1 b_1 + a_2 b_2 + a_3 b_3$$
+
+Alternatively, if $\theta$ is an angle between non-zero vectors $\vec{a}$ and $\vec{b}$, then 
+$$\vec{a} \cdot \vec{b} = |\vec{a}| |\vec{b}| \cos(\theta)$$
+
+::: callout-note
+**Theorem: Orthogonality and Dot Product**.
+
+Two non-zero vectors are $\vec{a}$ and $\vec{b}$ are orthogonal if and only if $\vec{a} \cdot \vec{b} = 0$
+:::
+
+Let $\vec{a} = \langle a_1, a_2, a_3 \rangle$ and $\vec{b} = \langle b_1, b_2, b_3 \rangle$. Then the cross product is given by 
+$$\vec{c} = \vec{a} \times \vec{b} = \langle a_2 b_3 - a_3 b_2,\ a_3 b_1 - a_1 b_3,\ a_1 b_2 - a_2 b_1 \rangle$$
+Note that this formula comes from the determinant of a matrix
+
+$$\vec{c} = \vec{a} \times \vec{b} = 
+\left|
+\begin{array}{ccc}
+\vec{i} & \vec{j} & \vec{k} \\
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3 \\
+\end{array}
+\right|
+= \vec{i}
+\left|
+\begin{array}{cc}
+a_2 & a_3 \\
+b_2 & b_3 \\
+\end{array}
+\right|
+- \vec{j}
+\left|
+\begin{array}{cc}
+a_1 & a_3 \\
+b_1 & b_3 \\
+\end{array}
+\right|
++ \vec{k}
+\left|
+\begin{array}{cc}
+a_1 & a_2 \\
+b_1 & b_2 \\
+\end{array}
+\right|$$
+
+
+::: callout-note
+**Theorem: Orthogonality and Cross Product**.
+
+The vector $\vec{c}$ is orthogonal to both vectors $\vec{a}$ and $\vec{b}$.
+:::
+
+::: callout-note
+**Theorem: Geometric Interpretation of the Cross Product**.
+
+If $0 \le \theta \le \pi$ is an angle between $\vec{a}$ and $\vec{b}$, then $$|\vec{a} \times \vec{b}| = |\vec{a}|\, |\vec{b}| \sin(\theta)$$
+
+Furthermore, $\vec{a}$ and $\vec{b}$ are parallel if and only if $\vec{a} \times \vec{b} = \vec{0}$.
+:::
+
+
+We now look at the equation of a line in $\mathbb{R}^3$. Note that the equation $y = mx+b$ does not describe a line anymore in $\mathbb{R}^3$, but rather a plane. For now, we introduce two ways to describe a line in $\mathbb{R}^3$
+
+The vector form of the equation of a line is given by 
+
+$$r = \vec{r}_0 + t \vec{v} = \langle x_0, y_0, z_0 \rangle + t \langle a, b, c \rangle$$
+where 
+
+- $\vec{r}$: a general position vector to any point on the line.  
+- $\vec{r}_0 = \langle x_0, y_0, z_0 \rangle$: a fixed point (starting point) on the line.  
+- $\vec{v} = \langle a, b, c \rangle$: a direction vector that gives the direction of the line.  
+- $t \in \mathbb{R}$: a scalar parameter.
+
+
+
+Alternatively, the line can also be represented using its parametric equations, given by:
+\begin{aligned}
+x &= x_0 + ta \\
+y &= y_0 + tb \\
+z &= z_0 + tc
+\end{aligned}
+where
+
+- $(x_0, y_0, z_0)$: a known point on the line (starting point).  
+- $(a, b, c)$: direction vector components — the direction in which the line extends.  
+- $t \in \mathbb{R}$: a scalar parameter. 
+
+
+Note that the parametric equations can be derived by equating each component from the vector form of the line.
+
+Lastly, we look at the equation of a plane in $\mathbb{R}^3$. We also introduce two ways to describe a plane.
+
+The vector equation of the plane is
+
+$$\vec{n} \cdot \langle \vec{r} - \vec{r}_0 \rangle = \vec{0}$$
+
+where
+
+- $\vec{n} = \langle a, b, c \rangle$: a normal vector perpendicular to the plane.  
+- $\vec{r} = \langle x, y, z \rangle$: a general position vector to a point on the plane.  
+- $\vec{r}_0 = \langle x_0, y_0, z_0 \rangle$: a known point on the plane.
+
+
+
+The scalar equation of the plane is 
+$$a(x - x_0) + b(y - y_0) + c(z - z_0) = 0$$
+
+::: callout-note
+**Example: Vector and Scalar Equations**
+
+Given:
+$$\vec{r}_0 = \langle 1, 2, 3 \rangle, \quad \vec{n} = \langle 4, -2, 5 \rangle, \quad \vec{r} = \langle x, y, z \rangle$$
+
+The vector equation of the plane is:
+$$\vec{n} \cdot (\vec{r} - \vec{r}_0) = 0$$
+
+Substitute the vectors:
+$$\langle 4, -2, 5 \rangle \cdot \left( \langle x, y, z \rangle - \langle 1, 2, 3 \rangle \right) = 0$$
+
+Simplify:
+$$\langle 4, -2, 5 \rangle \cdot \langle x - 1, y - 2, z - 3 \rangle = 0$$
+
+Dot product gives the scalar equation:
+$$4(x - 1) - 2(y - 2) + 5(z - 3) = 0 \quad \Rightarrow \quad 4x - 2y + 5z = 21$$
+:::
 
