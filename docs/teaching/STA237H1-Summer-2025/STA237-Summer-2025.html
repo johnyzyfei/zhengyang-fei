@@ -204,6 +204,7 @@ window.Quarto = {
   <li><a href="#week-1" id="toc-week-1" class="nav-link active" data-scroll-target="#week-1">Week 1</a></li>
   <li><a href="#week-2" id="toc-week-2" class="nav-link" data-scroll-target="#week-2">Week 2</a></li>
   <li><a href="#week-3" id="toc-week-3" class="nav-link" data-scroll-target="#week-3">Week 3</a></li>
+  <li><a href="#midterm-review" id="toc-midterm-review" class="nav-link" data-scroll-target="#midterm-review">Midterm Review</a></li>
   </ul>
 </nav>
     </div>
@@ -668,9 +669,7 @@ Solution
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(X \sim \text{NB}(10, 0.15)\)</span> be the number of interviews.</p>
-<ol type="a">
-<li>Then we wish to find <span class="math display">\[P(X \leq 100) = \sum_{x=10}^{100} \binom{x - 1}{r - 1} 0.15^{10}(1 - 0.15)^{x - 10} = 0.945\]</span> In R,</li>
-</ol>
+<p>Then we wish to find <span class="math display">\[P(X \leq 100) = \sum_{x=10}^{100} \binom{x - 1}{r - 1} 0.15^{10}(1 - 0.15)^{x - 10} = 0.945\]</span> In R,</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnbinom</span>(<span class="dv">100-10</span>, <span class="dv">10</span>, <span class="fl">0.15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -707,10 +706,8 @@ Solution
 </div>
 </div>
 </div>
-<ol start="2" type="a">
-<li><p>We use the formula of expected value of negative binomial distribution <span class="math display">\[\mathbb{E}(X) = \frac{10}{0.15} = 66.66\]</span></p></li>
-<li><p>We use the formula of variance of negative binomial distribution, then square root it <span class="math display">\[\sigma = \sqrt{ \frac{10(1 - 0.15)}{0.15^2} } = 19.43\]</span></p></li>
-</ol>
+<p>We use the formula of expected value of negative binomial distribution <span class="math display">\[\mathbb{E}(X) = \frac{10}{0.15} = 66.66\]</span></p>
+<p>We use the formula of variance of negative binomial distribution, then square root it <span class="math display">\[\sigma = \sqrt{ \frac{10(1 - 0.15)}{0.15^2} } = 19.43\]</span></p>
 </div>
 </div>
 </div>
@@ -728,10 +725,14 @@ Solution
 \end{array}\]</span>
 <p>On the Week 4 course reflection, you found <span class="math inline">\(\mathbb{E}(X) = \$382\)</span> and <span class="math inline">\(\text{SD}(X) = \$648\)</span> based on this probability model using the definitions of <span class="math inline">\(\mathbb{E}(X)\)</span> and <span class="math inline">\(\text{SD}(X)\)</span>.</p>
 <p><strong>a)</strong> Find the moment generating function (mgf) for <span class="math inline">\(X\)</span> and use it to find <span class="math inline">\(\mathbb{E}(X)\)</span> and <span class="math inline">\(\text{SD}(X)\)</span>.</p>
-<p><strong>b)</strong> Suppose that 10,000 customers purchased this insurance policy in 2023.<br>
-(i) Simulate 10,000 values of the profit on a policy in R using the above probability model.<br>
-(ii) What is the average of the simulated profits? How does this compare to the theoretical value?<br>
-(iii) What is the standard deviation of the simulated profits? How does this compare to the theoretical value?</p>
+<p><strong>b)</strong> Suppose that 10,000 customers purchased this insurance policy in 2023.</p>
+<ol type="i">
+<li>Simulate 10,000 values of the profit on a policy in R using the above probability model.<br>
+</li>
+<li>What is the average of the simulated profits? How does this compare to the theoretical value?<br>
+</li>
+<li>What is the standard deviation of the simulated profits? How does this compare to the theoretical value?</li>
+</ol>
 </section>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
@@ -787,7 +788,7 @@ M_X''(t) = (39600)^2 e^{-39600t} \cdot \frac{1}{5000}
 <pre><code>[1] 381</code></pre>
 </div>
 </div>
-<p>We see it is very close to the theoretocal expected value <span class="math inline">\(382\)</span></p>
+<p>We see it is very close to the theoretocal expected value <span class="math inline">\(382\)</span>.</p>
 <p>Lastly, to get the standard deviation,</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(simulated_profits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -795,7 +796,159 @@ M_X''(t) = (39600)^2 e^{-39600t} \cdot \frac{1}{5000}
 <pre><code>[1] 655.5013</code></pre>
 </div>
 </div>
-<p>We see it is very close to the theoretical standard deviation of <span class="math inline">\(648\)</span></p>
+<p>We see it is very close to the theoretical standard deviation of <span class="math inline">\(648\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="midterm-review" class="level1">
+<h1>Midterm Review</h1>
+<div class="callout-question" data-collapse="true">
+<p><strong>Solutions will not be posted for these questions.</strong> ### Question 1</p>
+<p>The probability mass function <span class="math inline">\(p_X(x)\)</span>, for a discrete variable <span class="math inline">\(X\)</span> is given in the following table.</p>
+<span class="math display">\[\begin{array}{|c|c|c|c|}
+\hline
+X &amp; 0 &amp; 1 &amp; 2 \\
+\hline
+p_X(x) &amp; \dfrac{1}{3} &amp; \dfrac{1}{6} &amp; \dfrac{1}{2} \\
+\hline
+\end{array}\]</span>
+<p><strong>a)</strong> Let <span class="math inline">\(Y = |X - 1|\)</span>. Be sure to show your steps for the following questions.</p>
+<ol type="i">
+<li>What is the probability mass function of <span class="math inline">\(Y\)</span>?<br>
+</li>
+<li>What is the moment generating function of <span class="math inline">\(Y\)</span>?</li>
+<li>Compute the mean and variance of <span class="math inline">\(Y\)</span>.</li>
+</ol>
+<p><strong>b)</strong> Suppose we flip a coin <span class="math inline">\(2X\)</span> times, where <span class="math inline">\(X\)</span> follows the pmf given in the table in this question and record the number of heads. Let event <span class="math inline">\(A= \text{more than one head}\)</span>, and <span class="math inline">\(B = \text{coin is flipped twice}\)</span>. Consider the following R code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>sim <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">5000</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>N){</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>))</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  flips <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">2</span><span class="sc">*</span>x, <span class="at">replace=</span><span class="cn">TRUE</span>)</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">sum</span>(flips) <span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">&amp;</span> x <span class="sc">==</span> <span class="dv">1</span>){</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    success <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span>{</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    success <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>  sim[i] <span class="ot">&lt;-</span> success</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sim)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="i">
+<li>Which of the following probabilities does the above code estimate? Circle the appropriate option.</li>
+</ol>
+<span class="math display">\[\begin{array}{ccc}
+P(A) &amp; P(B) &amp; P(A \cap B) \\
+P(A \cup B) &amp; P(A \mid B) &amp; P(B \mid A)
+\end{array}\]</span>
+<ol start="2" type="i">
+<li>Compute this probability and list any probability rules/principles that you apply.</li>
+</ol>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<section id="question-2-3" class="level3 callout-question" data-collapse="true">
+<h3 class="anchored" data-anchor-id="question-2-3">Question 2</h3>
+<p>For each of the following R commands, specify the relevant probability distribution and its parameters, and compute the value this code would produce, showing the steps of your calculations.</p>
+<ol type="a">
+<li>rpois(10, 0.5)</li>
+<li>dbinom(2, 4, 0.1)</li>
+<li>mean(sample(1:6, 1000, replace=TRUE))</li>
+<li>pnbinom(1, 1, 0.2)</li>
+</ol>
+</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<section id="question-3-2" class="level3 callout-question" data-collapse="true">
+<h3 class="anchored" data-anchor-id="question-3-2">Question 3</h3>
+<p>It is estimated that <span class="math inline">\(45\%\)</span> of all emails are spam (i.e., junk email). Many of these are marked by spam filters and sent directly to junk mail folders. Some are not. Suppose you are exploring characteristics of messages that might help predict whether or not a message is spam to build a spam filter.</p>
+<p>Suppose <span class="math inline">\(25\%\)</span> of spam emails contain the word “free” compared to <span class="math inline">\(5\%\)</span> of non-spam emails, <span class="math inline">\(15\%\)</span> of spam emails contain the phrase “subject to credit approval” compared to <span class="math inline">\(1\%\)</span> of non-spam emails. Further, suppose <span class="math inline">\(10\%\)</span> of spam messages include the word “free” the phrase “subject to credit approval”, <span class="math inline">\(80\%\)</span> of non-spam messages contain neither the word “free” nor the phrase “subject to credit approval”. Randomly select an incoming email message. Let <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> represent the following events: <span class="math display">\[\begin{align*}
+A &amp;= \text{email is spam (i.e., junk mail)}, \\
+B &amp;= \text{email contains the word ``free''}, \\
+C &amp;= \text{email contains the phrase ``subject to credit approval''}.
+\end{align*}\]</span></p>
+<p><strong>a)</strong> Consider the event that the randomly selected incoming email message is spam but does not include the word “free”, nor the phrase “subject to credit approval”. Answer parts (i)-(iii) based on this event.<br>
+(i) Write this event down in the appropriate set notation: (ii) Draw a Venn Diagram of this sample space and shade in this event.<br>
+(iii) Compute the probability of this event and list any probability rules/principles that you apply.</p>
+<p><strong>b)</strong> What is the probability that a randomly selected email message is spam given it does not include the word “free”, nor the phrase “subject to credit approval”?</p>
+</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<section id="question-4-1" class="level3 callout-question" data-collapse="true">
+<h3 class="anchored" data-anchor-id="question-4-1">Question 4</h3>
+<p>You are trying to pull an all-nighter to study the night before an exam (<strong>don’t do this for STA237H1</strong>!). There are 10 more hours until your exam. The amount of time, in hours, that you can stay awake to study for can be modeled by a random variable <span class="math inline">\(X\)</span> with PDF <span class="math display">\[
+f(x) =
+\begin{cases}
+ce^{-0.25(x - 2)}, &amp; 2 &lt; x &lt; 10 \\
+0, &amp; \text{otherwise}
+\end{cases}
+\]</span> where <span class="math inline">\(c\)</span> is a constant.</p>
+<ol type="a">
+<li>What is the constant <span class="math inline">\(c\)</span> that makes this a valid PDF?</li>
+<li>You know you need <span class="math inline">\(4\)</span> hours to go over enough material to pass your exam, and otherwise, you will fail. What is the probability that you pass your exam? Sketch the PDF, mark this probability on your plot, and compute this probability.</li>
+<li>What is the probability that you study for exactly <span class="math inline">\(5\)</span> hours? Sketch the PDF again and mark this probability on your plot.</li>
+<li>You find out that your exam is entirely multiple choice, and if you study for less than <span class="math inline">\(4\)</span> hours, there is a <span class="math inline">\(30\%\)</span> probability that you will pass your exam by randomly guessing the answers. If you study for more than <span class="math inline">\(4\)</span> hours, you will pass for sure. What is the probability that you will pass the exam now? Compute the probability of this event and list any probability rules/principles that you apply.</li>
+</ol>
+</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
 </div>
 </div>
 </div>

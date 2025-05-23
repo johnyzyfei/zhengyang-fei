@@ -377,6 +377,7 @@ On the Week 4 course reflection, you found $\mathbb{E}(X) = \$382$ and $\text{SD
 **a)** Find the moment generating function (mgf) for $X$ and use it to find $\mathbb{E}(X)$ and $\text{SD}(X)$.
 
 **b)** Suppose that 10,000 customers purchased this insurance policy in 2023.  
+
   (i) Simulate 10,000 values of the profit on a policy in R using the above probability model.  
   (ii) What is the average of the simulated profits? How does this compare to the theoretical value?  
   (iii) What is the standard deviation of the simulated profits? How does this compare to the theoretical value?
@@ -437,12 +438,142 @@ To get the average of the simulated profits,
 ```{r}
 mean(simulated_profits)
 ```
-We see it is very close to the theoretocal expected value $382$
+We see it is very close to the theoretocal expected value $382$.
 
 Lastly, to get the standard deviation,
 ```{r}
 sd(simulated_profits)
 ```
-We see it is very close to the theoretical standard deviation of $648$
+We see it is very close to the theoretical standard deviation of $648$.
 :::
 
+# Midterm Review
+::: {.callout-question collapse="true"}
+
+**Solutions will not be posted for these questions.**
+### Question 1
+
+The probability mass function $p_X(x)$, for a discrete variable $X$ is given in the following table.
+
+
+\begin{array}{|c|c|c|c|}
+\hline
+X & 0 & 1 & 2 \\
+\hline
+p_X(x) & \dfrac{1}{3} & \dfrac{1}{6} & \dfrac{1}{2} \\
+\hline
+\end{array}
+
+
+
+**a)** Let $Y = |X - 1|$. Be sure to show your steps for the following questions. 
+
+(i) What is the probability mass function of $Y$?  
+(ii) What is the moment generating function of $Y$? 
+(iii) Compute the mean and variance of $Y$.
+  
+**b)** Suppose we flip a coin $2X$ times, where $X$ follows the pmf given in the table in this question and record the number of heads. Let event $A= \text{more than one head}$, and $B = \text{coin is flipped twice}$. Consider the following R code.
+```{r, echo=TRUE, results='hide'}
+sim <- NULL
+N <- 5000
+
+for (i in 1:N){
+  x <- sample(0:2, size = 1, prob = c(1/3, 1/6, 1/2))
+  flips <- sample(0:1, size=2*x, replace=TRUE)
+  if (sum(flips) > 1 & x == 1){
+    success <- 1
+  } else{
+    success <- 0
+  }
+  sim[i] <- success
+}
+
+mean(sim)
+```
+(i) Which of the following probabilities does the above code estimate? Circle the appropriate option.
+
+\begin{array}{ccc}
+P(A) & P(B) & P(A \cap B) \\
+P(A \cup B) & P(A \mid B) & P(B \mid A)
+\end{array}
+
+(ii) Compute this probability and list any probability rules/principles that you apply.
+:::
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+
+:::
+
+
+
+
+::: {.callout-question collapse="true"}
+### Question 2
+For each of the following R commands, specify the relevant probability distribution and its parameters, and compute the value this code would produce, showing the steps of your calculations. 
+
+a) rpois(10, 0.5)
+b) dbinom(2, 4, 0.1)
+c) mean(sample(1:6, 1000, replace=TRUE))
+b) pnbinom(1, 1, 0.2)
+:::
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+
+:::
+
+
+
+::: {.callout-question collapse="true"}
+### Question 3
+It is estimated that $45\%$ of all emails are spam (i.e., junk email). Many of these are marked by spam filters and sent directly to junk mail folders. Some are not. Suppose you are exploring characteristics of messages that might help predict whether or not a message is spam to build a spam filter.
+
+Suppose $25\%$ of spam emails contain the word "free" compared to $5\%$ of non-spam emails, $15\%$ of spam emails contain the phrase "subject to credit approval" compared to $1\%$ of non-spam emails. Further, suppose $10\%$ of spam messages include the word "free" \emph{or} the phrase "subject to credit approval", $80\%$ of non-spam messages contain neither the word "free" nor the phrase "subject to credit approval". Randomly select an incoming email message. Let $A$, $B$, and $C$ represent the following events:
+\begin{align*}
+A &= \text{email is spam (i.e., junk mail)}, \\
+B &= \text{email contains the word ``free''}, \\
+C &= \text{email contains the phrase ``subject to credit approval''}.
+\end{align*}
+
+**a)** Consider the event that the randomly selected incoming email message is spam but does not include the word "free", nor the phrase "subject to credit approval". Answer parts (i)-(iii) based on this event.  
+  (i) Write this event down in the appropriate set notation: \underline{\hspace{4cm}}
+  (ii) Draw a Venn Diagram of this sample space and shade in this event.  
+  (iii) Compute the probability of this event and list any probability rules/principles that you apply.
+
+**b)** What is the probability that a randomly selected email message is spam given it does not include the word "free", nor the phrase "subject to credit approval"? 
+:::
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+
+:::
+
+
+::: {.callout-question collapse="true"}
+### Question 4
+
+You are trying to pull an all-nighter to study the night before an exam (**don’t do this for STA237H1**!). There are 10 more hours until your exam. The amount of time, in hours, that you can stay awake to study for can be modeled by a random variable $X$ with PDF 
+$$
+f(x) = 
+\begin{cases}
+ce^{-0.25(x - 2)}, & 2 < x < 10 \\
+0, & \text{otherwise}
+\end{cases}
+$$
+where $c$ is a constant.
+
+a) What is the constant $c$ that makes this a valid PDF?
+b) You know you need $4$ hours to go over enough material to pass your exam, and otherwise, you will fail. What is the probability that you pass your exam? Sketch the PDF, mark this probability on your plot, and compute this probability.
+c) What is the probability that you study for exactly $5$ hours? Sketch the PDF again and mark this probability on your plot.
+d) You find out that your exam is entirely multiple choice, and if you study for less than $4$ hours, there is a $30\%$ probability that you will pass your exam by randomly guessing the answers. If you study for more than $4$ hours, you will pass for sure. What is the probability that you will pass the exam now? Compute the probability of this event and list any probability rules/principles that you apply. 
+:::
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+
+:::
