@@ -171,6 +171,7 @@ window.Quarto = {
   <li><a href="#week-2" id="toc-week-2" class="nav-link" data-scroll-target="#week-2">Week 2</a></li>
   <li><a href="#week-3" id="toc-week-3" class="nav-link" data-scroll-target="#week-3">Week 3</a></li>
   <li><a href="#week-4" id="toc-week-4" class="nav-link" data-scroll-target="#week-4">Week 4</a></li>
+  <li><a href="#week-5" id="toc-week-5" class="nav-link" data-scroll-target="#week-5">Week 5</a></li>
   </ul>
 </nav>
     </div>
@@ -424,6 +425,53 @@ Note
 <p>Dot product gives the scalar equation: <span class="math display">\[4(x - 1) - 2(y - 2) + 5(z - 3) = 0 \quad \Rightarrow \quad 4x - 2y + 5z = 21\]</span></p>
 </div>
 </div>
+</section>
+</section>
+<section id="week-5" class="level1">
+<h1>Week 5</h1>
+<p>Week 5 tutorial notes<a href="" download="week5">TBP</a></p>
+<section id="vector-functions" class="level2">
+<h2 class="anchored" data-anchor-id="vector-functions">Vector Functions</h2>
+<p>A vector function is a function that takes one (or more) variables and returns a vector of functions. We will only discuss the case where the function takes one variable.</p>
+<p>In <span class="math inline">\(\mathbb{R}^3\)</span>, a single variable vector function have the form</p>
+<p><span class="math display">\[\bar{r}(t) = \langle f(t), g(t), h(t) \rangle = f(t)\bar{i} + g(t)\bar{j} + h(t)\bar{k}\]</span> Let’s now talk about limits, derivatives and integrals with vector functions. For the limit of a vector function,</p>
+<p><span class="math display">\[\lim_{t \to a} \bar{r}(t) = \left\langle \lim_{t \to a} f(t), \lim_{t \to a} g(t), \lim_{t \to a} h(t) \right\rangle
+\quad  \newline \text{assuming the limits of all the component functions exist.}\]</span></p>
+<p>Furthermore, we say a vector function <span class="math inline">\(\bar{r}(t)\)</span> is continuous at <span class="math inline">\(a\)</span> if <span class="math inline">\(\lim{t \to a} = \bar{r}(a)\)</span>.</p>
+<p>Next, let’s talk about the derivatives of vector functions. <span class="math display">\[\frac{d\bar{r}}{dt} = \bar{r}'(t) = \lim_{h \to 0} \frac{\bar{r}(t+h) - \bar{r}(t)}{h}\]</span></p>
+<p>Note that the derivative of a vector function is just the vector of the derivatives of its components. That is, <span class="math display">\[\bar{r}'(t) = \langle f'(t), g'(t), h'(t) \rangle = f'(t)\bar{i} + g'(t)\bar{j} + h'(t)\bar{k}\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Theorem: Differential Rules of Vector Functions.</p>
+<p>Suppose that <span class="math inline">\(\vec{u}(t)\)</span> and <span class="math inline">\(\vec{v}(t)\)</span> are differentiable vector functions, <span class="math inline">\(c\)</span> is a scalar, and <span class="math inline">\(f\)</span> is a real-valued function. Then, <span class="math display">\[\begin{align}
+&amp;1.\quad \frac{d}{dt}[\vec{u}(t) + \vec{v}(t)] = \vec{u}'(t) + \vec{v}'(t) \\
+&amp;2.\quad \frac{d}{dt}[c \vec{u}(t)] = c \vec{u}'(t) \\
+&amp;3.\quad \frac{d}{dt}[f(t)\vec{u}(t)] = f'(t)\vec{u}(t) + f(t)\vec{u}'(t) \\
+&amp;4.\quad \frac{d}{dt}[\vec{u}(t) \cdot \vec{v}(t)] = \vec{u}'(t) \cdot \vec{v}(t) + \vec{u}(t) \cdot \vec{v}'(t) \\
+&amp;5.\quad \frac{d}{dt}[\vec{u}(t) \times \vec{v}(t)] = \vec{u}'(t) \times \vec{v}(t) + \vec{u}(t) \times \vec{v}'(t) \\
+&amp;6.\quad \frac{d}{dt}[\vec{u}(f(t))] = f'(t)\vec{u}'(f(t)) \\
+\end{align}\]</span></p>
+</div>
+</div>
+<p>Given how neatly the limit and derivative rules extend to vector-valued functions, it’s no surprise that similar rules apply to definite (and indefinite) integrals as well. <span class="math display">\[\begin{align}
+\int_a^b \vec{r}(t) , dt
+&amp;= \left( \int_a^b f(t) , dt \right)\vec{i} + \left( \int_a^b g(t) , dt \right)\vec{j} + \left( \int_a^b h(t) , dt \right)\vec{k} \\
+&amp;= \left( F(t) \big|_a^b \right)\vec{i} + \left( G(t) \big|_a^b \right)\vec{j} + \left( H(t) \big|_a^b \right)\vec{k} \\
+&amp;= \left( F(b) - F(a) \right)\vec{i} + \left( G(b) - G(a) \right)\vec{j} + \left( H(b) - H(a) \right)\vec{k}
+\end{align}\]</span></p>
+<p>Finally, the arc length formula extends naturally to vector-valued functions and is given by: <span class="math display">\[\begin{align}
+L &amp;= \int_a^b \sqrt{[f'(t)]^2 + [g'(t)]^2 + [h'(t)]^2} \, dt \\
+  &amp;= \int_a^b \sqrt{\left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 + \left( \frac{dz}{dt} \right)^2} \, dt \\
+  &amp;= \int_a^b \left| \vec{r}\,'(t) \right| \, dt
+\end{align}\]</span></p>
 
 
 </section>

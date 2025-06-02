@@ -205,6 +205,7 @@ window.Quarto = {
   <li><a href="#week-2" id="toc-week-2" class="nav-link" data-scroll-target="#week-2">Week 2</a></li>
   <li><a href="#week-3" id="toc-week-3" class="nav-link" data-scroll-target="#week-3">Week 3</a></li>
   <li><a href="#midterm-review" id="toc-midterm-review" class="nav-link" data-scroll-target="#midterm-review">Midterm Review</a></li>
+  <li><a href="#week-5" id="toc-week-5" class="nav-link" data-scroll-target="#week-5">Week 5</a></li>
   </ul>
 </nav>
     </div>
@@ -245,9 +246,7 @@ window.Quarto = {
 <h1>Week 1</h1>
 <section id="question-1" class="level3 callout-question" data-collapse="true">
 <h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
-<ol start="2" type="a">
-<li>Suppose <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span> and let <span class="math inline">\(A = \{1, 2, 4, 5\}\)</span>, <span class="math inline">\(B = \{1, 3, 5\}\)</span> and <span class="math inline">\(C = \{2, 4, 6\}\)</span>. Use this example to verify the two results in the distributive law.</li>
-</ol>
+<p><strong>b)</strong> Suppose <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span> and let <span class="math inline">\(A = \{1, 2, 4, 5\}\)</span>, <span class="math inline">\(B = \{1, 3, 5\}\)</span> and <span class="math inline">\(C = \{2, 4, 6\}\)</span>. Use this example to verify the two results in the distributive law.</p>
 </section>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -261,7 +260,10 @@ Solution
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We need to verify two things. i. <span class="math inline">\(A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\)</span></p>
+<p>We need to verify two things.</p>
+<ol type="i">
+<li><span class="math inline">\(A \cap (B \cup C) = (A \cap B) \cup (A \cap C)\)</span></li>
+</ol>
 <p><span class="math display">\[\begin{align*}
 B \cup C &amp;=  \{1, 2, 3, 4, 5, 6\} \\
 A \cap (B \cup C) &amp;=  \{1, 2, 4, 5\} \\
@@ -287,10 +289,8 @@ A \cup C &amp;=  \{1, 2, 4, 5, 6\} \\
 <section id="question-2" class="level3 callout-question" data-collapsed="true">
 <h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
 <p>In R, write R code to simulate rolling a fair six-sided die once, 10 times, 100 times, and 1000 times.</p>
-<ol type="a">
-<li>Estimate the probability of rolling a 3 or higher based on 1000 simulated dice rolls.</li>
-<li>If you were to repeat your simulation, would you end up with the same estimate? Why or why not.</li>
-</ol>
+<p><strong>a)</strong> Estimate the probability of rolling a 3 or higher based on 1000 simulated dice rolls.</p>
+<p><strong>b)</strong> If you were to repeat your simulation, would you end up with the same estimate? Why or why not.</p>
 </section>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -485,10 +485,8 @@ P(\text{at least one shared})
 <h3 class="anchored" data-anchor-id="question-1-1">Question 1</h3>
 <p>Suppose that the moment generating function of <span class="math inline">\(Y\)</span> is given by <span class="math display">\[M_Y(t) = e^{(a+b)(e^t - 1)}\]</span></p>
 <p>where <span class="math inline">\(a &gt; 0\)</span> and <span class="math inline">\(b &gt; 0\)</span>. Use this mgf to find the</p>
-<ol type="a">
-<li>expected value of <span class="math inline">\(Y\)</span> and</li>
-<li>the variance of <span class="math inline">\(Y\)</span>.</li>
-</ol>
+<p><strong>a)</strong> expected value of <span class="math inline">\(Y\)</span> and</p>
+<p><strong>b)</strong> the variance of <span class="math inline">\(Y\)</span>.</p>
 </section>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
@@ -502,13 +500,9 @@ Solution
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<ol type="a">
-<li>The expected value of <span class="math inline">\(Y\)</span> is the first derivative of the mgf evaluated at <span class="math inline">\(t = 0\)</span>: <span class="math display">\[\mathbb{E}[Y] = M_Y'(0)\]</span> Hence, <span class="math display">\[M_Y'(t) = \frac{d}{dt} e^{(a+b)(e^t - 1)} = e^{(a+b)(e^t - 1)} \cdot (a+b)e^t\]</span> Evaluated at <span class="math inline">\(t = 0\)</span>: <span class="math display">\[\mathbb{E}(Y) = M_Y'(0) = e^{(a+b)(1 - 1)} \cdot (a+b) \cdot 1 = (a + b)\]</span></li>
-</ol>
+<p><strong>a)</strong> The expected value of <span class="math inline">\(Y\)</span> is the first derivative of the mgf evaluated at <span class="math inline">\(t = 0\)</span>: <span class="math display">\[\mathbb{E}[Y] = M_Y'(0)\]</span> Hence, <span class="math display">\[M_Y'(t) = \frac{d}{dt} e^{(a+b)(e^t - 1)} = e^{(a+b)(e^t - 1)} \cdot (a+b)e^t\]</span> Evaluated at <span class="math inline">\(t = 0\)</span>: <span class="math display">\[\mathbb{E}(Y) = M_Y'(0) = e^{(a+b)(1 - 1)} \cdot (a+b) \cdot 1 = (a + b)\]</span></p>
 <hr>
-<ol start="2" type="a">
-<li>The variance of <span class="math inline">\(Y\)</span> is: <span class="math display">\[\mathrm{Var}(Y) = M_Y''(0) - \left( M_Y'(0) \right)^2\]</span></li>
-</ol>
+<p><strong>b)</strong> The variance of <span class="math inline">\(Y\)</span> is: <span class="math display">\[\mathrm{Var}(Y) = M_Y''(0) - \left( M_Y'(0) \right)^2\]</span></p>
 <p>Hence, <span class="math display">\[\begin{align*}
 M_Y''(t) &amp;= \frac{d}{dt} \left[ e^{(a+b)(e^t - 1)} \cdot (a+b)e^t \right] \\
 &amp;= e^{(a+b)(e^t - 1)} \cdot (a+b)e^t \cdot \left[ (a+b)e^t + 1 \right]
@@ -533,11 +527,9 @@ Note
 <section id="question-2-1" class="level3 callout-question" data-collapse="true">
 <h3 class="anchored" data-anchor-id="question-2-1">Question 2</h3>
 <p>Suppose <span class="math inline">\(X\)</span> has a Discrete Uniform Distribution over the values <span class="math inline">\(x = 1,2,3,4,5\)</span>.</p>
-<ol type="a">
-<li>Sketch the pmf and cdf.</li>
-<li>Find the mgf of <span class="math inline">\(X\)</span>.</li>
-<li>Compute <span class="math inline">\(\mathbb{E}(X)\)</span> and <span class="math inline">\(\mathbb{V}(X)\)</span> two ways: by using the definitions, and by using the mgf you found in part b.</li>
-</ol>
+<p><strong>a)</strong> Sketch the pmf and cdf.</p>
+<p><strong>b)</strong> Find the mgf of <span class="math inline">\(X\)</span>.</p>
+<p><strong>c)</strong> Compute <span class="math inline">\(\mathbb{E}(X)\)</span> and <span class="math inline">\(\mathbb{V}(X)\)</span> two ways: by using the definitions, and by using the mgf you found in part b.</p>
 </section>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -551,7 +543,7 @@ Solution
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>To plot the pmf and cdf in R:</p>
+<p><strong>a)</strong> To plot the pmf and cdf in R:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -584,9 +576,11 @@ Solution
 </div>
 </div>
 </div>
-<p>Next, we find the mgf. By definition,</p>
+<hr>
+<p><strong>b)</strong> Now we find the mgf. By definition,</p>
 <p><span class="math display">\[M_X(t) = \mathbb{E}[e^{tX}] = \sum_{x=1}^{5} e^{tx} \cdot \frac{1}{5} = \frac{1}{5} \left( e^t + e^{2t} + e^{3t} + e^{4t} + e^{5t} \right)\]</span></p>
-<p>Lastly, we compute <span class="math inline">\(\mathbb{E}(X)\)</span> and <span class="math inline">\(\mathbb{V}(X)\)</span>.</p>
+<hr>
+<p><strong>c)</strong> Lastly, we compute <span class="math inline">\(\mathbb{E}(X)\)</span> and <span class="math inline">\(\mathbb{V}(X)\)</span>.</p>
 <p>First way: by definition</p>
 <p><span class="math display">\[\mathbb{E}(X) = \frac{1}{5}(1 + 2 + 3 + 4 + 5) = \frac{15}{5} = 3\]</span> <span class="math display">\[\mathbb{E}(X^2) = \frac{1}{5}(1^2 + 2^2 + 3^2 + 4^2 + 5^2) = \frac{1}{5}(55) = 11\]</span> <span class="math display">\[\mathrm{Var}(X) = \mathbb{E}(X^2) - (\mathbb{E}(X))^2 = 11 - 3^2 = 11 - 9 = 2\]</span></p>
 <p>Second way: MFG approach <span class="math display">\[M_X(t) = \frac{1}{5} \left( e^t + e^{2t} + e^{3t} + e^{4t} + e^{5t} \right)\]</span> First derivative and evaluate at <span class="math inline">\(t = 0\)</span> <span class="math display">\[M_X'(t) = \frac{1}{5} \left( e^t \cdot 1 + e^{2t} \cdot 2 + e^{3t} \cdot 3 + e^{4t} \cdot 4 + e^{5t} \cdot 5 \right)\]</span></p>
@@ -598,11 +592,9 @@ Solution
 <section id="question-3-1" class="level3 callout-question" data-collapse="true">
 <h3 class="anchored" data-anchor-id="question-3-1">Question 3</h3>
 <p>Of the thousands of the volunteers who donate blood at a clinic, <span class="math inline">\(80\%\)</span> have the Rhesus (Rh) factor present in their blood. For the purposes of this question, assume the population size is very large (ie., we can use methods that assume sampling with replacement).</p>
-<ol type="a">
-<li><p>If six volunteers are randomly selected, what is the probability that no one has the Rh factor?</p></li>
-<li><p>If six volunteers are randomly selected, what is the probability that at most four have the Rh factor?</p></li>
-<li><p>What if we were interested in the smallest number of volunteers who must be randomly selected if we want to be at least <span class="math inline">\(90\%\)</span> certain we will obtain at least four donors with the Rh factor? Can we answer this question using a Binomial Distribution? If so, answer this question. If not, explain why a Binomial distribution is not an appropriate model in this situation.</p></li>
-</ol>
+<p><strong>a)</strong> If six volunteers are randomly selected, what is the probability that no one has the Rh factor?</p>
+<p><strong>b)</strong> If six volunteers are randomly selected, what is the probability that at most four have the Rh factor?</p>
+<p><strong>c)</strong> What if we were interested in the smallest number of volunteers who must be randomly selected if we want to be at least <span class="math inline">\(90\%\)</span> certain we will obtain at least four donors with the Rh factor? Can we answer this question using a Binomial Distribution? If so, answer this question. If not, explain why a Binomial distribution is not an appropriate model in this situation.</p>
 </section>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
@@ -616,9 +608,10 @@ Solution
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>We model this situation using the Binomial distribution, which is appropriate when the population is large, the number of trials <span class="math inline">\(n\)</span> is fixed, outcomes are binary (success or failure), and trials are independent. Although the true model is hypergeometric due to sampling without replacement, the large population size makes the Binomial a good approximation, as sampling with and without replacement become nearly equivalent (in fact, one can show via the pmfs that <span class="math inline">\(\lim_{N \to \infty}\)</span> Hypergeometric<span class="math inline">\((N, K = pN, n)\)</span> = Binomial <span class="math inline">\((n, p)\)</span>).</p>
+<p><strong>a)</strong> We model this situation using the Binomial distribution, which is appropriate when the population is large, the number of trials <span class="math inline">\(n\)</span> is fixed, outcomes are binary (success or failure), and trials are independent. Although the true model is hypergeometric due to sampling without replacement, the large population size makes the Binomial a good approximation, as sampling with and without replacement become nearly equivalent (in fact, one can show via the pmfs that <span class="math inline">\(\lim_{N \to \infty}\)</span> Hypergeometric<span class="math inline">\((N, K = pN, n)\)</span> = Binomial <span class="math inline">\((n, p)\)</span>).</p>
 <p>With this in mind, let <span class="math inline">\(X \sim\)</span> binom<span class="math inline">\((n, p = 0.8)\)</span> where <span class="math inline">\(p =\)</span> probability that a volunteer has the Rh factor.</p>
-<p>Let <span class="math inline">\(X \sim \text{Binomial}(n = 6, p = 0.8)\)</span>, where <span class="math inline">\(X\)</span> is the number of people with the Rh factor. Then, <span class="math display">\[P(X = 0) = \binom{6}{0}(0.8)^0(0.2)^6 = 1 \cdot 1 \cdot (0.2)^6 = \boxed{0.000064}\]</span></p>
+<hr>
+<p><strong>b)</strong> Once again let <span class="math inline">\(X \sim \text{Binomial}(n = 6, p = 0.8)\)</span>, where <span class="math inline">\(X\)</span> is the number of people with the Rh factor. Then, <span class="math display">\[P(X = 0) = \binom{6}{0}(0.8)^0(0.2)^6 = 1 \cdot 1 \cdot (0.2)^6 = \boxed{0.000064}\]</span></p>
 <p>In R,</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -639,7 +632,8 @@ P(X = 6) &amp;= \binom{6}{6}(0.8)^6(0.2)^0 = 1 \cdot 0.262144 \cdot 1 = 0.26214 
 <pre><code>[1] 0.34464</code></pre>
 </div>
 </div>
-<p>In this scenario, the number of trials <span class="math inline">\(n\)</span> is not fixed anymore since we are adjusting <span class="math inline">\(n\)</span> to find the smallest number of volunteers. Hence, a binomial distribution would not be appropriate anymore (see part a solution for a detailed requirement for modelling using binomial distribution).</p>
+<hr>
+<p><strong>c)</strong> In this scenario, the number of trials <span class="math inline">\(n\)</span> is not fixed anymore since we are adjusting <span class="math inline">\(n\)</span> to find the smallest number of volunteers. Hence, a binomial distribution would not be appropriate anymore (see part a solution for a detailed requirement for modelling using binomial distribution).</p>
 <p>We would use trial and error approach, computing <span class="math inline">\(P(X \ge 4)\)</span> for different binomial distributions to determine the smallest <span class="math inline">\(n\)</span> where <span class="math inline">\(P(X \ge 4)\)</span> is at least <span class="math inline">\(0.9\)</span>.</p>
 </div>
 </div>
@@ -650,11 +644,9 @@ P(X = 6) &amp;= \binom{6}{6}(0.8)^6(0.2)^0 = 1 \cdot 0.262144 \cdot 1 = 0.26214 
 <section id="question-1-2" class="level3 callout-question" data-collapse="true">
 <h3 class="anchored" data-anchor-id="question-1-2">Question 1</h3>
 <p>Applicants for a new student internship are accepted with probability <span class="math inline">\(p = 0.15\)</span> independently from person to person in the order the applicants are received. Several hundred people are expected to apply. The number of students they will accept is <span class="math inline">\(10\)</span>.</p>
-<ol type="a">
-<li>Find the probability that it will take no more than <span class="math inline">\(100\)</span> applicants to find <span class="math inline">\(10\)</span> students to accept for the program.</li>
-<li>Find the expected value of the number of interviews they will have to undertake to accept <span class="math inline">\(10\)</span> interns.</li>
-<li>Calculate the standard deviation for the number of interviews.</li>
-</ol>
+<p><strong>a)</strong> Find the probability that it will take no more than <span class="math inline">\(100\)</span> applicants to find <span class="math inline">\(10\)</span> students to accept for the program.</p>
+<p><strong>b)</strong> Find the expected value of the number of interviews they will have to undertake to accept <span class="math inline">\(10\)</span> interns.</p>
+<p><strong>c)</strong> Calculate the standard deviation for the number of interviews.</p>
 </section>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
@@ -668,7 +660,7 @@ Solution
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Let <span class="math inline">\(X \sim \text{NB}(10, 0.15)\)</span> be the number of interviews.</p>
+<p><strong>a)</strong> Let <span class="math inline">\(X \sim \text{NB}(10, 0.15)\)</span> be the number of interviews.</p>
 <p>Then we wish to find <span class="math display">\[P(X \leq 100) = \sum_{x=10}^{100} \binom{x - 1}{r - 1} 0.15^{10}(1 - 0.15)^{x - 10} = 0.945\]</span> In R,</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnbinom</span>(<span class="dv">100-10</span>, <span class="dv">10</span>, <span class="fl">0.15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -706,8 +698,10 @@ Solution
 </div>
 </div>
 </div>
-<p>We use the formula of expected value of negative binomial distribution <span class="math display">\[\mathbb{E}(X) = \frac{10}{0.15} = 66.66\]</span></p>
-<p>We use the formula of variance of negative binomial distribution, then square root it <span class="math display">\[\sigma = \sqrt{ \frac{10(1 - 0.15)}{0.15^2} } = 19.43\]</span></p>
+<hr>
+<p><strong>b)</strong> We use the formula of expected value of negative binomial distribution <span class="math display">\[\mathbb{E}(X) = \frac{10}{0.15} = 66.66\]</span></p>
+<hr>
+<p><strong>c)</strong>We use the formula of variance of negative binomial distribution, then square root it <span class="math display">\[\sigma = \sqrt{ \frac{10(1 - 0.15)}{0.15^2} } = 19.43\]</span></p>
 </div>
 </div>
 </div>
@@ -746,7 +740,7 @@ Solution
 </div>
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Let <span class="math inline">\(X\)</span> be the amount of profit on an insurance policy.</p>
+<p><strong>a)</strong> Let <span class="math inline">\(X\)</span> be the amount of profit on an insurance policy.</p>
 <p>We first find the mgf. By definition, <span class="math display">\[M_X(t) = \mathbb{E}(e^{tX}) = e^{-39600t} \cdot \frac{1}{5000}
        + e^{-9600t} \cdot \frac{1}{1000}
        + e^{400t} \cdot \frac{4994}{5000}\]</span></p>
@@ -770,7 +764,8 @@ M_X''(t) = (39600)^2 e^{-39600t} \cdot \frac{1}{5000}
 + 400^2 \cdot \frac{4994}{5000} = 565472000
 \]</span></p>
 <p>Lastly we find the SD: <span class="math display">\[\text{SD}(X) = \sqrt{M_X''(0) - [M_X'(0)]^2} = \sqrt{565472000 - 382^2} = \sqrt{565326076} \approx \boxed{648}\]</span></p>
-<p>To simulate using R</p>
+<hr>
+<p><strong>b)</strong> To simulate using R</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># for reproducibility</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -804,7 +799,9 @@ M_X''(t) = (39600)^2 e^{-39600t} \cdot \frac{1}{5000}
 <section id="midterm-review" class="level1">
 <h1>Midterm Review</h1>
 <div class="callout-question" data-collapse="true">
-<p><strong>Solutions will not be posted for these questions.</strong> ### Question 1</p>
+<p><strong>Solutions will not be posted for these questions.</strong></p>
+<section id="question-1-3" class="level2">
+<h2 class="anchored" data-anchor-id="question-1-3">Question 1</h2>
 <p>The probability mass function <span class="math inline">\(p_X(x)\)</span>, for a discrete variable <span class="math inline">\(X\)</span> is given in the following table.</p>
 <span class="math display">\[\begin{array}{|c|c|c|c|}
 \hline
@@ -848,25 +845,10 @@ P(A \cup B) &amp; P(A \mid B) &amp; P(B \mid A)
 <ol start="2" type="i">
 <li>Compute this probability and list any probability rules/principles that you apply.</li>
 </ol>
+</section>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-</div>
-<section id="question-2-3" class="level3 callout-question" data-collapse="true">
-<h3 class="anchored" data-anchor-id="question-2-3">Question 2</h3>
+<section id="question-2-3" class="level2 callout-question" data-collapse="true">
+<h2 class="anchored" data-anchor-id="question-2-3">Question 2</h2>
 <p>For each of the following R commands, specify the relevant probability distribution and its parameters, and compute the value this code would produce, showing the steps of your calculations.</p>
 <ol type="a">
 <li>rpois(10, 0.5)</li>
@@ -875,24 +857,8 @@ Solution
 <li>pnbinom(1, 1, 0.2)</li>
 </ol>
 </section>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-</div>
-<section id="question-3-2" class="level3 callout-question" data-collapse="true">
-<h3 class="anchored" data-anchor-id="question-3-2">Question 3</h3>
+<section id="question-3-2" class="level2 callout-question" data-collapse="true">
+<h2 class="anchored" data-anchor-id="question-3-2">Question 3</h2>
 <p>It is estimated that <span class="math inline">\(45\%\)</span> of all emails are spam (i.e., junk email). Many of these are marked by spam filters and sent directly to junk mail folders. Some are not. Suppose you are exploring characteristics of messages that might help predict whether or not a message is spam to build a spam filter.</p>
 <p>Suppose <span class="math inline">\(25\%\)</span> of spam emails contain the word “free” compared to <span class="math inline">\(5\%\)</span> of non-spam emails, <span class="math inline">\(15\%\)</span> of spam emails contain the phrase “subject to credit approval” compared to <span class="math inline">\(1\%\)</span> of non-spam emails. Further, suppose <span class="math inline">\(10\%\)</span> of spam messages include the word “free” the phrase “subject to credit approval”, <span class="math inline">\(80\%\)</span> of non-spam messages contain neither the word “free” nor the phrase “subject to credit approval”. Randomly select an incoming email message. Let <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> represent the following events: <span class="math display">\[\begin{align*}
 A &amp;= \text{email is spam (i.e., junk mail)}, \\
@@ -904,24 +870,8 @@ C &amp;= \text{email contains the phrase ``subject to credit approval''}.
 (iii) Compute the probability of this event and list any probability rules/principles that you apply.</p>
 <p><strong>b)</strong> What is the probability that a randomly selected email message is spam given it does not include the word “free”, nor the phrase “subject to credit approval”?</p>
 </section>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-
-</div>
-</div>
-</div>
-<section id="question-4-1" class="level3 callout-question" data-collapse="true">
-<h3 class="anchored" data-anchor-id="question-4-1">Question 4</h3>
+<section id="question-4-1" class="level2 callout-question" data-collapse="true">
+<h2 class="anchored" data-anchor-id="question-4-1">Question 4</h2>
 <p>You are trying to pull an all-nighter to study the night before an exam (<strong>don’t do this for STA237H1</strong>!). There are 10 more hours until your exam. The amount of time, in hours, that you can stay awake to study for can be modeled by a random variable <span class="math inline">\(X\)</span> with PDF <span class="math display">\[
 f(x) =
 \begin{cases}
@@ -936,8 +886,28 @@ ce^{-0.25(x - 2)}, &amp; 2 &lt; x &lt; 10 \\
 <li>You find out that your exam is entirely multiple choice, and if you study for less than <span class="math inline">\(4\)</span> hours, there is a <span class="math inline">\(30\%\)</span> probability that you will pass your exam by randomly guessing the answers. If you study for more than <span class="math inline">\(4\)</span> hours, you will pass for sure. What is the probability that you will pass the exam now? Compute the probability of this event and list any probability rules/principles that you apply.</li>
 </ol>
 </section>
+</section>
+<section id="week-5" class="level1">
+<h1>Week 5</h1>
+<section id="question-1-4" class="level2 callout-question" data-collapse="true">
+<h2 class="anchored" data-anchor-id="question-1-4">Question 1</h2>
+<p>Suppose <span class="math inline">\(Y\)</span> has pdf <span class="math display">\[f_Y(y) =
+\begin{cases}
+c(2 - y), &amp; 0 \leq y \leq 2 \\
+0, &amp; \text{otherwise}
+\end{cases}\]</span></p>
+<p>For this distribution, find each of the following. Be sure to show your steps.</p>
+<p><strong>a)</strong> <span class="math inline">\(c\)</span></p>
+<p><strong>b)</strong> <span class="math inline">\(F_Y(y)\)</span></p>
+<p><strong>c)</strong> <span class="math inline">\(\mathbb{P}(1 &lt; Y \leq 2)\)</span></p>
+<p><strong>d)</strong> The expected value and variance of a continuous random variable can be determined using its pdf, similar to how we used pmfs for discrete random variables; now instead of summing, we integrate.</p>
+<ol type="i">
+<li><span class="math inline">\(E(Y) = \int_{-\infty}^{\infty} y f_Y(y) \, dy\)</span></li>
+<li><span class="math inline">\(V(Y) = \int_{-\infty}^{\infty} [y - E(Y)]^2 f_Y(y) \, dy\)</span></li>
+</ol>
+</section>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -946,10 +916,184 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-
+<p><strong>a)</strong> Using the fact that the total area under the curve of a valid pdf must be <span class="math inline">\(1\)</span>, we have do the following</p>
+<p><span class="math display">\[\begin{align*}
+c \int_0^2 (2 - y) \, dy &amp;= 1 \\
+c \left[ 2y - \frac{y^2}{2} \right]_0^2 &amp;= 1 \\
+c \left( 2(2) - \frac{2^2}{2} \right) &amp;= 1 \\
+c(4 - 2) &amp;= 1 \\
+2c &amp;= 1 \\
+\Rightarrow \boxed{c = \frac{1}{2}}
+\end{align*}\]</span></p>
+<hr>
+<p><strong>b)</strong> We find the cdf by integrating the pdf:</p>
+<p><span class="math display">\[\boxed{
+F_Y(y) =
+\begin{cases}
+0, &amp; y &lt; 0 \\[6pt]
+\displaystyle \int_0^y \frac{1}{2}(2 - t) \, dt = y - \dfrac{y^2}{4}, &amp; 0 \leq y \leq 2 \\[6pt]
+1, &amp; y &gt; 2
+\end{cases}}
+\]</span></p>
+<hr>
+<p><strong>c)</strong> Since <span class="math display">\[\mathbb{P}(1 &lt; Y \leq 2) = F_Y(2) - F_Y(1)\]</span> So then from part b, we can compute</p>
+<p><span class="math display">\[\begin{align*}
+F_Y(2) &amp;= 2 - \frac{2^2}{4} = 2 - 1 = 1 \\
+F_Y(1) &amp;= 1 - \frac{1^2}{4} = 1 - \frac{1}{4} = \frac{3}{4}
+\end{align*}\]</span></p>
+<p>Thus, <span class="math display">\[\mathbb{P}(1 &lt; Y \leq 2) = 1 - \frac{3}{4} = \boxed{\frac{1}{4}}\]</span></p>
+<hr>
+<p><strong>d)</strong></p>
+<ol type="i">
+<li>We compute the mean of <span class="math inline">\(Y\)</span> from the definition,</li>
+</ol>
+<p><span class="math display">\[\begin{align*}
+\mu = \mathbb{E}(Y)
+&amp;= \int_0^2 y \cdot \frac{1}{2}(2 - y) \, dy \\
+&amp;= \frac{1}{2} \int_0^2 y(2 - y) \, dy \\
+&amp;= \frac{1}{2} \int_0^2 (2y - y^2) \, dy \\
+&amp;= \frac{1}{2} \left[ y^2 - \frac{y^3}{3} \right]_0^2 \\
+&amp;= \frac{1}{2} \left( 4 - \frac{8}{3} \right) \\
+&amp;= \frac{1}{2} \cdot \frac{4}{3} = \boxed{\frac{2}{3}}
+\end{align*}\]</span></p>
+<ol start="2" type="i">
+<li>Like in the discrete case, we can express the variance <span class="math inline">\(\mathbb{V}(Y) = \mathbb{E}(Y^2) - \left( \mathbb{E}(Y) \right)^2\)</span>.So first, we get</li>
+</ol>
+<p><span class="math display">\[\begin{align*}
+\mathbb{E}(Y^2)
+&amp;= \int_0^2 y^2 \cdot \frac{1}{2}(2 - y) \, dy \\
+&amp;= \frac{1}{2} \int_0^2 (2y^2 - y^3) \, dy \\
+&amp;= \frac{1}{2} \left[ \frac{2y^3}{3} - \frac{y^4}{4} \right]_0^2 \\
+&amp;= \frac{1}{2} \left( \frac{16}{3} - \frac{16}{4} \right) \\
+&amp;= \frac{1}{2} \left( \frac{16}{3} - 4 \right) = \frac{1}{2} \cdot \frac{4}{3} = \boxed{\frac{2}{3}}
+\end{align*}\]</span></p>
+<p>Then, <span class="math display">\[\begin{align*}
+\sigma^2 = \mathbb{V}(Y)
+&amp;= \mathbb{E}(Y^2) - \left( \mathbb{E}(Y) \right)^2 \\
+&amp;= \frac{2}{3} - \left( \frac{2}{3} \right)^2 \\
+&amp;= \frac{2}{3} - \frac{4}{9} = \boxed{\frac{2}{9}}
+\end{align*}\]</span></p>
 </div>
+</div>
+</div>
+<section id="question-2-4" class="level2 callout-question" data-collapse="true">
+<h2 class="anchored" data-anchor-id="question-2-4">Question 2</h2>
+<p>Consider the continuous random variable <span class="math inline">\(X\)</span> with pdf given by</p>
+<p><span class="math display">\[
+f_X(x) =
+\begin{cases}
+2e^{-2x}, &amp; x \geq 0 \\
+0, &amp; \text{otherwise}
+\end{cases}
+\]</span></p>
+<p><strong>a)</strong> What is the cdf of <span class="math inline">\(X\)</span>?</p>
+<p><strong>b)</strong> Find <span class="math inline">\(E(X)\)</span>. Be sure to show your steps.</p>
+<p><strong>c)</strong> Determine <span class="math inline">\(F^{-1}(U)\)</span> and use R to simulate 10,000 observations from this pdf by the inverse transform method. Note that the <em>runif(n, min = a, max = b)</em> R function can be used to simulate <span class="math inline">\(n\)</span> realizations of a <span class="math inline">\(Unif(a, b)\)</span> random variable.</p>
+<p><strong>d)</strong> Compute the mean of the generated observations and compare the result with <span class="math inline">\(E(X)\)</span> that was obtained in part (b).</p>
+</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>a)</strong> We need to integrate the pdf to get the final answer</p>
+<p><span class="math display">\[\boxed{
+F_X(x) =
+\begin{cases}
+0, &amp; x &lt; 0 \\[6pt]
+1 - e^{-2x}, &amp; x \geq 0
+\end{cases}
+}\]</span></p>
+<hr>
+<p><strong>b)</strong> We use the definition of the expected value</p>
+<p><span class="math display">\[\begin{align*}
+\mathbb{E}(X) &amp;= \int_{0}^{\infty} x \cdot 2e^{-2x} \, dx
+\end{align*}\]</span></p>
+<p>Use integration by parts:</p>
+<p>Let <span class="math inline">\(u = x\)</span>, <span class="math inline">\(dv = 2e^{-2x}dx\)</span><br>
+Then <span class="math inline">\(du = dx\)</span>, <span class="math inline">\(v = -e^{-2x}\)</span></p>
+<p><span class="math display">\[\begin{align*}
+\mathbb{E}(X) &amp;= \left[ -x e^{-2x} \right]_0^\infty + \int_0^\infty e^{-2x} \, dx \\
+&amp;= 0 + \left[ -\frac{1}{2} e^{-2x} \right]_0^\infty \\
+&amp;= \boxed{\frac{1}{2}}
+\end{align*}\]</span></p>
+<hr>
+<p><strong>c)</strong></p>
+<p>From part a, we found that <span class="math display">\[F_X(x) = 1 - e^{-2x}, \quad x \geq 0\]</span></p>
+<p>Let ( U (0, 1) ), and solve: <span class="math display">\[\begin{align*}
+U &amp;= 1 - e^{-2x} \\
+e^{-2x} &amp;= 1 - U \\
+-2x &amp;= \ln(1 - U) \\
+x &amp;= -\frac{1}{2} \ln(1 - U)
+\end{align*}\]</span></p>
+<p>So the inverse cdf is <span class="math inline">\(F_X^{-1}(U) = -\frac{1}{2} \ln(1 - U)\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2025</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>lambda <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Inverse transform sampling</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">runif</span>(n)</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> u) <span class="sc">/</span> lambda</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot histogram with density overlay</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  x,</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="dv">30</span>,</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">probability =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">"skyblue"</span>,</span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">border =</span> <span class="st">"white"</span>,</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">"x"</span>,</span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">"Histogram of Simulated X Values (Inverse Transform)"</span></span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Overlay true exponential density for comparison</span></span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dexp</span>(x, <span class="at">rate =</span> lambda), <span class="at">col =</span> <span class="st">"darkred"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"True density exp(2)"</span>), <span class="at">col =</span> <span class="st">"darkred"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="STA237-Summer-2025_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+<p><strong>d)</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5003358</code></pre>
+</div>
+</div>
+<p>Note that this is very close to the theoretical mean of the exponential distribution in part b.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Note: Inverse Transform Method</strong>. In part c, we’ve learned how to simulate random values from a specific distribution using just uniform random numbers (which computers are really good at generating).</p>
+<p>Since we want values from an Exponential distribution, and we already know its cdf, we can work backwards to get a formula that tells us how to turn a Uniform(0,1) value into an Exponential one. This is the <a href="https://en.wikipedia.org/wiki/Inverse_transform_sampling">inverse transform method</a>.</p>
+<p>This is indeed how R’s built-in function <em>rexp()</em> (and for many other distributions) work under the hood.</p>
 </div>
 </div>
 
