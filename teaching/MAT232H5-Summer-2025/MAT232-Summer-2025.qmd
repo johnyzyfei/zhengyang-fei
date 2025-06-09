@@ -109,7 +109,7 @@ A unit vector is any vector with magnitute of $1$. The standard basis is an exam
 
 # Week 4
 
-Week 4 tutorial notes [TBP](){download="week4"}
+Week 4 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week4.pdf){download="week4"}
 
 ## Linear Algebra in 3D (Part II)
 
@@ -214,7 +214,7 @@ where
 The scalar equation of the plane is $$a(x - x_0) + b(y - y_0) + c(z - z_0) = 0$$
 
 ::: callout-note
-**Example: Vector and Scalar Equations**
+**Example: Vector and Scalar Equations**.
 
 Given: $$\vec{r}_0 = \langle 1, 2, 3 \rangle, \quad \vec{n} = \langle 4, -2, 5 \rangle, \quad \vec{r} = \langle x, y, z \rangle$$
 
@@ -229,7 +229,7 @@ Dot product gives the scalar equation: $$4(x - 1) - 2(y - 2) + 5(z - 3) = 0 \qua
 
 # Week 5
 
-Week 5 tutorial notes[TBP](){download="week5"}
+Week 5 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week5.pdf){download="week5"}
 
 ## Vector Functions
 
@@ -249,7 +249,7 @@ Next, let's talk about the derivatives of vector functions. $$\frac{d\bar{r}}{dt
 Note that the derivative of a vector function is just the vector of the derivatives of its components. That is, $$\bar{r}'(t) = \langle f'(t), g'(t), h'(t) \rangle = f'(t)\bar{i} + g'(t)\bar{j} + h'(t)\bar{k}$$
 
 ::: callout-note
-Theorem: Differential Rules of Vector Functions.
+**Theorem: Differential Rules of Vector Functions**.
 
 Suppose that $\vec{u}(t)$ and $\vec{v}(t)$ are differentiable vector functions, $c$ is a scalar, and $f$ is a real-valued function. Then, \begin{align}
 &1.\quad \frac{d}{dt}[\vec{u}(t) + \vec{v}(t)] = \vec{u}'(t) + \vec{v}'(t) \\
@@ -273,3 +273,57 @@ L &= \int_a^b \sqrt{[f'(t)]^2 + [g'(t)]^2 + [h'(t)]^2} \, dt \\
   &= \int_a^b \sqrt{\left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 + \left( \frac{dz}{dt} \right)^2} \, dt \\
   &= \int_a^b \left| \vec{r}\,'(t) \right| \, dt
 \end{align}
+
+# Week 6
+
+Week 6 tutorial notes [TBP](){download="week5"}
+
+## Functions of Two Variables
+
+A function $f$ of two variables is a rule that assigns to each ordered pair of real numbers $(x, y)$ in a set $D$ a unique real number denoted by $f(x, y)$. The set $D$ is the domain of $f$ and its range is the set of values that $f$ takes on, that is, $$\{f(x,y) | (x,y) \in D\}$$ The graph of $f$ is the set of all points $(x, y, z) \in R^3$ such that $z = f(x, y)$ and $(x, y) \in D$.
+
+To visualize $z = f(x,y)$, one method is to set the equation $f(x, y) = k$ where $k$ is a constant. Geometrically, they are like elevation lines on a topographic map where each level marks a specific height.
+
+## Calculus with Functions of Two Variables
+
+For a function $f(x, y)$, we define its first partial derivatives $f_x$ and $f_y$ as $$
+f_x(x, y) = \lim_{h \to 0} \frac{f(x + h, y) - f(x, y)}{h}
+\qquad
+f_y(x, y) = \lim_{h \to 0} \frac{f(x, y + h) - f(x, y)}{h}
+$$ provided that the limit(s) exists. Note its similarity to the definitions of the single variable case.
+
+There are many alternate notations for partial derivatives. Below are some most common ones used
+
+$$
+\begin{aligned}
+f_x(x, y) = f_x &= \frac{\partial f}{\partial x} = \frac{\partial}{\partial x} \left( f(x, y) \right) = z_x = \frac{\partial z}{\partial x} = D_x f \\
+f_y(x, y) = f_y &= \frac{\partial f}{\partial y} = \frac{\partial}{\partial y} \left( f(x, y) \right) = z_y = \frac{\partial z}{\partial y} = D_y f
+\end{aligned}
+$$
+
+To compute the derivative with respect to one variable $x$, we regard the other variable $y$ as constant and differentiate $f(x,y)$ with respect to $x$; the same applies when differentiating with respect to $y$.
+
+When computing derivatives of second order, we use the following notation which can be extended to three or more variables. These are sometimes called mixed partial derivatives since we are taking derivatives with respect to more than one variable. $$
+\begin{aligned}
+(f_x)_x = f_{xx} = f_{11} &= \frac{\partial}{\partial x} \left( \frac{\partial f}{\partial x} \right) 
+= \frac{\partial^2 f}{\partial x^2} = \frac{\partial^2 z}{\partial x^2} \\
+(f_y)_x = f_{yx} = f_{21} &= \frac{\partial}{\partial x} \left( \frac{\partial f}{\partial y} \right) 
+= \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 z}{\partial x \partial y} \\
+(f_x)_y = f_{xy} = f_{12} &= \frac{\partial}{\partial y} \left( \frac{\partial f}{\partial x} \right) 
+= \frac{\partial^2 f}{\partial y \partial x} = \frac{\partial^2 z}{\partial y \partial x} \\
+(f_y)_y = f_{yy} = f_{22} &= \frac{\partial}{\partial y} \left( \frac{\partial f}{\partial y} \right) 
+= \frac{\partial^2 f}{\partial y^2} = \frac{\partial^2 z}{\partial y^2}
+\end{aligned}
+$$
+
+Note that the notation might be confusing at first glance, since sometimes it is read from left to right and others right to left.
+
+In general, it is *not* true that $f_{xy} = f_{yx}$. However the below theorem states when this is satisfied.
+
+::: callout-note
+**Theorem: Clairaut’s Theorem**.
+
+Suppose that $f$ is defined on a disk $D$ that contains the point $(a, b)$. If the functions $f_{x,y}$ and $f_{y, x}$ are both continuous on $D$, then $$f_{xy}(a,b) = f_{yx}(a,b)$$
+:::
+
+Lastly, if we suppose that $f$ has continuous partial derivatives, then an equation of the tangent plane to the surface $z = f(x, y)$ at the point $P(x_0, y_0, z_0)$ is $$z - z_0 = f_x(x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y - y_0)$$

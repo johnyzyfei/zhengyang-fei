@@ -243,6 +243,7 @@ window.Quarto = {
 
 
 <p>Acknowledgements: This page contains tutorial notes for <a href="https://artsci.calendar.utoronto.ca/course/sta237h1">STA237H1 Probability, Statistics and Data Analysis I</a> Summer 2025 under the instruction of <a href="https://graciadong.github.io/">Dr.&nbsp;Gracia Yunruo Dong</a>.</p>
+<p>The notes are up to date as of June 9, 2026. If you have any feedback based on your experience over the course of this semester, please share it using <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxa5pBOhz2qPJXdqHNaIE6RcbXY8KylWueBeOSSwk_7BEIIg/viewform?usp=header">this link</a>, which contains 8 short questions. Your input would be greatly appreciated—thank you!</p>
 <section id="week-1" class="level1">
 <h1>Week 1</h1>
 <section id="question-1" class="level3 callout-question" data-collapse="true">
@@ -1164,6 +1165,7 @@ Solution
 <div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Using the formula <span class="math inline">\(x_p = \frac{1}{1 - p}\)</span>, we plug in and see that <span class="math display">\[x_{0.5} = 2,\ x_{0.75} = 4,\ x = 2,\ x_{0.95} = 20,\ x_{0.99} = 100\]</span></p>
+<p>To derive the formula from the cdf, set <span class="math inline">\(a = m = 1\)</span> <span class="math display">\[F(x) = 1 - \frac{1}{x}\]</span> To find the p-th quantile, we solve <span class="math display">\[F(x_p) = p \implies 1 - \frac{1}{x_p} = p \implies x_p = \frac{1}{1-p}\]</span></p>
 </div>
 </div>
 </div>
@@ -1207,7 +1209,7 @@ Solution
 </div>
 </div>
 <p>Since <span class="math inline">\(a &lt; 1\)</span>, the mean and variance are both infinity. So the estimated mean and variance will not match their theoretical counterparts.</p>
-<p>The issue lies within having too small of an <span class="math inline">\(a\)</span>, leading the distribution to be heavily left-skewed. For the estimation to be more accurate, we need a larger <span class="math inline">\(a\)</span> (e.g.&nbsp;<span class="math inline">\(a &gt; 2\)</span>). Note that increasing sample size won’t help much in this case, since the mean and variance are infinity.</p>
+<p>The issue lies within having too small of an <span class="math inline">\(a\)</span>, leading the distribution to be heavily right-skewed. For the estimation to be more accurate, we need a larger <span class="math inline">\(a\)</span> (e.g.&nbsp;<span class="math inline">\(a &gt; 2\)</span>). Note that increasing sample size won’t help much in this case, since the mean and variance are infinity.</p>
 </div>
 </div>
 </div>
@@ -1233,7 +1235,6 @@ Solution
 \approx 5.2284 \implies \sigma \approx \sqrt{5.2284} \approx 2.287\]</span></p>
 <p>Next, we compute the threshold (here <span class="math inline">\(k = 4\)</span>) <span class="math display">\[\mu + 4\sigma \approx 3.422 + 4 \times 2.287 = 12.57\]</span> Lastly, we use the Pareto cdf to compute the probability <span class="math display">\[P(X &gt; x) = \left( \frac{m}{x} \right)^a
 \Rightarrow P(X &gt; 12.57) = \left( \frac{2.2}{12.57} \right)^{2.8} \approx \boxed{0.0076}\]</span></p>
-<p>In, R</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">ppareto</span>(<span class="dv">4</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="fl">5.228395</span>)<span class="sc">+</span><span class="fl">3.422222</span>, <span class="at">location=</span><span class="fl">2.2</span>, </span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="at">shape=</span><span class="fl">2.8</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1262,7 +1263,6 @@ Solution
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\(X\)</span> denote the aggregate losses on an auto insurance, so <span class="math inline">\(X \sim \text{Par}(m = 800, a = 4)\)</span>.</p>
 <p>Then <span class="math display">\[P(X &gt; 1000) = \left( \frac{800}{1000} \right)^4 = 0.4096\]</span></p>
-<p>In R,</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">ppareto</span>(<span class="dv">1000</span>,<span class="dv">800</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1293,7 +1293,6 @@ Solution
 <p>Let <span class="math inline">\(X\)</span> denote the income of a certain population. It follows that <span class="math inline">\(X \text{Par}(1000, 3)\)</span>.</p>
 <p>The desired proportion is given by</p>
 <p><span class="math display">\[P(2000 &lt; X &lt; 4000) = F(4000) - F(2000) = \left( \frac{1000}{2000} \right)^3 - \left( \frac{1000}{4000} \right)^3 = 0.1094\]</span></p>
-<p>In R,</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ppareto</span>(<span class="dv">4000</span>,<span class="dv">1000</span>,<span class="dv">3</span>)<span class="sc">-</span><span class="fu">ppareto</span>(<span class="dv">2000</span>,<span class="dv">1000</span>,<span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">

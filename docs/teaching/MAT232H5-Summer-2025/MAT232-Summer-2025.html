@@ -172,6 +172,7 @@ window.Quarto = {
   <li><a href="#week-3" id="toc-week-3" class="nav-link" data-scroll-target="#week-3">Week 3</a></li>
   <li><a href="#week-4" id="toc-week-4" class="nav-link" data-scroll-target="#week-4">Week 4</a></li>
   <li><a href="#week-5" id="toc-week-5" class="nav-link" data-scroll-target="#week-5">Week 5</a></li>
+  <li><a href="#week-6" id="toc-week-6" class="nav-link" data-scroll-target="#week-6">Week 6</a></li>
   </ul>
 </nav>
     </div>
@@ -182,7 +183,9 @@ window.Quarto = {
 <div class="quarto-title">
 <h1 class="title">MAT232: Calculus of Several Variables</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Calculus</div>
+    <div class="quarto-category">Multivariable Calculus</div>
+    <div class="quarto-category">Linear Algebra</div>
+    <div class="quarto-category">Vector Calculus</div>
   </div>
   </div>
 
@@ -288,7 +291,7 @@ x^2 = 4py, \hspace{0.5cm} \text{or} \hspace{0.5cm} y^2 = 4px  \\
 </section>
 <section id="week-4" class="level1">
 <h1>Week 4</h1>
-<p>Week 4 tutorial notes <a href="" download="week4">TBP</a></p>
+<p>Week 4 tutorial notes <a href="../..\teaching/MAT232H5-Summer-2025/week4.pdf" download="week4">Here</a></p>
 <section id="linear-algebra-in-3d-part-ii" class="level2">
 <h2 class="anchored" data-anchor-id="linear-algebra-in-3d-part-ii">Linear Algebra in 3D (Part II)</h2>
 <p>In this section, we continue from last week’s discussion about linear algebra in <span class="math inline">\(\mathbb{R}^3\)</span> by introducing the dot product, cross product, and the forms of equations of lines and planes.</p>
@@ -417,7 +420,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Example: Vector and Scalar Equations</strong></p>
+<p><strong>Example: Vector and Scalar Equations</strong>.</p>
 <p>Given: <span class="math display">\[\vec{r}_0 = \langle 1, 2, 3 \rangle, \quad \vec{n} = \langle 4, -2, 5 \rangle, \quad \vec{r} = \langle x, y, z \rangle\]</span></p>
 <p>The vector equation of the plane is: <span class="math display">\[\vec{n} \cdot (\vec{r} - \vec{r}_0) = 0\]</span></p>
 <p>Substitute the vectors: <span class="math display">\[\langle 4, -2, 5 \rangle \cdot \left( \langle x, y, z \rangle - \langle 1, 2, 3 \rangle \right) = 0\]</span></p>
@@ -429,7 +432,7 @@ Note
 </section>
 <section id="week-5" class="level1">
 <h1>Week 5</h1>
-<p>Week 5 tutorial notes<a href="" download="week5">TBP</a></p>
+<p>Week 5 tutorial notes <a href="../..\teaching/MAT232H5-Summer-2025/week5.pdf" download="week5">Here</a></p>
 <section id="vector-functions" class="level2">
 <h2 class="anchored" data-anchor-id="vector-functions">Vector Functions</h2>
 <p>A vector function is a function that takes one (or more) variables and returns a vector of functions. We will only discuss the case where the function takes one variable.</p>
@@ -450,7 +453,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Theorem: Differential Rules of Vector Functions.</p>
+<p><strong>Theorem: Differential Rules of Vector Functions</strong>.</p>
 <p>Suppose that <span class="math inline">\(\vec{u}(t)\)</span> and <span class="math inline">\(\vec{v}(t)\)</span> are differentiable vector functions, <span class="math inline">\(c\)</span> is a scalar, and <span class="math inline">\(f\)</span> is a real-valued function. Then, <span class="math display">\[\begin{align}
 &amp;1.\quad \frac{d}{dt}[\vec{u}(t) + \vec{v}(t)] = \vec{u}'(t) + \vec{v}'(t) \\
 &amp;2.\quad \frac{d}{dt}[c \vec{u}(t)] = c \vec{u}'(t) \\
@@ -472,6 +475,60 @@ L &amp;= \int_a^b \sqrt{[f'(t)]^2 + [g'(t)]^2 + [h'(t)]^2} \, dt \\
   &amp;= \int_a^b \sqrt{\left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 + \left( \frac{dz}{dt} \right)^2} \, dt \\
   &amp;= \int_a^b \left| \vec{r}\,'(t) \right| \, dt
 \end{align}\]</span></p>
+</section>
+</section>
+<section id="week-6" class="level1">
+<h1>Week 6</h1>
+<p>Week 6 tutorial notes<a href="" download="week5">TBP</a></p>
+<section id="functions-of-two-variables" class="level2">
+<h2 class="anchored" data-anchor-id="functions-of-two-variables">Functions of Two Variables</h2>
+<p>A function <span class="math inline">\(f\)</span> of two variables is a rule that assigns to each ordered pair of real numbers <span class="math inline">\((x, y)\)</span> in a set <span class="math inline">\(D\)</span> a unique real number denoted by <span class="math inline">\(f(x, y)\)</span>. The set <span class="math inline">\(D\)</span> is the domain of <span class="math inline">\(f\)</span> and its range is the set of values that <span class="math inline">\(f\)</span> takes on, that is, <span class="math display">\[\{f(x,y) | (x,y) \in D\}\]</span> The graph of <span class="math inline">\(f\)</span> is the set of all points <span class="math inline">\((x, y, z) \in R^3\)</span> such that <span class="math inline">\(z = f(x, y)\)</span> and <span class="math inline">\((x, y) \in D\)</span>.</p>
+<p>To visualize <span class="math inline">\(z = f(x,y)\)</span>, one method is to set the equation <span class="math inline">\(f(x, y) = k\)</span> where <span class="math inline">\(k\)</span> is a constant. Geometrically, they are like elevation lines on a topographic map where each level marks a specific height.</p>
+</section>
+<section id="calculus-with-functions-of-two-variables" class="level2">
+<h2 class="anchored" data-anchor-id="calculus-with-functions-of-two-variables">Calculus with Functions of Two Variables</h2>
+<p>For a function <span class="math inline">\(f(x, y)\)</span>, we define its first partial derivatives <span class="math inline">\(f_x\)</span> and <span class="math inline">\(f_y\)</span> as <span class="math display">\[
+f_x(x, y) = \lim_{h \to 0} \frac{f(x + h, y) - f(x, y)}{h}
+\qquad
+f_y(x, y) = \lim_{h \to 0} \frac{f(x, y + h) - f(x, y)}{h}
+\]</span> provided that the limit(s) exists. Note its similarity to the definitions of the single variable case.</p>
+<p>There are many alternate notations for partial derivatives. Below are some most common ones used</p>
+<p><span class="math display">\[
+\begin{aligned}
+f_x(x, y) = f_x &amp;= \frac{\partial f}{\partial x} = \frac{\partial}{\partial x} \left( f(x, y) \right) = z_x = \frac{\partial z}{\partial x} = D_x f \\
+f_y(x, y) = f_y &amp;= \frac{\partial f}{\partial y} = \frac{\partial}{\partial y} \left( f(x, y) \right) = z_y = \frac{\partial z}{\partial y} = D_y f
+\end{aligned}
+\]</span></p>
+<p>To compute the derivative with respect to one variable <span class="math inline">\(x\)</span>, we regard the other variable <span class="math inline">\(y\)</span> as constant and differentiate <span class="math inline">\(f(x,y)\)</span> with respect to <span class="math inline">\(x\)</span>; the same applies when differentiating with respect to <span class="math inline">\(y\)</span>.</p>
+<p>When computing derivatives of second order, we use the following notation which can be extended to three or more variables. These are sometimes called mixed partial derivatives since we are taking derivatives with respect to more than one variable. <span class="math display">\[
+\begin{aligned}
+(f_x)_x = f_{xx} = f_{11} &amp;= \frac{\partial}{\partial x} \left( \frac{\partial f}{\partial x} \right)
+= \frac{\partial^2 f}{\partial x^2} = \frac{\partial^2 z}{\partial x^2} \\
+(f_y)_x = f_{yx} = f_{21} &amp;= \frac{\partial}{\partial x} \left( \frac{\partial f}{\partial y} \right)
+= \frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 z}{\partial x \partial y} \\
+(f_x)_y = f_{xy} = f_{12} &amp;= \frac{\partial}{\partial y} \left( \frac{\partial f}{\partial x} \right)
+= \frac{\partial^2 f}{\partial y \partial x} = \frac{\partial^2 z}{\partial y \partial x} \\
+(f_y)_y = f_{yy} = f_{22} &amp;= \frac{\partial}{\partial y} \left( \frac{\partial f}{\partial y} \right)
+= \frac{\partial^2 f}{\partial y^2} = \frac{\partial^2 z}{\partial y^2}
+\end{aligned}
+\]</span></p>
+<p>Note that the notation might be confusing at first glance, since sometimes it is read from left to right and others right to left.</p>
+<p>In general, it is <em>not</em> true that <span class="math inline">\(f_{xy} = f_{yx}\)</span>. However the below theorem states when this is satisfied.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Theorem: Clairaut’s Theorem</strong>.</p>
+<p>Suppose that <span class="math inline">\(f\)</span> is defined on a disk <span class="math inline">\(D\)</span> that contains the point <span class="math inline">\((a, b)\)</span>. If the functions <span class="math inline">\(f_{x,y}\)</span> and <span class="math inline">\(f_{y, x}\)</span> are both continuous on <span class="math inline">\(D\)</span>, then <span class="math display">\[f_{xy}(a,b) = f_{yx}(a,b)\]</span></p>
+</div>
+</div>
+<p>Lastly, if we suppose that <span class="math inline">\(f\)</span> has continuous partial derivatives, then an equation of the tangent plane to the surface <span class="math inline">\(z = f(x, y)\)</span> at the point <span class="math inline">\(P(x_0, y_0, z_0)\)</span> is <span class="math display">\[z - z_0 = f_x(x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y - y_0)\]</span></p>
 
 
 </section>
