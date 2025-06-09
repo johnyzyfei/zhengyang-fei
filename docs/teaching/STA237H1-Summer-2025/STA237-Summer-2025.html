@@ -206,6 +206,7 @@ window.Quarto = {
   <li><a href="#week-3" id="toc-week-3" class="nav-link" data-scroll-target="#week-3">Week 3</a></li>
   <li><a href="#midterm-review" id="toc-midterm-review" class="nav-link" data-scroll-target="#midterm-review">Midterm Review</a></li>
   <li><a href="#week-5" id="toc-week-5" class="nav-link" data-scroll-target="#week-5">Week 5</a></li>
+  <li><a href="#week-6" id="toc-week-6" class="nav-link" data-scroll-target="#week-6">Week 6</a></li>
   </ul>
 </nav>
     </div>
@@ -1077,7 +1078,7 @@ x &amp;= -\frac{1}{2} \ln(1 - U)
 <pre><code>[1] 0.5003358</code></pre>
 </div>
 </div>
-<p>Note that this is very close to the theoretical mean of the exponential distribution in part b.</p>
+<p>Note that this (ie. the expected value calculated using the Inverse Transform Method) is very close to the theoretical mean of the exponential distribution in part b.</p>
 </div>
 </div>
 </div>
@@ -1094,6 +1095,212 @@ Note
 <p><strong>Note: Inverse Transform Method</strong>. In part c, we’ve learned how to simulate random values from a specific distribution using just uniform random numbers (which computers are really good at generating).</p>
 <p>Since we want values from an Exponential distribution, and we already know its cdf, we can work backwards to get a formula that tells us how to turn a Uniform(0,1) value into an Exponential one. This is the <a href="https://en.wikipedia.org/wiki/Inverse_transform_sampling">inverse transform method</a>.</p>
 <p>This is indeed how R’s built-in function <em>rexp()</em> (and for many other distributions) work under the hood.</p>
+</div>
+</div>
+</section>
+<section id="week-6" class="level1">
+<h1>Week 6</h1>
+<p>A continuous random variable <span class="math inline">\(X\)</span> is said to have a pareto distribution with location parameter <span class="math inline">\(m\)</span> and shape parameter <span class="math inline">\(a\)</span>, if its probability density function is of the form <span class="math display">\[f(x) = \frac{a m^a}{x^{a+1}}, \quad \text{for } x \geq m\]</span> and zero if <span class="math inline">\(x &lt; m\)</span>.</p>
+<p>Vilfredo Pareto originally used this distribution to describe the allocation of wealth among individuals since it seemed to show rather well the way that a larger portion of the wealth of any society is owned by a smaller percentage of the people in that society. He also used it to describe distribution of income. This idea is sometimes expressed more simply as the Pareto principle or the “80-20 rule” which says that <span class="math inline">\(20\%\)</span> of the population controls <span class="math inline">\(80\%\)</span> of the wealth. Today, the Pareto distribution is often used to model catastrophic events where a claim might have a very large value (e.g., extreme weather events, war, etc.). We denote it as <span class="math inline">\(X \sim \text{Par}(m, a)\)</span>, where <span class="math inline">\(m, a &gt; 0\)</span>.</p>
+<p>This distribution is right-skewed, and it is characterized by its heavy long tail. One way to plot this pdf in R is given by the following code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("EnvStats") </span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EnvStats) </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="dv">100</span>; m<span class="ot">&lt;-</span><span class="dv">1</span>; a<span class="ot">&lt;-</span><span class="fl">0.5</span> <span class="co"># location=1 &amp; shape=0.5 </span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">20</span>,<span class="at">length=</span>n) <span class="co"># equally-spaced sequence from 1 to 20 </span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>y<span class="ot">&lt;-</span><span class="fu">dpareto</span>(x,m,a) </span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y,<span class="at">type=</span><span class="st">"l"</span>) </span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>,<span class="at">lty=</span><span class="dv">2</span>) <span class="co"># adds dotted line at y=0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="STA237-Summer-2025_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There are no built-in pareto distribution functions in base R, so we need to first install and load R package <em>EnvStats</em> to use the functions <em>dpareto()</em>, <em>ppareto()</em>, <em>qpareto()</em> and <em>rpareto()</em>. In these functions, the location (m) and shape (a) parameters should be entered as the second and third arguments, respectively, unless you name them (i.e., define location=, and shape= in the inputs).</p>
+<p>The mean and variance diverge if parameter α is not large enough. In particular, the mean is <span class="math display">\[\mu = E(X) = \frac{am}{a - 1} \quad \text{if } a &gt; 1\]</span></p>
+<p>and the variance is<br>
+<span class="math display">\[\sigma^2 = \mathrm{Var}(X) = \frac{am^2}{(a - 1)^2 (a - 2)} \quad \text{if } a &gt; 2\]</span> If <span class="math inline">\(a \le 1\)</span> the mean is infinity (diverges) and if <span class="math inline">\(a \le 2\)</span> the variance is infinity (diverges). For this reason, the moment generating function does not exist.</p>
+<p>The cumulative distribution function is given in closed form <span class="math display">\[F(x) = 1 - \left( \frac{m}{x} \right)^a \quad \text{for } x \geq m\]</span></p>
+<p>and zero otherwise.</p>
+<p>The p-th quantile (or 100p-th percentile), denoted as <span class="math inline">\(x_p\)</span> is given by <span class="math display">\[x_p = m(1 - p)^{-\frac{1}{a}}\]</span></p>
+<div class="callout-question" data-collapse="true">
+<section id="question-1-5" class="level2">
+<h2 class="anchored" data-anchor-id="question-1-5">Question 1</h2>
+<p>Prove that when <span class="math inline">\(a = m = 1\)</span>, then <span class="math inline">\(\mathbb{E}(X)\)</span> does not exist (it diverges to infinity).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>By definition, <span class="math display">\[E(X) = \int_1^{\infty} x \cdot \frac{1}{x^2} \, dx = \int_1^{\infty} \frac{1}{x} \, dx = \log(x)\big|_1^{\infty} = \lim_{n \to \infty} \log(x) - \log(1) = \infty - 0 = \infty
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-2-5" class="level2">
+<h2 class="anchored" data-anchor-id="question-2-5">Question 2</h2>
+<p>For <span class="math inline">\(a = m = 1\)</span>, obtain the pth quantiles where <span class="math inline">\(p = 0.5, 0.75, 0.9, 0.95, 0.99\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Using the formula <span class="math inline">\(x_p = \frac{1}{1 - p}\)</span>, we plug in and see that <span class="math display">\[x_{0.5} = 2,\ x_{0.75} = 4,\ x = 2,\ x_{0.95} = 20,\ x_{0.99} = 100\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-3-3" class="level2">
+<h2 class="anchored" data-anchor-id="question-3-3">Question 3</h2>
+<p>Sample <span class="math inline">\(n=100\)</span> random values from a Pareto distribution with parameters <span class="math inline">\(a = 0.5\)</span> and <span class="math inline">\(m=1\)</span>. Plot a histogram of the simulated values and use them to compute the sample mean and variance of the <span class="math inline">\(100\)</span> values. Compare the sample mean and sample variance with the theoretical values. Is this a good approximation of the theoretical mean and variance? If not, how could it be improved?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2025</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rpareto</span>(n,m,a) </span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="STA237-Summer-2025_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2885.227</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 483067593</code></pre>
+</div>
+</div>
+<p>Since <span class="math inline">\(a &lt; 1\)</span>, the mean and variance are both infinity. So the estimated mean and variance will not match their theoretical counterparts.</p>
+<p>The issue lies within having too small of an <span class="math inline">\(a\)</span>, leading the distribution to be heavily left-skewed. For the estimation to be more accurate, we need a larger <span class="math inline">\(a\)</span> (e.g.&nbsp;<span class="math inline">\(a &gt; 2\)</span>). Note that increasing sample size won’t help much in this case, since the mean and variance are infinity.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="question-4-2" class="level2">
+<h2 class="anchored" data-anchor-id="question-4-2">Question 4</h2>
+<p>In a population, suppose personal income above <span class="math inline">\(\$22,000\)</span> has a Pareto distribution with <span class="math inline">\(a = 2.8\)</span> (units are <span class="math inline">\(\$10,000\)</span>). Find the probability that a randomly chosen individual’s income is greater than <span class="math inline">\(4\)</span> standard deviations above the mean.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We first find the mean and variance <span class="math display">\[\mu = \frac{a m}{a - 1} = \frac{2.8 \times 2.2}{2.8 - 1}  \approx 3.422\]</span></p>
+<p><span class="math display">\[\sigma^2 = \frac{a m^2}{(a - 1)^2 (a - 2)}
+= \frac{2.8 \times 2.2^2}{(2.8 - 1)^2 \times (2.8-2)}
+\approx 5.2284 \implies \sigma \approx \sqrt{5.2284} \approx 2.287\]</span></p>
+<p>Next, we compute the threshold (here <span class="math inline">\(k = 4\)</span>) <span class="math display">\[\mu + 4\sigma \approx 3.422 + 4 \times 2.287 = 12.57\]</span> Lastly, we use the Pareto cdf to compute the probability <span class="math display">\[P(X &gt; x) = \left( \frac{m}{x} \right)^a
+\Rightarrow P(X &gt; 12.57) = \left( \frac{2.2}{12.57} \right)^{2.8} \approx \boxed{0.0076}\]</span></p>
+<p>In, R</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">ppareto</span>(<span class="dv">4</span><span class="sc">*</span><span class="fu">sqrt</span>(<span class="fl">5.228395</span>)<span class="sc">+</span><span class="fl">3.422222</span>, <span class="at">location=</span><span class="fl">2.2</span>, </span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="at">shape=</span><span class="fl">2.8</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.007599592</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-5" class="level2">
+<h2 class="anchored" data-anchor-id="question-5">Question 5</h2>
+<p>The aggregate losses on an auto insurance policy follow a Pareto distribution with <span class="math inline">\(a = 4\)</span> and <span class="math inline">\(m = 800\)</span>. What’s the probability that the aggregate losses on a random policy exceed <span class="math inline">\(\$1000\)</span>?</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> denote the aggregate losses on an auto insurance, so <span class="math inline">\(X \sim \text{Par}(m = 800, a = 4)\)</span>.</p>
+<p>Then <span class="math display">\[P(X &gt; 1000) = \left( \frac{800}{1000} \right)^4 = 0.4096\]</span></p>
+<p>In R,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">ppareto</span>(<span class="dv">1000</span>,<span class="dv">800</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.4096</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="question-6" class="level2">
+<h2 class="anchored" data-anchor-id="question-6">Question 6</h2>
+<p>Suppose the income of a certain population has a Pareto distribution with <span class="math inline">\(a=3\)</span> and <span class="math inline">\(m=1000\)</span>. What is the proportion of the population with incomes between <span class="math inline">\(2000\)</span> and <span class="math inline">\(4000\)</span>?</p>
+</section>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\(X\)</span> denote the income of a certain population. It follows that <span class="math inline">\(X \text{Par}(1000, 3)\)</span>.</p>
+<p>The desired proportion is given by</p>
+<p><span class="math display">\[P(2000 &lt; X &lt; 4000) = F(4000) - F(2000) = \left( \frac{1000}{2000} \right)^3 - \left( \frac{1000}{4000} \right)^3 = 0.1094\]</span></p>
+<p>In R,</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ppareto</span>(<span class="dv">4000</span>,<span class="dv">1000</span>,<span class="dv">3</span>)<span class="sc">-</span><span class="fu">ppareto</span>(<span class="dv">2000</span>,<span class="dv">1000</span>,<span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.109375</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 

@@ -1,7 +1,7 @@
 ---
 title: "MAT232: Calculus of Several Variables"
 image: curve.png
-categories: [Calculus]
+categories: [Multivariable Calculus, Linear Algebra, Vector Calculus]
 description: 'Notes for MAT232 Summer 2025'
 toc-depth: 1
 ---
@@ -227,35 +227,31 @@ Simplify: $$\langle 4, -2, 5 \rangle \cdot \langle x - 1, y - 2, z - 3 \rangle =
 Dot product gives the scalar equation: $$4(x - 1) - 2(y - 2) + 5(z - 3) = 0 \quad \Rightarrow \quad 4x - 2y + 5z = 21$$
 :::
 
-
 # Week 5
+
 Week 5 tutorial notes[TBP](){download="week5"}
 
 ## Vector Functions
 
-A vector function is a function that takes one (or more) variables and returns a vector of functions. We will only discuss the case where the function takes one variable. 
+A vector function is a function that takes one (or more) variables and returns a vector of functions. We will only discuss the case where the function takes one variable.
 
 In $\mathbb{R}^3$, a single variable vector function have the form
 
-$$\bar{r}(t) = \langle f(t), g(t), h(t) \rangle = f(t)\bar{i} + g(t)\bar{j} + h(t)\bar{k}$$
-Let's now talk about limits, derivatives and integrals with vector functions. For the limit of a vector function,
+$$\bar{r}(t) = \langle f(t), g(t), h(t) \rangle = f(t)\bar{i} + g(t)\bar{j} + h(t)\bar{k}$$ Let's now talk about limits, derivatives and integrals with vector functions. For the limit of a vector function,
 
 $$\lim_{t \to a} \bar{r}(t) = \left\langle \lim_{t \to a} f(t), \lim_{t \to a} g(t), \lim_{t \to a} h(t) \right\rangle
 \quad  \newline \text{assuming the limits of all the component functions exist.}$$
 
 Furthermore, we say a vector function $\bar{r}(t)$ is continuous at $a$ if $\lim{t \to a} = \bar{r}(a)$.
 
-Next, let's talk about the derivatives of vector functions. 
-$$\frac{d\bar{r}}{dt} = \bar{r}'(t) = \lim_{h \to 0} \frac{\bar{r}(t+h) - \bar{r}(t)}{h}$$
+Next, let's talk about the derivatives of vector functions. $$\frac{d\bar{r}}{dt} = \bar{r}'(t) = \lim_{h \to 0} \frac{\bar{r}(t+h) - \bar{r}(t)}{h}$$
 
-Note that the derivative of a vector function is just the vector of the derivatives of its components. That is,
-$$\bar{r}'(t) = \langle f'(t), g'(t), h'(t) \rangle = f'(t)\bar{i} + g'(t)\bar{j} + h'(t)\bar{k}$$
+Note that the derivative of a vector function is just the vector of the derivatives of its components. That is, $$\bar{r}'(t) = \langle f'(t), g'(t), h'(t) \rangle = f'(t)\bar{i} + g'(t)\bar{j} + h'(t)\bar{k}$$
 
 ::: callout-note
 Theorem: Differential Rules of Vector Functions.
 
-Suppose that $\vec{u}(t)$ and  $\vec{v}(t)$ are differentiable vector functions, $c$ is a scalar, and $f$ is a real-valued function. Then,
-\begin{align}
+Suppose that $\vec{u}(t)$ and $\vec{v}(t)$ are differentiable vector functions, $c$ is a scalar, and $f$ is a real-valued function. Then, \begin{align}
 &1.\quad \frac{d}{dt}[\vec{u}(t) + \vec{v}(t)] = \vec{u}'(t) + \vec{v}'(t) \\
 &2.\quad \frac{d}{dt}[c \vec{u}(t)] = c \vec{u}'(t) \\
 &3.\quad \frac{d}{dt}[f(t)\vec{u}(t)] = f'(t)\vec{u}(t) + f(t)\vec{u}'(t) \\
@@ -263,20 +259,17 @@ Suppose that $\vec{u}(t)$ and  $\vec{v}(t)$ are differentiable vector functions,
 &5.\quad \frac{d}{dt}[\vec{u}(t) \times \vec{v}(t)] = \vec{u}'(t) \times \vec{v}(t) + \vec{u}(t) \times \vec{v}'(t) \\
 &6.\quad \frac{d}{dt}[\vec{u}(f(t))] = f'(t)\vec{u}'(f(t)) \\
 \end{align}
-
 :::
-Given how neatly the limit and derivative rules extend to vector-valued functions, it's no surprise that similar rules apply to definite (and indefinite) integrals as well.
-\begin{align}
+
+Given how neatly the limit and derivative rules extend to vector-valued functions, it's no surprise that similar rules apply to definite (and indefinite) integrals as well. \begin{align}
 \int_a^b \vec{r}(t) , dt 
 &= \left( \int_a^b f(t) , dt \right)\vec{i} + \left( \int_a^b g(t) , dt \right)\vec{j} + \left( \int_a^b h(t) , dt \right)\vec{k} \\
 &= \left( F(t) \big|_a^b \right)\vec{i} + \left( G(t) \big|_a^b \right)\vec{j} + \left( H(t) \big|_a^b \right)\vec{k} \\
 &= \left( F(b) - F(a) \right)\vec{i} + \left( G(b) - G(a) \right)\vec{j} + \left( H(b) - H(a) \right)\vec{k}
 \end{align}
 
-Finally, the arc length formula extends naturally to vector-valued functions and is given by:
-\begin{align}
+Finally, the arc length formula extends naturally to vector-valued functions and is given by: \begin{align}
 L &= \int_a^b \sqrt{[f'(t)]^2 + [g'(t)]^2 + [h'(t)]^2} \, dt \\
   &= \int_a^b \sqrt{\left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 + \left( \frac{dz}{dt} \right)^2} \, dt \\
   &= \int_a^b \left| \vec{r}\,'(t) \right| \, dt
 \end{align}
-

@@ -13,15 +13,15 @@ Acknowledgements: This page contains tutorial notes for [STA237H1 Probability, S
 ::: {.callout-question collapse="true"}
 ### Question 1
 
-**b)**  Suppose $\Omega = \{1, 2, 3, 4, 5, 6\}$ and let $A = \{1, 2, 4, 5\}$, $B = \{1, 3, 5\}$ and $C = \{2, 4, 6\}$. Use this example to verify the two results in the distributive law.
+**b)** Suppose $\Omega = \{1, 2, 3, 4, 5, 6\}$ and let $A = \{1, 2, 4, 5\}$, $B = \{1, 3, 5\}$ and $C = \{2, 4, 6\}$. Use this example to verify the two results in the distributive law.
 :::
 
 ::: {.callout-tip collapse="true"}
 ### Solution
 
-We need to verify two things. 
+We need to verify two things.
 
-i. $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+i.  $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
 
 \begin{align*}
 B \cup C &=  \{1, 2, 3, 4, 5, 6\} \\
@@ -53,9 +53,9 @@ Therefore, $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$ as required.
 
 In R, write R code to simulate rolling a fair six-sided die once, 10 times, 100 times, and 1000 times.
 
-**a)**  Estimate the probability of rolling a 3 or higher based on 1000 simulated dice rolls.
+**a)** Estimate the probability of rolling a 3 or higher based on 1000 simulated dice rolls.
 
-**b)**  If you were to repeat your simulation, would you end up with the same estimate? Why or why not.
+**b)** If you were to repeat your simulation, would you end up with the same estimate? Why or why not.
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -175,19 +175,19 @@ Suppose that the moment generating function of $Y$ is given by $$M_Y(t) = e^{(a+
 
 where $a > 0$ and $b > 0$. Use this mgf to find the
 
-**a)**  expected value of $Y$ and
+**a)** expected value of $Y$ and
 
-**b)**  the variance of $Y$.
+**b)** the variance of $Y$.
 :::
 
 ::: {.callout-tip collapse="true"}
 ### Solution
 
-**a)**  The expected value of $Y$ is the first derivative of the mgf evaluated at $t = 0$: $$\mathbb{E}[Y] = M_Y'(0)$$ Hence, $$M_Y'(t) = \frac{d}{dt} e^{(a+b)(e^t - 1)} = e^{(a+b)(e^t - 1)} \cdot (a+b)e^t$$ Evaluated at $t = 0$: $$\mathbb{E}(Y) = M_Y'(0) = e^{(a+b)(1 - 1)} \cdot (a+b) \cdot 1 = (a + b)$$
+**a)** The expected value of $Y$ is the first derivative of the mgf evaluated at $t = 0$: $$\mathbb{E}[Y] = M_Y'(0)$$ Hence, $$M_Y'(t) = \frac{d}{dt} e^{(a+b)(e^t - 1)} = e^{(a+b)(e^t - 1)} \cdot (a+b)e^t$$ Evaluated at $t = 0$: $$\mathbb{E}(Y) = M_Y'(0) = e^{(a+b)(1 - 1)} \cdot (a+b) \cdot 1 = (a + b)$$
 
 ------------------------------------------------------------------------
 
-**b)**  The variance of $Y$ is: $$\mathrm{Var}(Y) = M_Y''(0) - \left( M_Y'(0) \right)^2$$
+**b)** The variance of $Y$ is: $$\mathrm{Var}(Y) = M_Y''(0) - \left( M_Y'(0) \right)^2$$
 
 Hence, \begin{align*}
 M_Y''(t) &= \frac{d}{dt} \left[ e^{(a+b)(e^t - 1)} \cdot (a+b)e^t \right] \\
@@ -206,11 +206,11 @@ Evaluate at $t = 0$: $$M_Y''(0) = 1 \cdot (a+b) \cdot \left[ (a+b)(1) + 1 \right
 
 Suppose $X$ has a Discrete Uniform Distribution over the values $x = 1,2,3,4,5$.
 
-**a)**  Sketch the pmf and cdf.
+**a)** Sketch the pmf and cdf.
 
-**b)**  Find the mgf of $X$.
+**b)** Find the mgf of $X$.
 
-**c)**  Compute $\mathbb{E}(X)$ and $\mathbb{V}(X)$ two ways: by using the definitions, and by using the mgf you found in part b.
+**c)** Compute $\mathbb{E}(X)$ and $\mathbb{V}(X)$ two ways: by using the definitions, and by using the mgf you found in part b.
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -265,11 +265,11 @@ Lastly, $$\mathrm{Var}(X) = M_X''(0) - \left( M_X'(0) \right)^2 = 11 - 9 = 2$$
 
 Of the thousands of the volunteers who donate blood at a clinic, $80\%$ have the Rhesus (Rh) factor present in their blood. For the purposes of this question, assume the population size is very large (ie., we can use methods that assume sampling with replacement).
 
-**a)**  If six volunteers are randomly selected, what is the probability that no one has the Rh factor?
+**a)** If six volunteers are randomly selected, what is the probability that no one has the Rh factor?
 
-**b)**  If six volunteers are randomly selected, what is the probability that at most four have the Rh factor?
+**b)** If six volunteers are randomly selected, what is the probability that at most four have the Rh factor?
 
-**c)**  What if we were interested in the smallest number of volunteers who must be randomly selected if we want to be at least $90\%$ certain we will obtain at least four donors with the Rh factor? Can we answer this question using a Binomial Distribution? If so, answer this question. If not, explain why a Binomial distribution is not an appropriate model in this situation.
+**c)** What if we were interested in the smallest number of volunteers who must be randomly selected if we want to be at least $90\%$ certain we will obtain at least four donors with the Rh factor? Can we answer this question using a Binomial Distribution? If so, answer this question. If not, explain why a Binomial distribution is not an appropriate model in this situation.
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -304,7 +304,6 @@ In R,
 pbinom(4, 6, 0.8)
 ```
 
-
 ------------------------------------------------------------------------
 
 **c)** In this scenario, the number of trials $n$ is not fixed anymore since we are adjusting $n$ to find the smallest number of volunteers. Hence, a binomial distribution would not be appropriate anymore (see part a solution for a detailed requirement for modelling using binomial distribution).
@@ -319,11 +318,11 @@ We would use trial and error approach, computing $P(X \ge 4)$ for different bino
 
 Applicants for a new student internship are accepted with probability $p = 0.15$ independently from person to person in the order the applicants are received. Several hundred people are expected to apply. The number of students they will accept is $10$.
 
-**a)**  Find the probability that it will take no more than $100$ applicants to find $10$ students to accept for the program.
+**a)** Find the probability that it will take no more than $100$ applicants to find $10$ students to accept for the program.
 
-**b)**  Find the expected value of the number of interviews they will have to undertake to accept $10$ interns.
+**b)** Find the expected value of the number of interviews they will have to undertake to accept $10$ interns.
 
-**c)**  Calculate the standard deviation for the number of interviews.
+**c)** Calculate the standard deviation for the number of interviews.
 :::
 
 ::: {.callout-tip collapse="true"}
@@ -467,7 +466,6 @@ We see it is very close to the theoretical standard deviation of $648$.
 ::: {.callout-question collapse="true"}
 **Solutions will not be posted for these questions.**
 
-
 ## Question 1
 
 The probability mass function $p_X(x)$, for a discrete variable $X$ is given in the following table.
@@ -516,7 +514,6 @@ P(A \cup B) & P(A \mid B) & P(B \mid A)
 (ii) Compute this probability and list any probability rules/principles that you apply.
 :::
 
-
 ::: {.callout-question collapse="true"}
 ## Question 2
 
@@ -527,7 +524,6 @@ b)  dbinom(2, 4, 0.1)
 c)  mean(sample(1:6, 1000, replace=TRUE))
 d)  pnbinom(1, 1, 0.2)
 :::
-
 
 ::: {.callout-question collapse="true"}
 ## Question 3
@@ -547,7 +543,6 @@ C &= \text{email contains the phrase ``subject to credit approval''}.
 **b)** What is the probability that a randomly selected email message is spam given it does not include the word "free", nor the phrase "subject to credit approval"?
 :::
 
-
 ::: {.callout-question collapse="true"}
 ## Question 4
 
@@ -566,6 +561,7 @@ d)  You find out that your exam is entirely multiple choice, and if you study fo
 :::
 
 # Week 5
+
 ::: {.callout-question collapse="true"}
 ## Question 1
 
@@ -618,22 +614,20 @@ $$
 
 ------------------------------------------------------------------------
 
-**c)**
-Since $$\mathbb{P}(1 < Y \leq 2) = F_Y(2) - F_Y(1)$$ So then from part b, we can compute
+**c)** Since $$\mathbb{P}(1 < Y \leq 2) = F_Y(2) - F_Y(1)$$ So then from part b, we can compute
 
 \begin{align*}
 F_Y(2) &= 2 - \frac{2^2}{4} = 2 - 1 = 1 \\
 F_Y(1) &= 1 - \frac{1^2}{4} = 1 - \frac{1}{4} = \frac{3}{4}
 \end{align*}
 
-Thus, 
-$$\mathbb{P}(1 < Y \leq 2) = 1 - \frac{3}{4} = \boxed{\frac{1}{4}}$$
+Thus, $$\mathbb{P}(1 < Y \leq 2) = 1 - \frac{3}{4} = \boxed{\frac{1}{4}}$$
 
 ------------------------------------------------------------------------
 
-**d)** 
+**d)**
 
-i) We compute the mean of $Y$ from the definition,
+i)  We compute the mean of $Y$ from the definition,
 
 \begin{align*}
 \mu = \mathbb{E}(Y) 
@@ -645,7 +639,7 @@ i) We compute the mean of $Y$ from the definition,
 &= \frac{1}{2} \cdot \frac{4}{3} = \boxed{\frac{2}{3}}
 \end{align*}
 
-ii) Like in the discrete case, we can express the variance $\mathbb{V}(Y) = \mathbb{E}(Y^2) - \left( \mathbb{E}(Y) \right)^2$.So first, we get 
+ii) Like in the discrete case, we can express the variance $\mathbb{V}(Y) = \mathbb{E}(Y^2) - \left( \mathbb{E}(Y) \right)^2$.So first, we get
 
 \begin{align*}
 \mathbb{E}(Y^2) 
@@ -656,8 +650,7 @@ ii) Like in the discrete case, we can express the variance $\mathbb{V}(Y) = \mat
 &= \frac{1}{2} \left( \frac{16}{3} - 4 \right) = \frac{1}{2} \cdot \frac{4}{3} = \boxed{\frac{2}{3}}
 \end{align*}
 
-Then, 
-\begin{align*}
+Then, \begin{align*}
 \sigma^2 = \mathbb{V}(Y) 
 &= \mathbb{E}(Y^2) - \left( \mathbb{E}(Y) \right)^2 \\
 &= \frac{2}{3} - \left( \frac{2}{3} \right)^2 \\
@@ -665,12 +658,10 @@ Then,
 \end{align*}
 :::
 
-
-
 ::: {.callout-question collapse="true"}
 ## Question 2
 
-Consider the continuous random variable $X$ with pdf given by 
+Consider the continuous random variable $X$ with pdf given by
 
 $$
 f_X(x) = 
@@ -679,8 +670,6 @@ f_X(x) =
 0, & \text{otherwise}
 \end{cases}
 $$
-
-
 
 **a)** What is the cdf of $X$?
 
@@ -714,7 +703,7 @@ F_X(x) =
 
 Use integration by parts:
 
-Let $u = x$, $dv = 2e^{-2x}dx$  
+Let $u = x$, $dv = 2e^{-2x}dx$\
 Then $du = dx$, $v = -e^{-2x}$
 
 \begin{align*}
@@ -727,11 +716,9 @@ Then $du = dx$, $v = -e^{-2x}$
 
 **c)**
 
-From part a, we found that 
-$$F_X(x) = 1 - e^{-2x}, \quad x \geq 0$$
+From part a, we found that $$F_X(x) = 1 - e^{-2x}, \quad x \geq 0$$
 
-Let \( U \sim \text{Uniform}(0, 1) \), and solve:
-\begin{align*}
+Let ( U \sim \text{Uniform}(0, 1) ), and solve: \begin{align*}
 U &= 1 - e^{-2x} \\
 e^{-2x} &= 1 - U \\
 -2x &= \ln(1 - U) \\
@@ -770,15 +757,17 @@ legend("topright", legend = c("True density exp(2)"), col = "darkred", lwd = 2)
 
 ------------------------------------------------------------------------
 
-**d)** 
+**d)**
+
 ```{r}
 mean(x)
 ```
+
 Note that this (ie. the expected value calculated using the Inverse Transform Method) is very close to the theoretical mean of the exponential distribution in part b.
 :::
 
 ::: callout-note
-**Note: Inverse Transform Method**. In part c, we've learned how to simulate random values from a specific distribution using just uniform random numbers (which computers are really good at generating). 
+**Note: Inverse Transform Method**. In part c, we've learned how to simulate random values from a specific distribution using just uniform random numbers (which computers are really good at generating).
 
 Since we want values from an Exponential distribution, and we already know its cdf, we can work backwards to get a formula that tells us how to turn a Uniform(0,1) value into an Exponential one. This is the [inverse transform method](https://en.wikipedia.org/wiki/Inverse_transform_sampling).
 
@@ -786,7 +775,162 @@ This is indeed how R's built-in function *rexp()* (and for many other distributi
 :::
 
 
+# Week 6
+
+A continuous random variable $X$ is said to have a pareto distribution with location 
+parameter $m$ and shape parameter $a$, if its probability density function is of the form 
+$$f(x) = \frac{a m^a}{x^{a+1}}, \quad \text{for } x \geq m$$
+and zero if $x < m$.
+
+Vilfredo Pareto originally used this distribution to describe the allocation of wealth among individuals since it seemed to show rather well the way that a larger portion of the wealth of  any society is owned by a smaller percentage of the people in that society. He also used it to describe distribution of income. This idea is sometimes expressed more simply as the Pareto principle or the "80-20 rule" which says that $20\%$ of the population controls $80\%$ of the wealth. Today, the Pareto distribution is often used to model catastrophic events where a claim might have a very large value (e.g., extreme weather events, war, etc.). We denote it as $X \sim \text{Par}(m, a)$, where $m, a > 0$. 
+
+This distribution is right-skewed, and it is characterized by its heavy long tail. One way to plot this pdf in R is given by the following code:
+
+```{r}
+#| message: false
+#| warning: false
+# install.packages("EnvStats") 
+library(EnvStats) 
+n<-100; m<-1; a<-0.5 # location=1 & shape=0.5 
+x<-seq(1,20,length=n) # equally-spaced sequence from 1 to 20 
+y<-dpareto(x,m,a) 
+plot(x,y,type="l") 
+abline(h=0,lty=2) # adds dotted line at y=0
+```
+
+There are no built-in pareto distribution functions in base R, so we need to first install and load R package *EnvStats* to use the functions *dpareto()*, *ppareto()*, *qpareto()* and *rpareto()*. In these functions, the location (m) and shape (a) parameters should be entered as the second and third arguments, respectively, unless you name them (i.e., define location=, and shape= in the inputs). 
+
+The mean and variance diverge if parameter α is not large enough. In particular, the mean is 
+$$\mu = E(X) = \frac{am}{a - 1} \quad \text{if } a > 1$$
+
+and the variance is  
+$$\sigma^2 = \mathrm{Var}(X) = \frac{am^2}{(a - 1)^2 (a - 2)} \quad \text{if } a > 2$$
+If $a \le 1$ the mean is infinity (diverges) and if $a \le 2$  the variance is infinity (diverges). For this reason, the moment generating function does not exist. 
+
+The cumulative distribution function is given in closed form 
+$$F(x) = 1 - \left( \frac{m}{x} \right)^a \quad \text{for } x \geq m$$
+
+and zero otherwise.  
+
+The p-th quantile (or 100p-th percentile), denoted as $x_p$ is given by 
+$$x_p = m(1 - p)^{-\frac{1}{a}}$$
+
+::: {.callout-question collapse="true"}
+## Question 1
+Prove that when $a = m = 1$, then $\mathbb{E}(X)$ does not exist (it diverges to infinity).
+
+::: {.callout-tip collapse="true"}
+### Solution
+By definition,
+$$E(X) = \int_1^{\infty} x \cdot \frac{1}{x^2} \, dx = \int_1^{\infty} \frac{1}{x} \, dx = \log(x)\big|_1^{\infty} = \lim_{n \to \infty} \log(x) - \log(1) = \infty - 0 = \infty
+$$
+:::
 
 
 
+## Question 2
+For $a = m = 1$, obtain the pth quantiles where $p = 0.5, 0.75, 0.9, 0.95, 0.99$.
 
+::: {.callout-tip collapse="true"}
+### Solution
+Using the formula $x_p = \frac{1}{1 - p}$, we plug in and see that 
+$$x_{0.5} = 2,\ x_{0.75} = 4,\ x = 2,\ x_{0.95} = 20,\ x_{0.99} = 100$$
+
+To derive the formula from the cdf, set $a = m = 1$
+$$F(x) = 1 - \frac{1}{x}$$
+To find the p-th quantile, we solve
+$$F(x_p) = p \implies 1 - \frac{1}{x_p} = p \implies x_p = \frac{1}{1-p}$$
+:::
+
+
+## Question 3
+Sample $n=100$ random values from a Pareto distribution with parameters $a = 0.5$ 
+and $m=1$. Plot a histogram of the simulated values and use them to compute the 
+sample mean and variance of the $100$ values. Compare the sample mean and sample 
+variance with the theoretical values. Is this a good approximation of the theoretical 
+mean and variance? If not, how could it be improved?
+
+::: {.callout-tip collapse="true"}
+### Solution
+```{r}
+set.seed(2025)
+n <- 100
+a <- 0.5
+m <- 1
+x <- rpareto(n,m,a) 
+hist(x) 
+mean(x) 
+var(x)
+```
+
+Since $a < 1$, the mean and variance are both infinity. So the estimated mean and variance will not match their theoretical counterparts. 
+
+The issue lies within having too small of an $a$, leading the distribution to be heavily right-skewed. For the estimation to be more accurate, we need a larger $a$ (e.g. $a > 2$). Note that increasing sample size won't help much in this case, since the mean and variance are infinity. 
+:::
+
+
+## Question 4
+In a population, suppose personal income above $\$22,000$ has a Pareto distribution 
+with $a = 2.8$ (units are $\$10,000$). Find the probability that a randomly chosen 
+individual’s income is greater than $4$ standard deviations above the mean. 
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+We first find the mean and variance
+$$\mu = \frac{a m}{a - 1} = \frac{2.8 \times 2.2}{2.8 - 1}  \approx 3.422$$
+
+$$\sigma^2 = \frac{a m^2}{(a - 1)^2 (a - 2)} 
+= \frac{2.8 \times 2.2^2}{(2.8 - 1)^2 \times (2.8-2)} 
+\approx 5.2284 \implies \sigma \approx \sqrt{5.2284} \approx 2.287$$
+
+Next, we compute the threshold (here $k = 4$)
+$$\mu + 4\sigma \approx 3.422 + 4 \times 2.287 = 12.57$$
+Lastly, we use the Pareto cdf to compute the probability
+$$P(X > x) = \left( \frac{m}{x} \right)^a
+\Rightarrow P(X > 12.57) = \left( \frac{2.2}{12.57} \right)^{2.8} \approx \boxed{0.0076}$$
+
+```{r}
+1-ppareto(4*sqrt(5.228395)+3.422222, location=2.2, 
+shape=2.8) 
+```
+:::
+
+
+## Question 5
+The aggregate losses on an auto insurance policy follow a Pareto distribution with 
+$a = 4$ and $m = 800$. What’s the probability that the aggregate losses on a random 
+policy exceed $\$1000$? 
+
+
+::: {.callout-tip collapse="true"}
+### Solution
+Let $X$ denote the aggregate losses on an auto insurance, so $X \sim \text{Par}(m = 800, a = 4)$. 
+
+Then $$P(X > 1000) = \left( \frac{800}{1000} \right)^4 = 0.4096$$
+
+```{r}
+1-ppareto(1000,800,4)
+```
+
+:::
+
+
+## Question 6
+Suppose the income of a certain population has a Pareto distribution with $a=3$ and $m=1000$. What is the proportion of the population with incomes between $2000$ 
+and $4000$?
+:::
+
+::: {.callout-tip collapse="true"}
+### Solution
+Let $X$ denote the income of a certain population. It follows that $X \text{Par}(1000, 3)$. 
+
+The desired proportion is given by
+
+$$P(2000 < X < 4000) = F(4000) - F(2000) = \left( \frac{1000}{2000} \right)^3 - \left( \frac{1000}{4000} \right)^3 = 0.1094$$
+
+```{r}
+ppareto(4000,1000,3)-ppareto(2000,1000,3) 
+```
+
+:::

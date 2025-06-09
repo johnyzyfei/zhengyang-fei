@@ -1,6 +1,7 @@
 ---
 title: "DIMP Package"
-categories: [R, table]
+image: imp.png
+categories: [R, Multiple Imputation]
 date: "2024-11-30"
 description: "A utility to delete imputed outcome values after multiple imputation."
 ---
@@ -11,7 +12,7 @@ description: "A utility to delete imputed outcome values after multiple imputati
 
 ## 2. Demonstration
 
-Suppose we have the following original dataset.
+Suppose we have the following original dataset which has missing values in columns X1 and X3.
 
 | Y   | X1  | X2  | X3  |
 |-----|-----|-----|-----|
@@ -19,7 +20,7 @@ Suppose we have the following original dataset.
 | 0   | NA  | 4   | 2   |
 | NA  | 4   | 2   | 4   |
 
-After calling 'dimp()', 
+After calling 'dimp()',
 
 | Y   | X1  | X2  | X3  |
 |-----|-----|-----|-----|
@@ -39,18 +40,35 @@ After calling 'dimp()',
 | 0   | 2   | 4   | 2   |
 | NA  | 4   | 2   | 4   |
 
-## 3. R code
+## 3. Installation and Example
 
-```{r, warning=FALSE, message=FALSE}
+To desmonstrate usage, we use the airquality dataset. We treat Ozone as the response variable.
+
+```{r message=FALSE, warning=FALSE}
 library(mice)
 library(dimp)
 
-# Create a mids object
 exampledata <- airquality
+
+original_missing <- colSums(is.na(exampledata))
+
 mice_obj <- mice(exampledata, m = 5, maxit = 5, seed = 123)
 
-# Deletion
-mice_obj_deleted <- dimp(mice_obj, "Ozone") # datasets in this object have missing outcomes
+# Check missing values after imputation (using completed dataset #1)
+after_imputation <- colSums(is.na(complete(mice_obj, 1)))
+
+mice_obj_deleted <- dimp(mice_obj, "Ozone")
+
+# Check missing values after deletion of outcome
+after_deletion <- colSums(is.na(complete(mice_obj_deleted, 1)))
+
+missing_summary <- data.frame(
+  Variable = names(original_missing),
+  Original_NAs = original_missing,
+  After_Imputation = after_imputation,
+  After_dimp_Deletion = after_deletion
+)
+print(missing_summary)
 ```
 
 ::: callout-note
