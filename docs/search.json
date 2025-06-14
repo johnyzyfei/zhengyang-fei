@@ -130,7 +130,7 @@
     "href": "teaching/STA237H1-Summer-2025/STA237-Summer-2025.html",
     "title": "STA237: Probability, Statistics and Data Analysis I",
     "section": "",
-    "text": "Acknowledgements: This page contains tutorial notes for STA237H1 Probability, Statistics and Data Analysis I Summer 2025 under the instruction of Dr. Gracia Yunruo Dong.\nThe notes are up to date as of June 9, 2026. If you have any feedback based on your experience over the course of this semester, please share it using this link, which contains 8 short questions. Your input would be greatly appreciated—thank you!"
+    "text": "Acknowledgements: This page contains tutorial notes for STA237H1 Probability, Statistics and Data Analysis I Summer 2025 under the instruction of Dr. Gracia Yunruo Dong.\nThe notes are completed as of June 13, 2026. If you have any feedback based on your experience over the course of this semester, please share it using this link, which contains 8 short questions. Your input would be greatly appreciated—thank you!"
   },
   {
     "objectID": "teaching/STA237H1-Summer-2025/STA237-Summer-2025.html#question-1-3",
@@ -179,7 +179,7 @@
     "href": "teaching/STA237H1-Summer-2025/STA237-Summer-2025.html#question-1-5",
     "title": "STA237: Probability, Statistics and Data Analysis I",
     "section": "Question 1",
-    "text": "Question 1\nProve that when \\(a = m = 1\\), then \\(\\mathbb{E}(X)\\) does not exist (it diverges to infinity).\n\n\n\n\n\n\nSolution\n\n\n\n\n\nBy definition, \\[E(X) = \\int_1^{\\infty} x \\cdot \\frac{1}{x^2} \\, dx = \\int_1^{\\infty} \\frac{1}{x} \\, dx = \\log(x)\\big|_1^{\\infty} = \\lim_{n \\to \\infty} \\log(x) - \\log(1) = \\infty - 0 = \\infty\n\\]"
+    "text": "Question 1\nProve that when \\(a = m = 1\\), then \\(\\mathbb{E}(X)\\) does not exist (it diverges to infinity).\n\n\n\n\n\n\nSolution\n\n\n\n\n\nBy definition, \\[E(X) = \\int_1^{\\infty} x \\cdot \\frac{1}{x^2} \\, dx = \\int_1^{\\infty} \\frac{1}{x} \\, dx = \\log(x)\\big|_1^{\\infty} = \\lim_{x \\to \\infty} \\log(x) - \\log(1) = \\infty - 0 = \\infty\n\\]"
   },
   {
     "objectID": "teaching/STA237H1-Summer-2025/STA237-Summer-2025.html#question-2-5",
@@ -215,5 +215,33 @@
     "title": "STA237: Probability, Statistics and Data Analysis I",
     "section": "Question 6",
     "text": "Question 6\nSuppose the income of a certain population has a Pareto distribution with \\(a=3\\) and \\(m=1000\\). What is the proportion of the population with incomes between \\(2000\\) and \\(4000\\)?"
+  },
+  {
+    "objectID": "teaching/STA237H1-Summer-2025/STA237-Summer-2025.html#question-1-6",
+    "href": "teaching/STA237H1-Summer-2025/STA237-Summer-2025.html#question-1-6",
+    "title": "STA237: Probability, Statistics and Data Analysis I",
+    "section": "Question 1",
+    "text": "Question 1\nThe joint pdf of \\(X\\) and \\(Y\\), \\(f_{X,Y}(x,y)\\), is non-zero on \\(0 \\le y \\le x \\le 1\\).\na) Sketch and clearly mark the support of this joint probability distribution on the axes to the right. Explicitly mark boundaries (i.e., \\(y = x\\) line, and \\(x/y = 0 \\& 1\\)).\nb) Consider \\(P(Y \\ge 1/2)\\).\n\nAdd and clearly mark the integration region to compute this probability on the axes in the right and\ndetermine the limits of integration (i.e., \\(a, b, c,\\) and \\(d\\)) in \\[P\\left(Y &gt; \\frac{1}{2}\\right) = \\int_a^b \\int_{1/2}^d f_{X,Y}(x, y) \\, dy \\, dx\\] and list below"
+  },
+  {
+    "objectID": "teaching/STA237H1-Summer-2025/STA237-Summer-2025.html#question-2-6",
+    "href": "teaching/STA237H1-Summer-2025/STA237-Summer-2025.html#question-2-6",
+    "title": "STA237: Probability, Statistics and Data Analysis I",
+    "section": "Question 2",
+    "text": "Question 2\nThe joint pdf of \\(X\\) and \\(Y\\), \\(f_{X,Y}(x,y)\\), is non-zero on \\(0 \\le x \\le 1, 0 \\le y, \\le 2x\\).\na) Sketch and clearly mark the support of this joint probability distribution on the axes to the right. Mark boundaries (i.e., \\(y = 2x\\) line, \\(x = 0 \\& 1\\))\nb) Consider \\(P(1/2 &lt; X &lt; 1)\\).\n\nAdd and clearly mark the integration region to compute this probability on the axes in the right and\nprobability on the axes in the right and (ii) determine the limits of integration (i.e., \\(a, b, c,\\) and \\(d\\)) in\n\\[P\\left(\\frac{1}{2} &lt; X &lt; 1\\right) = \\int_a^b \\int_c^d f_{X,Y}(x, y) \\, dy \\, dx\\] and list below."
+  },
+  {
+    "objectID": "teaching/STA237H1-Summer-2025/STA237-Summer-2025.html#question-3-4",
+    "href": "teaching/STA237H1-Summer-2025/STA237-Summer-2025.html#question-3-4",
+    "title": "STA237: Probability, Statistics and Data Analysis I",
+    "section": "Question 3",
+    "text": "Question 3\nSuppose \\(X\\) has pdf \\[f_X(x) =\n\\begin{cases}\n60x^2(1 - x)^3, & 0 &lt; x &lt; 1 \\\\\n0, & \\text{otherwise}\n\\end{cases}\\] Find the pdf of \\(Y = X^3\\)."
+  },
+  {
+    "objectID": "teaching/STA237H1-Summer-2025/STA237-Summer-2025.html#question-4-3",
+    "href": "teaching/STA237H1-Summer-2025/STA237-Summer-2025.html#question-4-3",
+    "title": "STA237: Probability, Statistics and Data Analysis I",
+    "section": "Question 4",
+    "text": "Question 4\nSuppose \\(1000\\) people are surveyed about their smoking habits and classified as a smoker or non-smoker. The information is summarized in the table below:\n\\[\\begin{array}{|c|c|c|c|}\n\\hline\nSmoker \\backslash Age Group & \\le 18 & 19-54 & 55+ \\\\\n\\hline\nYes & 25 & 125 & 150 \\\\\n\\hline\nNo & 260 & 205 & 235 \\\\\n\\hline\n\\end{array}\\]\na) What is the marginal probability mass function that describes smoking habits and age group among those surveyed? Write down this distribution and define any new notation that you use.\nb) How can we quantify the relationship between smoking and age group using the methods we learned in the course? Interpret what this means in real life terms."
   }
 ]

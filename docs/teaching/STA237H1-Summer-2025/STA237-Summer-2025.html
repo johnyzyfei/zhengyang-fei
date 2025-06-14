@@ -207,6 +207,7 @@ window.Quarto = {
   <li><a href="#midterm-review" id="toc-midterm-review" class="nav-link" data-scroll-target="#midterm-review">Midterm Review</a></li>
   <li><a href="#week-5" id="toc-week-5" class="nav-link" data-scroll-target="#week-5">Week 5</a></li>
   <li><a href="#week-6" id="toc-week-6" class="nav-link" data-scroll-target="#week-6">Week 6</a></li>
+  <li><a href="#week-7" id="toc-week-7" class="nav-link" data-scroll-target="#week-7">Week 7</a></li>
   </ul>
 </nav>
     </div>
@@ -243,7 +244,7 @@ window.Quarto = {
 
 
 <p>Acknowledgements: This page contains tutorial notes for <a href="https://artsci.calendar.utoronto.ca/course/sta237h1">STA237H1 Probability, Statistics and Data Analysis I</a> Summer 2025 under the instruction of <a href="https://graciadong.github.io/">Dr.&nbsp;Gracia Yunruo Dong</a>.</p>
-<p>The notes are up to date as of June 9, 2026. If you have any feedback based on your experience over the course of this semester, please share it using <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxa5pBOhz2qPJXdqHNaIE6RcbXY8KylWueBeOSSwk_7BEIIg/viewform?usp=header">this link</a>, which contains 8 short questions. Your input would be greatly appreciated—thank you!</p>
+<p>The notes are completed as of June 13, 2026. If you have any feedback based on your experience over the course of this semester, please share it using <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxa5pBOhz2qPJXdqHNaIE6RcbXY8KylWueBeOSSwk_7BEIIg/viewform?usp=header">this link</a>, which contains 8 short questions. Your input would be greatly appreciated—thank you!</p>
 <section id="week-1" class="level1">
 <h1>Week 1</h1>
 <section id="question-1" class="level3 callout-question" data-collapse="true">
@@ -1143,7 +1144,7 @@ Solution
 </div>
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>By definition, <span class="math display">\[E(X) = \int_1^{\infty} x \cdot \frac{1}{x^2} \, dx = \int_1^{\infty} \frac{1}{x} \, dx = \log(x)\big|_1^{\infty} = \lim_{n \to \infty} \log(x) - \log(1) = \infty - 0 = \infty
+<p>By definition, <span class="math display">\[E(X) = \int_1^{\infty} x \cdot \frac{1}{x^2} \, dx = \int_1^{\infty} \frac{1}{x} \, dx = \log(x)\big|_1^{\infty} = \lim_{x \to \infty} \log(x) - \log(1) = \infty - 0 = \infty
 \]</span></p>
 </div>
 </div>
@@ -1302,6 +1303,118 @@ Solution
 </div>
 </div>
 </div>
+</section>
+<section id="week-7" class="level1">
+<h1>Week 7</h1>
+<section id="question-1-6" class="level2 callout-question" data-collapse="true">
+<h2 class="anchored" data-anchor-id="question-1-6">Question 1</h2>
+<p>The joint pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, <span class="math inline">\(f_{X,Y}(x,y)\)</span>, is non-zero on <span class="math inline">\(0 \le y \le x \le 1\)</span>.</p>
+<p><strong>a)</strong> Sketch and clearly mark the support of this joint probability distribution on the axes to the right. Explicitly mark boundaries (i.e., <span class="math inline">\(y = x\)</span> line, and <span class="math inline">\(x/y = 0 \&amp; 1\)</span>).</p>
+<p><strong>b)</strong> Consider <span class="math inline">\(P(Y \ge 1/2)\)</span>.</p>
+<ol type="i">
+<li>Add and clearly mark the integration region to compute this probability on the axes in the right and</li>
+<li>determine the limits of integration (i.e., <span class="math inline">\(a, b, c,\)</span> and <span class="math inline">\(d\)</span>) in <span class="math display">\[P\left(Y &gt; \frac{1}{2}\right) = \int_a^b \int_{1/2}^d f_{X,Y}(x, y) \, dy \, dx\]</span> and list below</li>
+</ol>
+</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<section id="question-2-6" class="level2 callout-question" data-collapse="true">
+<h2 class="anchored" data-anchor-id="question-2-6">Question 2</h2>
+<p>The joint pdf of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, <span class="math inline">\(f_{X,Y}(x,y)\)</span>, is non-zero on <span class="math inline">\(0 \le x \le 1, 0 \le y, \le 2x\)</span>.</p>
+<p><strong>a)</strong> Sketch and clearly mark the support of this joint probability distribution on the axes to the right. Mark boundaries (i.e., <span class="math inline">\(y = 2x\)</span> line, <span class="math inline">\(x = 0 \&amp; 1\)</span>)</p>
+<p><strong>b)</strong> Consider <span class="math inline">\(P(1/2 &lt; X &lt; 1)\)</span>.</p>
+<ol type="i">
+<li>Add and clearly mark the integration region to compute this probability on the axes in the right and</li>
+<li>probability on the axes in the right and (ii) determine the limits of integration (i.e., <span class="math inline">\(a, b, c,\)</span> and <span class="math inline">\(d\)</span>) in<br>
+<span class="math display">\[P\left(\frac{1}{2} &lt; X &lt; 1\right) = \int_a^b \int_c^d f_{X,Y}(x, y) \, dy \, dx\]</span> and list below.</li>
+</ol>
+</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<section id="question-3-4" class="level2 callout-question" data-collapse="true">
+<h2 class="anchored" data-anchor-id="question-3-4">Question 3</h2>
+<p>Suppose <span class="math inline">\(X\)</span> has pdf <span class="math display">\[f_X(x) =
+\begin{cases}
+60x^2(1 - x)^3, &amp; 0 &lt; x &lt; 1 \\
+0, &amp; \text{otherwise}
+\end{cases}\]</span> Find the pdf of <span class="math inline">\(Y = X^3\)</span>.</p>
+</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<section id="question-4-3" class="level2 callout-question" data-collapse="true">
+<h2 class="anchored" data-anchor-id="question-4-3">Question 4</h2>
+<p>Suppose <span class="math inline">\(1000\)</span> people are surveyed about their smoking habits and classified as a smoker or non-smoker. The information is summarized in the table below:</p>
+<span class="math display">\[\begin{array}{|c|c|c|c|}
+\hline
+Smoker \backslash Age Group &amp; \le 18 &amp; 19-54 &amp; 55+ \\
+\hline
+Yes &amp; 25 &amp; 125 &amp; 150 \\
+\hline
+No &amp; 260 &amp; 205 &amp; 235 \\
+\hline
+\end{array}\]</span>
+<p><strong>a)</strong> What is the marginal probability mass function that describes smoking habits and age group among those surveyed? Write down this distribution and define any new notation that you use.</p>
+<p><strong>b)</strong> How can we quantify the relationship between smoking and age group using the methods we learned in the course? Interpret what this means in real life terms.</p>
+</section>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+
+</div>
+</div>
+</div>
+<p><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Exam solutions</a></p>
 
 
 </section>

@@ -8,9 +8,7 @@ toc-depth: 1
 
 Acknowledgements: This page contains tutorial notes for [STA237H1 Probability, Statistics and Data Analysis I](https://artsci.calendar.utoronto.ca/course/sta237h1) Summer 2025 under the instruction of [Dr. Gracia Yunruo Dong](https://graciadong.github.io/).
 
-The notes are completed as of June 9, 2026. If you have any feedback based on your experience over the course of this semester, please share it using [this link](https://docs.google.com/forms/d/e/1FAIpQLSdxa5pBOhz2qPJXdqHNaIE6RcbXY8KylWueBeOSSwk_7BEIIg/viewform?usp=header), which contains 8 short questions. Your input would be greatly appreciated—thank you!
-
-
+The notes are completed as of June 13, 2026. If you have any feedback based on your experience over the course of this semester, please share it using [this link](https://docs.google.com/forms/d/e/1FAIpQLSdxa5pBOhz2qPJXdqHNaIE6RcbXY8KylWueBeOSSwk_7BEIIg/viewform?usp=header), which contains 8 short questions. Your input would be greatly appreciated—thank you!
 
 # Week 1
 
@@ -819,7 +817,7 @@ Prove that when $a = m = 1$, then $\mathbb{E}(X)$ does not exist (it diverges to
 ::: {.callout-tip collapse="true"}
 ### Solution
 
-By definition, $$E(X) = \int_1^{\infty} x \cdot \frac{1}{x^2} \, dx = \int_1^{\infty} \frac{1}{x} \, dx = \log(x)\big|_1^{\infty} = \lim_{n \to \infty} \log(x) - \log(1) = \infty - 0 = \infty
+By definition, $$E(X) = \int_1^{\infty} x \cdot \frac{1}{x^2} \, dx = \int_1^{\infty} \frac{1}{x} \, dx = \log(x)\big|_1^{\infty} = \lim_{x \to \infty} \log(x) - \log(1) = \infty - 0 = \infty
 $$
 :::
 
@@ -914,3 +912,89 @@ $$P(2000 < X < 4000) = F(4000) - F(2000) = \left( \frac{1000}{2000} \right)^3 - 
 ppareto(4000,1000,3)-ppareto(2000,1000,3) 
 ```
 :::
+
+# Week 7
+
+::: {.callout-question collapse="true"}
+## Question 1
+
+The joint pdf of $X$ and $Y$, $f_{X,Y}(x,y)$, is non-zero on $0 \le y \le x \le 1$.
+
+**a)** Sketch and clearly mark the support of this joint probability distribution on the axes to the right. Explicitly mark boundaries (i.e., $y = x$ line, and $x/y = 0 \& 1$).
+
+**b)** Consider $P(Y \ge 1/2)$. 
+
+(i) Add and clearly mark the integration region to compute this probability on the axes in the right and
+(ii) determine the limits of integration (i.e., $a, b, c,$ and $d$) in 
+$$P\left(Y > \frac{1}{2}\right) = \int_a^b \int_{1/2}^d f_{X,Y}(x, y) \, dy \, dx$$ and list below
+:::
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+:::
+
+
+::: {.callout-question collapse="true"}
+## Question 2
+
+The joint pdf of $X$ and $Y$, $f_{X,Y}(x,y)$, is non-zero on $0 \le x \le 1, 0 \le y, \le 2x$.
+
+**a)** Sketch and clearly mark the support of this joint probability distribution on the axes to the right. Mark boundaries (i.e., $y = 2x$ line, $x = 0 \& 1$)
+
+**b)** Consider $P(1/2 < X < 1)$.
+
+(i) Add and clearly mark the integration region to compute this probability on the axes in the right and
+(ii) probability on the axes in the right and (ii) determine the limits of integration (i.e., $a, b, c,$ and $d$) in  
+$$P\left(\frac{1}{2} < X < 1\right) = \int_a^b \int_c^d f_{X,Y}(x, y) \, dy \, dx$$ and list below.
+:::
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+:::
+
+::: {.callout-question collapse="true"}
+## Question 3
+
+Suppose $X$ has pdf $$f_X(x) =
+\begin{cases}
+60x^2(1 - x)^3, & 0 < x < 1 \\
+0, & \text{otherwise}
+\end{cases}$$
+Find the pdf of $Y = X^3$.
+:::
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+:::
+
+::: {.callout-question collapse="true"}
+## Question 4
+
+Suppose $1000$ people are surveyed about their smoking habits and classified as a smoker or non-smoker. The information is summarized in the table below:
+
+
+\begin{array}{|c|c|c|c|}
+\hline
+Smoker \backslash Age Group & \le 18 & 19-54 & 55+ \\
+\hline
+Yes & 25 & 125 & 150 \\
+\hline
+No & 260 & 205 & 235 \\
+\hline
+\end{array}
+
+
+**a)** What is the marginal probability mass function that describes smoking habits and age group among those surveyed? Write down this distribution and define any new notation that you use. 
+
+**b)** How can we quantify the relationship between smoking and age group using the methods we learned in the course? Interpret what this means in real life terms.
+:::
+
+::: {.callout-tip collapse="true"}
+### Solution
+
+:::
+
+[Exam solutions](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
