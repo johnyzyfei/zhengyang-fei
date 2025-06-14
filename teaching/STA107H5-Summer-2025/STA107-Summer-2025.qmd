@@ -1,8 +1,7 @@
 ---
 title: "STA107: An Introduction to Probability and Modelling"
+categories: [Statistical Modelling, R, Simulations]
 description: 'Notes for STA107 Summer 2025'
 ---
 
 This page contains tutorial notes for [STA107H5 An Introduction to Probability and Modelling](https://utm.calendar.utoronto.ca/course/sta107h5) Summer 2025 under the instruction of [Dr. Asal Aslemand](https://www.utm.utoronto.ca/women-in-stem/people/asal-aslemand).
-
-
