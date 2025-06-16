@@ -1313,7 +1313,7 @@ Solution
 <p><strong>b)</strong> Consider <span class="math inline">\(P(Y \ge 1/2)\)</span>.</p>
 <ol type="i">
 <li>Add and clearly mark the integration region to compute this probability on the axes in the right and</li>
-<li>determine the limits of integration (i.e., <span class="math inline">\(a, b, c,\)</span> and <span class="math inline">\(d\)</span>) in <span class="math display">\[P\left(Y &gt; \frac{1}{2}\right) = \int_a^b \int_{1/2}^d f_{X,Y}(x, y) \, dy \, dx\]</span> and list below</li>
+<li>determine the limits of integration (i.e., <span class="math inline">\(a, b, c,\)</span> and <span class="math inline">\(d\)</span>) in <span class="math display">\[P\left(Y &gt; \frac{1}{2}\right) = \int_a^b \int_{c}^d f_{X,Y}(x, y) \, dy \, dx\]</span> and list below</li>
 </ol>
 </section>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -1328,7 +1328,8 @@ Solution
 </div>
 <div id="callout-21" class="callout-21-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-
+<p>Refer to this <a href="https://www.desmos.com/calculator/yyllpbo6jq">link</a>.</p>
+<p><strong>a)</strong> The support is the overlapping region between the red and blue. <span class="math display">\[S = \left\{ (x, y) \in \mathbb{R}^2 \;\middle|\; 0 \leq y \leq x \leq 1 \right\}\]</span> <strong>b)</strong> For this probability, we look at the overlapping region between the red, blue, and purple. Hence we have <span class="math inline">\(a = 0.5, b = 1, c = 0.5, d = x\)</span>.</p>
 </div>
 </div>
 </div>
@@ -1355,7 +1356,8 @@ Solution
 </div>
 <div id="callout-22" class="callout-22-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-
+<p>Refer to this <a href="https://www.desmos.com/calculator/pa6sukqq8q">link</a>.</p>
+<p><strong>a)</strong> The support is the overlapping region between the red and blue. <span class="math display">\[S = \left\{ (x, y) \in \mathbb{R}^2 \;\middle|\; 0 \leq x \leq 1, 0 \leq y \leq 2x \right\}\]</span> <strong>b)</strong> For this probability, we look at the overlapping region between the red, blue, and green. Hence we have <span class="math inline">\(a = 0.5, b = 1, c = 0, d = 2x\)</span></p>
 </div>
 </div>
 </div>
@@ -1379,7 +1381,16 @@ Solution
 </div>
 <div id="callout-23" class="callout-23-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-
+<p>We can use the method of transformations directly or the derivative cdf of X first and then use the cdf method. Here, transformation works faster.</p>
+<p>First, we look at all possible <span class="math inline">\(Y\)</span> values. Since from <span class="math inline">\(X\)</span>, we have <span class="math inline">\(0 &lt; X &lt; 1\)</span>, applying the transformation we get <span class="math inline">\(0^3 &lt; Y = X^3 &lt; 1^3 \implies 0 &lt; Y &lt; 1\)</span>.</p>
+<p>Next, note that the transformation <span class="math inline">\(Y = X^3\)</span> is invertible So <span class="math inline">\(Y = X^3 \implies X = Y^{1/3}\)</span>. So we can directly use the transformation formula <span class="math display">\[f_Y(y) = f_X(y^{1/3}) \left| \frac{d}{dy} y^{1/3} \right|
+= 60 y^{2/3} (1 - y^{1/3})^3 \left( \frac{1}{3} y^{-2/3} \right)
+= 20 (1 - y^{1/3})^3 \quad \text{for } 0 &lt; y &lt; 1\]</span></p>
+<p>So, our final answer is <span class="math display">\[\boxed{f_Y(y) =
+\begin{cases}
+20(1 - y^{1/3})^3, &amp; 0 &lt; y &lt; 1 \\
+0, &amp; \text{otherwise}
+\end{cases}}\]</span></p>
 </div>
 </div>
 </div>
@@ -1410,7 +1421,30 @@ Solution
 </div>
 <div id="callout-24" class="callout-24-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-
+<p><strong>a)</strong> Let S = Smoker, S’ = Non Smoker. Then <span class="math display">\[P(S) = \sum_{\text{all ages}} p(S, age) = \frac{25+125+150}{1000} = \frac{300}{1000} = 0.3\]</span> <span class="math display">\[P(S^c) = 1 - P(S) = 0.7\]</span></p>
+<p>Let A = age <span class="math inline">\(\le 18\)</span>, B = age <span class="math inline">\(19-54\)</span>, C = age <span class="math inline">\(55+\)</span>. Then <span class="math display">\[P(A) = \sum_{\text{all smoking status}} P(A, \text{smoking status}) = \frac{25+260}{1000} = \frac{285}{1000}\]</span> <span class="math display">\[P(B) =  \frac{125+205}{1000} = \frac{330}{1000}\]</span> <span class="math display">\[P(C) =  \frac{150+235}{1000} = \frac{385}{1000}\]</span> <strong>b)</strong> We first change the events to random variables. So our table becomes</p>
+<span class="math display">\[\begin{array}{|c|c|c|c|}
+\hline
+X \backslash Y &amp; 1 &amp; 2 &amp; 3 \\
+\hline
+1 &amp; 25 &amp; 125 &amp; 150 \\
+\hline
+0 &amp; 260 &amp; 205 &amp; 235 \\
+\hline
+\end{array}\]</span>
+<p>To quantify their relationships, we can calculate their covariance. The covariance is a measure of the linear association between two random variables.</p>
+<p>Recall the formula for Cov<span class="math inline">\((X, Y) = \mathbb{E}(XY) - \mathbb{E}(X) \mathbb{E}(Y)\)</span>. So we need to calculate:</p>
+<p><span class="math display">\[\mathbb{E}[X] = \frac{1 \cdot 300 + 0 \cdot 700}{1000} = \frac{300}{1000} = 0.3\]</span> <span class="math display">\[\mathbb{E}[Y] = \frac{1 \cdot 285 + 2 \cdot 330 + 3 \cdot 385}{1000}
+= \frac{285 + 660 + 1155}{1000}
+= \frac{2100}{1000} = 2.1\]</span></p>
+<p><span class="math display">\[\mathbb{E}[XY] = \frac{1 \cdot 1 \cdot 25 + 1 \cdot 2 \cdot 125 + 1 \cdot 3 \cdot 150 + 0 \cdot 1 \cdot 260 + 0 \cdot 2 \cdot 205 + 0 \cdot 3 \cdot 235}{1000}
+= \frac{25 + 250 + 450}{1000}
+= 0.725\]</span></p>
+<p>Putting everything together, <span class="math display">\[\text{Cov}(X, Y) = \mathbb{E}[XY] - \mathbb{E}[X] \mathbb{E}[Y]
+= 0.725 - (0.3 \cdot 2.1)
+= 0.725 - 0.63 = \boxed{0.095}\]</span></p>
+<p>The positive covariance between smoking status and age group suggests that older individuals are more likely to smoke than younger individuals in this population.</p>
+<p>While we know the direction of the relationship (positive), we cannot interpret the magnitude of the covariance. This is because the covariance is not normalized. To determine the strength of the relationship, we need to normalize it by the variance of each variable to find their correlation (to be covered in later courses).</p>
 </div>
 </div>
 </div>

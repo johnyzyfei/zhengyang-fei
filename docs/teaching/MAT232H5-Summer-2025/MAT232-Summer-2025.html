@@ -173,6 +173,7 @@ window.Quarto = {
   <li><a href="#week-4" id="toc-week-4" class="nav-link" data-scroll-target="#week-4">Week 4</a></li>
   <li><a href="#week-5" id="toc-week-5" class="nav-link" data-scroll-target="#week-5">Week 5</a></li>
   <li><a href="#week-6" id="toc-week-6" class="nav-link" data-scroll-target="#week-6">Week 6</a></li>
+  <li><a href="#week-7" id="toc-week-7" class="nav-link" data-scroll-target="#week-7">Week 7</a></li>
   </ul>
 </nav>
     </div>
@@ -480,13 +481,13 @@ L &amp;= \int_a^b \sqrt{[f'(t)]^2 + [g'(t)]^2 + [h'(t)]^2} \, dt \\
 <section id="week-6" class="level1">
 <h1>Week 6</h1>
 <p>Week 6 tutorial notes <a href="" download="week5">TBP</a></p>
-<section id="functions-of-two-variables" class="level2">
-<h2 class="anchored" data-anchor-id="functions-of-two-variables">Functions of Two Variables</h2>
+<section id="multivariable-functions" class="level2">
+<h2 class="anchored" data-anchor-id="multivariable-functions">Multivariable Functions</h2>
 <p>A function <span class="math inline">\(f\)</span> of two variables is a rule that assigns to each ordered pair of real numbers <span class="math inline">\((x, y)\)</span> in a set <span class="math inline">\(D\)</span> a unique real number denoted by <span class="math inline">\(f(x, y)\)</span>. The set <span class="math inline">\(D\)</span> is the domain of <span class="math inline">\(f\)</span> and its range is the set of values that <span class="math inline">\(f\)</span> takes on, that is, <span class="math display">\[\{f(x,y) | (x,y) \in D\}\]</span> The graph of <span class="math inline">\(f\)</span> is the set of all points <span class="math inline">\((x, y, z) \in R^3\)</span> such that <span class="math inline">\(z = f(x, y)\)</span> and <span class="math inline">\((x, y) \in D\)</span>.</p>
 <p>To visualize <span class="math inline">\(z = f(x,y)\)</span>, one method is to set the equation <span class="math inline">\(f(x, y) = k\)</span> where <span class="math inline">\(k\)</span> is a constant. Geometrically, they are like elevation lines on a topographic map where each level marks a specific height.</p>
 </section>
-<section id="calculus-with-functions-of-two-variables" class="level2">
-<h2 class="anchored" data-anchor-id="calculus-with-functions-of-two-variables">Calculus with Functions of Two Variables</h2>
+<section id="derivatives-of-multivariable-functions" class="level2">
+<h2 class="anchored" data-anchor-id="derivatives-of-multivariable-functions">Derivatives of Multivariable Functions</h2>
 <p>For a function <span class="math inline">\(f(x, y)\)</span>, we define its first partial derivatives <span class="math inline">\(f_x\)</span> and <span class="math inline">\(f_y\)</span> as <span class="math display">\[
 f_x(x, y) = \lim_{h \to 0} \frac{f(x + h, y) - f(x, y)}{h}
 \qquad
@@ -529,6 +530,27 @@ Note
 </div>
 </div>
 <p>Lastly, if we suppose that <span class="math inline">\(f\)</span> has continuous partial derivatives, then an equation of the tangent plane to the surface <span class="math inline">\(z = f(x, y)\)</span> at the point <span class="math inline">\(P(x_0, y_0, z_0)\)</span> is <span class="math display">\[z - z_0 = f_x(x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y - y_0)\]</span></p>
+</section>
+</section>
+<section id="week-7" class="level1">
+<h1>Week 7</h1>
+<p>Week 6 tutorial notes <a href="" download="week5">TBP</a></p>
+<section id="chain-rule" class="level2">
+<h2 class="anchored" data-anchor-id="chain-rule">Chain Rule</h2>
+<p><strong>Case 1:</strong> <span class="math inline">\(z = f(x, y)\)</span>, <span class="math inline">\(x = g(t)\)</span>, <span class="math inline">\(y = h(t)\)</span> and compute <span class="math inline">\(\frac{dz}{dt}\)</span>.</p>
+<p>This case is analogous to the standard chain rule from MAT135. Since <span class="math inline">\(z\)</span> is a function of only <span class="math inline">\(t\)</span> through <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, the chain rule for this case is <span class="math display">\[\frac{dz}{dt} = \frac{\partial f}{\partial x} \frac{dx}{dt} + \frac{\partial f}{\partial y} \frac{dy}{dt}\]</span></p>
+<p><strong>Case 2:</strong> <span class="math inline">\(z = f(x, y)\)</span>, <span class="math inline">\(x = g(s, t)\)</span>, <span class="math inline">\(y = h(s, t)\)</span> and compute <span class="math inline">\(\frac{\partial z}{\partial s}\)</span> and <span class="math inline">\(\frac{\partial z}{\partial t}\)</span>.</p>
+<p>In this case, <span class="math inline">\(z\)</span> is a function of both <span class="math inline">\(t\)</span> and <span class="math inline">\(s\)</span> through <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. So it makes sense that we would have two partial derivatives. The chain rule for these two cases are <span class="math display">\[\frac{\partial z}{\partial s} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial s} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial s}
+\qquad
+\frac{\partial z}{\partial t} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial t} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial t}\]</span></p>
+<p><strong>General case:</strong> Suppose that <span class="math inline">\(u\)</span> is a differentiable function of <span class="math inline">\(n\)</span> variables <span class="math inline">\(x_1, x_2, \dots, x_n\)</span>, and each <span class="math inline">\(x_j\)</span>, where <span class="math inline">\(j = 1, 2, \cdots, n\)</span> is a differentiable function of the <span class="math inline">\(m\)</span> variables <span class="math inline">\(t_1, t_2, \cdots, t_m\)</span>. Then <span class="math inline">\(u\)</span> is a function of <span class="math inline">\(t_1, t_2, \cdots, t_m\)</span> and</p>
+<p><span class="math display">\[\frac{\partial u}{\partial t_i} = \frac{\partial u}{\partial x_1} \frac{\partial x_1}{\partial t_i} + \frac{\partial u}{\partial x_2} \frac{\partial x_2}{\partial t_i} + \ldots + \frac{\partial u}{\partial x_n} \frac{\partial x_n}{\partial t_i}\]</span></p>
+<p>for each <span class="math inline">\(i = 1, 2, \cdots, m\)</span>.</p>
+</section>
+<section id="directional-derivative" class="level2">
+<h2 class="anchored" data-anchor-id="directional-derivative">Directional Derivative</h2>
+<p>Recall we looked at the two partial derivatives <span class="math inline">\(f_x(x,y)\)</span> and <span class="math inline">\(f_y(x,y)\)</span>. These two derivatives represents the rate of change of <span class="math inline">\(f\)</span> as we vary <span class="math inline">\(x\)</span> while holding <span class="math inline">\(y\)</span> constant, and vice versa. We now wish to find the rate of change of <span class="math inline">\(f\)</span> if we allow both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> to vary simultaneously.</p>
+<p>The directional derivative of <span class="math inline">\(f\)</span> at <span class="math inline">\((x_0, y_0)\)</span> in the direction of a unit vector</p>
 
 
 </section>
