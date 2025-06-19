@@ -137,14 +137,21 @@
     "href": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#directional-derivative",
     "title": "MAT232: Calculus of Several Variables",
     "section": "Directional Derivative",
-    "text": "Directional Derivative\nRecall we looked at the two partial derivatives \\(f_x(x,y)\\) and \\(f_y(x,y)\\). These two derivatives represents the rate of change of \\(f\\) as we vary \\(x\\) while holding \\(y\\) constant, and vice versa. We now wish to find the rate of change of \\(f\\) if we allow both \\(x\\) and \\(y\\) to vary simultaneously.\nThe directional derivative of \\(f\\) at \\((x_0, y_0)\\) in the direction of a unit vector"
+    "text": "Directional Derivative\nRecall we looked at the two partial derivatives \\(f_x(x,y)\\) and \\(f_y(x,y)\\). These two derivatives represents the rate of change of \\(f\\) as we vary \\(x\\) while holding \\(y\\) constant, and vice versa. We now wish to find the rate of change of \\(f\\) if we allow both \\(x\\) and \\(y\\) to vary simultaneously.\nThe directional derivative of \\(f\\) at \\((x_0, y_0)\\) in the direction of a unit vector \\(\\vec{u} = \\langle a, b \\rangle\\) is \\[D_{\\vec{u}} f(x_0, y_0) = \\lim_{h \\to 0} \\frac{f(x_0 + ha,\\, y_0 + hb) - f(x_0, y_0)}{h}\\] provided the limit exist.\n\n\n\n\n\n\nNote\n\n\n\nTheorem: Gradient Formula for Directional Derivatives.\nIf \\(f\\) is differentiable at \\((x_0, y_0)\\), then \\(f\\) has a directional derivative at \\((x_0, y_0)\\) in the direction of any unit vector \\(\\vec{u} = \\langle a, b \\rangle\\) and \\[\nD_{\\vec{u}} f(x_0, y_0) = f_x(x_0, y_0)a + f_y(x_0, y_0)b.\n\\]"
+  },
+  {
+    "objectID": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#gradient",
+    "href": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#gradient",
+    "title": "MAT232: Calculus of Several Variables",
+    "section": "Gradient",
+    "text": "Gradient\nIf \\(f\\) is a function of two variables \\(x\\) and \\(y\\), then the gradient of \\(f\\) is the vector function \\(\\nabla f\\) defined by\n\\[\n\\nabla f(x, y) = \\langle f_x(x, y), f_y(x, y) \\rangle = \\frac{\\partial f}{\\partial x} \\vec{i} + \\frac{\\partial f}{\\partial y} \\vec{j}\n\\] Note that \\[D_{\\vec{u}} f(x_0, y_0) = \\nabla f(x_0, y_0) \\cdot \\vec{u}\\] Again, the directional derivative and the gradient can be extended to functions of three or more variables."
   },
   {
     "objectID": "teaching/STA237H1-Summer-2025/STA237-Summer-2025.html",
     "href": "teaching/STA237H1-Summer-2025/STA237-Summer-2025.html",
     "title": "STA237: Probability, Statistics and Data Analysis I",
     "section": "",
-    "text": "Acknowledgements: This page contains tutorial notes for STA237H1 Probability, Statistics and Data Analysis I Summer 2025 under the instruction of Dr. Gracia Yunruo Dong.\nThe notes are completed as of June 13, 2026. If you have any feedback based on your experience over the course of this semester, please share it using this link, which contains 8 short questions. Your input would be greatly appreciated—thank you!"
+    "text": "Acknowledgements: This page contains tutorial notes for STA237H1 Probability, Statistics and Data Analysis I Summer 2025 under the instruction of Dr. Gracia Yunruo Dong.\nThe notes are completed as of June 13, 2025. If you have any feedback based on your experience over the course of this semester, please share it using this link, which contains 8 short questions. Your input would be greatly appreciated—thank you!"
   },
   {
     "objectID": "teaching/STA237H1-Summer-2025/STA237-Summer-2025.html#question-1-3",

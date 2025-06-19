@@ -276,7 +276,7 @@ L &= \int_a^b \sqrt{[f'(t)]^2 + [g'(t)]^2 + [h'(t)]^2} \, dt \\
 
 # Week 6
 
-Week 6 tutorial notes [TBP](){download="week5"}
+Week 6 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week6.pdf){download="week6"}
 
 ## Multivariable Functions
 
@@ -328,28 +328,23 @@ Suppose that $f$ is defined on a disk $D$ that contains the point $(a, b)$. If t
 
 Lastly, if we suppose that $f$ has continuous partial derivatives, then an equation of the tangent plane to the surface $z = f(x, y)$ at the point $P(x_0, y_0, z_0)$ is $$z - z_0 = f_x(x_0, y_0)(x - x_0) + f_y(x_0, y_0)(y - y_0)$$
 
-
-
 # Week 7
 
-Week 6 tutorial notes [TBP](){download="week5"}
+Week 7 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week7.pdf){download="week7"}
 
 ## Chain Rule
 
-**Case 1:** $z = f(x, y)$, $x = g(t)$, $y = h(t)$ and compute $\frac{dz}{dt}$. 
+**Case 1:** $z = f(x, y)$, $x = g(t)$, $y = h(t)$ and compute $\frac{dz}{dt}$.
 
-This case is analogous to the standard chain rule from MAT135. Since $z$ is a function of only $t$ through $x$ and $y$, the chain rule for this case is 
-$$\frac{dz}{dt} = \frac{\partial f}{\partial x} \frac{dx}{dt} + \frac{\partial f}{\partial y} \frac{dy}{dt}$$
+This case is analogous to the standard chain rule from MAT135. Since $z$ is a function of only $t$ through $x$ and $y$, the chain rule for this case is $$\frac{dz}{dt} = \frac{\partial f}{\partial x} \frac{dx}{dt} + \frac{\partial f}{\partial y} \frac{dy}{dt}$$
 
 **Case 2:** $z = f(x, y)$, $x = g(s, t)$, $y = h(s, t)$ and compute $\frac{\partial z}{\partial s}$ and $\frac{\partial z}{\partial t}$.
 
-In this case, $z$ is a function of both $t$ and $s$ through $x$ and $y$. So it makes sense that we would have two partial derivatives. The chain rule for these two cases are
-$$\frac{\partial z}{\partial s} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial s} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial s}
+In this case, $z$ is a function of both $t$ and $s$ through $x$ and $y$. So it makes sense that we would have two partial derivatives. The chain rule for these two cases are $$\frac{\partial z}{\partial s} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial s} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial s}
 \qquad
 \frac{\partial z}{\partial t} = \frac{\partial f}{\partial x} \frac{\partial x}{\partial t} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial t}$$
 
-
-**General case:** Suppose that $u$ is a differentiable function of $n$ variables $x_1, x_2, \dots, x_n$, and each $x_j$, where $j = 1, 2, \cdots, n$ is a differentiable function of the $m$ variables $t_1, t_2, \cdots, t_m$. Then $u$ is a function of $t_1, t_2, \cdots, t_m$ and 
+**General case:** Suppose that $u$ is a differentiable function of $n$ variables $x_1, x_2, \dots, x_n$, and each $x_j$, where $j = 1, 2, \cdots, n$ is a differentiable function of the $m$ variables $t_1, t_2, \cdots, t_m$. Then $u$ is a function of $t_1, t_2, \cdots, t_m$ and
 
 $$\frac{\partial u}{\partial t_i} = \frac{\partial u}{\partial x_1} \frac{\partial x_1}{\partial t_i} + \frac{\partial u}{\partial x_2} \frac{\partial x_2}{\partial t_i} + \ldots + \frac{\partial u}{\partial x_n} \frac{\partial x_n}{\partial t_i}$$
 
@@ -357,9 +352,35 @@ for each $i = 1, 2, \cdots, m$.
 
 ## Directional Derivative
 
-Recall we looked at the two partial derivatives $f_x(x,y)$ and $f_y(x,y)$. These two derivatives represents the rate of change of $f$ as we vary $x$ while holding $y$ constant, and vice versa. We now wish to find the rate of change of $f$ if we allow both $x$ and $y$ to vary simultaneously.  
+Recall we looked at the two partial derivatives $f_x(x,y)$ and $f_y(x,y)$. These two derivatives represents the rate of change of $f$ as we vary $x$ while holding $y$ constant, and vice versa. We now wish to find the rate of change of $f$ if we allow both $x$ and $y$ to vary simultaneously.
+
+The directional derivative of $f$ at $(x_0, y_0)$ in the direction of a unit vector $\vec{u} = \langle a, b \rangle$ is 
+$$D_{\vec{u}} f(x_0, y_0) = \lim_{h \to 0} \frac{f(x_0 + ha,\, y_0 + hb) - f(x_0, y_0)}{h}$$
+provided the limit exist.
+
+
+::: callout-note
+**Theorem: Gradient Formula for Directional Derivatives**.
+
+If $f$ is differentiable at $(x_0, y_0)$, then $f$ has a directional derivative at $(x_0, y_0)$ in the direction of any unit vector $\vec{u} = \langle a, b \rangle$ and
+$$
+D_{\vec{u}} f(x_0, y_0) = f_x(x_0, y_0)a + f_y(x_0, y_0)b.
+$$
+
+:::
+
+
+## Gradient 
+
+If $f$ is a function of two variables $x$ and $y$, then the gradient of $f$ is the vector function  $\nabla f$ defined by
+
+$$
+\nabla f(x, y) = \langle f_x(x, y), f_y(x, y) \rangle = \frac{\partial f}{\partial x} \vec{i} + \frac{\partial f}{\partial y} \vec{j}
+$$
+Note that 
+$$D_{\vec{u}} f(x_0, y_0) = \nabla f(x_0, y_0) \cdot \vec{u}$$
+Again, the directional derivative and the gradient can be extended to functions of three or more variables.
 
 
 
-The directional derivative of $f$ at $(x_0, y_0)$ in the direction of a unit vector 
 

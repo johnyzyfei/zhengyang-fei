@@ -480,7 +480,7 @@ L &amp;= \int_a^b \sqrt{[f'(t)]^2 + [g'(t)]^2 + [h'(t)]^2} \, dt \\
 </section>
 <section id="week-6" class="level1">
 <h1>Week 6</h1>
-<p>Week 6 tutorial notes <a href="" download="week5">TBP</a></p>
+<p>Week 6 tutorial notes <a href="../..\teaching/MAT232H5-Summer-2025/week6.pdf" download="week6">Here</a></p>
 <section id="multivariable-functions" class="level2">
 <h2 class="anchored" data-anchor-id="multivariable-functions">Multivariable Functions</h2>
 <p>A function <span class="math inline">\(f\)</span> of two variables is a rule that assigns to each ordered pair of real numbers <span class="math inline">\((x, y)\)</span> in a set <span class="math inline">\(D\)</span> a unique real number denoted by <span class="math inline">\(f(x, y)\)</span>. The set <span class="math inline">\(D\)</span> is the domain of <span class="math inline">\(f\)</span> and its range is the set of values that <span class="math inline">\(f\)</span> takes on, that is, <span class="math display">\[\{f(x,y) | (x,y) \in D\}\]</span> The graph of <span class="math inline">\(f\)</span> is the set of all points <span class="math inline">\((x, y, z) \in R^3\)</span> such that <span class="math inline">\(z = f(x, y)\)</span> and <span class="math inline">\((x, y) \in D\)</span>.</p>
@@ -534,7 +534,7 @@ Note
 </section>
 <section id="week-7" class="level1">
 <h1>Week 7</h1>
-<p>Week 6 tutorial notes <a href="" download="week5">TBP</a></p>
+<p>Week 7 tutorial notes <a href="../..\teaching/MAT232H5-Summer-2025/week7.pdf" download="week7">Here</a></p>
 <section id="chain-rule" class="level2">
 <h2 class="anchored" data-anchor-id="chain-rule">Chain Rule</h2>
 <p><strong>Case 1:</strong> <span class="math inline">\(z = f(x, y)\)</span>, <span class="math inline">\(x = g(t)\)</span>, <span class="math inline">\(y = h(t)\)</span> and compute <span class="math inline">\(\frac{dz}{dt}\)</span>.</p>
@@ -550,7 +550,30 @@ Note
 <section id="directional-derivative" class="level2">
 <h2 class="anchored" data-anchor-id="directional-derivative">Directional Derivative</h2>
 <p>Recall we looked at the two partial derivatives <span class="math inline">\(f_x(x,y)\)</span> and <span class="math inline">\(f_y(x,y)\)</span>. These two derivatives represents the rate of change of <span class="math inline">\(f\)</span> as we vary <span class="math inline">\(x\)</span> while holding <span class="math inline">\(y\)</span> constant, and vice versa. We now wish to find the rate of change of <span class="math inline">\(f\)</span> if we allow both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> to vary simultaneously.</p>
-<p>The directional derivative of <span class="math inline">\(f\)</span> at <span class="math inline">\((x_0, y_0)\)</span> in the direction of a unit vector</p>
+<p>The directional derivative of <span class="math inline">\(f\)</span> at <span class="math inline">\((x_0, y_0)\)</span> in the direction of a unit vector <span class="math inline">\(\vec{u} = \langle a, b \rangle\)</span> is <span class="math display">\[D_{\vec{u}} f(x_0, y_0) = \lim_{h \to 0} \frac{f(x_0 + ha,\, y_0 + hb) - f(x_0, y_0)}{h}\]</span> provided the limit exist.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Theorem: Gradient Formula for Directional Derivatives</strong>.</p>
+<p>If <span class="math inline">\(f\)</span> is differentiable at <span class="math inline">\((x_0, y_0)\)</span>, then <span class="math inline">\(f\)</span> has a directional derivative at <span class="math inline">\((x_0, y_0)\)</span> in the direction of any unit vector <span class="math inline">\(\vec{u} = \langle a, b \rangle\)</span> and <span class="math display">\[
+D_{\vec{u}} f(x_0, y_0) = f_x(x_0, y_0)a + f_y(x_0, y_0)b.
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="gradient" class="level2">
+<h2 class="anchored" data-anchor-id="gradient">Gradient</h2>
+<p>If <span class="math inline">\(f\)</span> is a function of two variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, then the gradient of <span class="math inline">\(f\)</span> is the vector function <span class="math inline">\(\nabla f\)</span> defined by</p>
+<p><span class="math display">\[
+\nabla f(x, y) = \langle f_x(x, y), f_y(x, y) \rangle = \frac{\partial f}{\partial x} \vec{i} + \frac{\partial f}{\partial y} \vec{j}
+\]</span> Note that <span class="math display">\[D_{\vec{u}} f(x_0, y_0) = \nabla f(x_0, y_0) \cdot \vec{u}\]</span> Again, the directional derivative and the gradient can be extended to functions of three or more variables.</p>
 
 
 </section>
