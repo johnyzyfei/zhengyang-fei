@@ -174,6 +174,7 @@ window.Quarto = {
   <li><a href="#week-5" id="toc-week-5" class="nav-link" data-scroll-target="#week-5">Week 5</a></li>
   <li><a href="#week-6" id="toc-week-6" class="nav-link" data-scroll-target="#week-6">Week 6</a></li>
   <li><a href="#week-7" id="toc-week-7" class="nav-link" data-scroll-target="#week-7">Week 7</a></li>
+  <li><a href="#week-8" id="toc-week-8" class="nav-link" data-scroll-target="#week-8">Week 8</a></li>
   </ul>
 </nav>
     </div>
@@ -574,6 +575,64 @@ D_{\vec{u}} f(x_0, y_0) = f_x(x_0, y_0)a + f_y(x_0, y_0)b.
 <p><span class="math display">\[
 \nabla f(x, y) = \langle f_x(x, y), f_y(x, y) \rangle = \frac{\partial f}{\partial x} \vec{i} + \frac{\partial f}{\partial y} \vec{j}
 \]</span> Note that <span class="math display">\[D_{\vec{u}} f(x_0, y_0) = \nabla f(x_0, y_0) \cdot \vec{u}\]</span> Again, the directional derivative and the gradient can be extended to functions of three or more variables.</p>
+</section>
+</section>
+<section id="week-8" class="level1">
+<h1>Week 8</h1>
+<p>Week 8 tutorial notes <a href="../..\teaching/MAT232H5-Summer-2025/week8.pdf" download="week8">Here</a></p>
+<section id="maximum-and-minimum-values" class="level2">
+<h2 class="anchored" data-anchor-id="maximum-and-minimum-values">Maximum and Minimum Values</h2>
+<p>A function of two variables has a local maximum at <span class="math inline">\((a, b)\)</span> if <span class="math inline">\(f(x,y) \le f(a, b)\)</span> when <span class="math inline">\((x, y)\)</span> is near <span class="math inline">\((a, b)\)</span>. One can think of this as that <span class="math inline">\(f(x, y) \le f(a, b)\)</span> for all points <span class="math inline">\((x, y)\)</span> in some disc centered at <span class="math inline">\((a, b)\)</span>. The number <span class="math inline">\(f(a, b)\)</span> is called the local/relative maximum value.</p>
+<p>Similarly, if <span class="math inline">\(f(x,y) \ge f(a, b)\)</span> when <span class="math inline">\((x, y)\)</span> is near <span class="math inline">\((a, b)\)</span>, we call <span class="math inline">\(f(a, b)\)</span> a local/relative minimum.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Theorem: Differential Rules of Vector Functions</strong>.</p>
+<p>If <span class="math inline">\(f\)</span> has a local maximum or local minimum at <span class="math inline">\((a, b)\)</span> and the first order partial derivatives of <span class="math inline">\(f\)</span> exist at <span class="math inline">\((a, b)\)</span>, then <span class="math inline">\(f_x(a, b) = 0\)</span> and <span class="math inline">\(f_y(a, b)=0\)</span></p>
+</div>
+</div>
+<p>The point <span class="math inline">\((a, b)\)</span> is a critical point of <span class="math inline">\(f\)</span> if one of the following is true:</p>
+<ul>
+<li><span class="math inline">\(\nabla f(a,b) = \vec{0}\)</span><br>
+</li>
+<li><span class="math inline">\(f_x(a,b)\)</span> and/or <span class="math inline">\(f_y(a,b)\)</span> does not exist<br>
+</li>
+</ul>
+</section>
+<section id="second-derivative-test" class="level2">
+<h2 class="anchored" data-anchor-id="second-derivative-test">Second Derivative Test</h2>
+<p>Suppose that the second partial derivatives of <span class="math inline">\(f\)</span> are continuous on a disk with center <span class="math inline">\((a, b)\)</span> and <span class="math inline">\((a, b)\)</span> is a critical point of <span class="math inline">\(f\)</span>. Define <span class="math display">\[D = f_{xx}(a,b) f_{yy}(a,b) - [f_{xy}(a,b)]^2\]</span></p>
+<p>Then we can classify the critical points into the following cases:</p>
+<ul>
+<li>If <span class="math inline">\(D &gt; 0\)</span> and <span class="math inline">\(f_{xx}(a,b) &gt; 0\)</span>, then <span class="math inline">\((a,b)\)</span> is a relative minimum.</li>
+<li>If <span class="math inline">\(D &gt; 0\)</span> and <span class="math inline">\(f_{xx}(a,b) &lt; 0\)</span>, then <span class="math inline">\((a,b)\)</span> is a relative maximum.</li>
+<li>If <span class="math inline">\(D &lt; 0\)</span>, then <span class="math inline">\((a, b)\)</span> is a saddle point.</li>
+<li>If <span class="math inline">\(D = 0\)</span>, then it is inconclusive (ie. <span class="math inline">\((a, b)\)</span> may be a relative minimum, relative maximum, or saddle point). Other techniques would need to be used.</li>
+</ul>
+</section>
+<section id="extreme-value-theorem" class="level2">
+<h2 class="anchored" data-anchor-id="extreme-value-theorem">Extreme Value Theorem</h2>
+<p>If <span class="math inline">\(f\)</span> is continuous on some close and bounded set <span class="math inline">\(D\)</span> in <span class="math inline">\(\mathbb{R}^2\)</span>, then there are points in <span class="math inline">\(D\)</span>, say <span class="math inline">\((x_1, y_1)\)</span> and <span class="math inline">\((x_2, y_2)\)</span>, so that <span class="math inline">\(f(x_1, y_1)\)</span> is the absolute maximum and <span class="math inline">\(f(x_2, y_2)\)</span> is the absolute minimum of the function in <span class="math inline">\(D\)</span>.</p>
+<p>To find the absolute maximum and minimum values of a continuous function <span class="math inline">\(f\)</span> on <span class="math inline">\(D\)</span> involves the following steps:</p>
+<ul>
+<li>Find the values of <span class="math inline">\(f\)</span> at the critical points of <span class="math inline">\(f\)</span> in <span class="math inline">\(D\)</span></li>
+<li>Find the extreme values of <span class="math inline">\(f\)</span> on the boundaries of <span class="math inline">\(D\)</span></li>
+<li>The largest of the values from the previous steps is the absolute maximum; the smallest is the absolute minimum.</li>
+</ul>
+</section>
+<section id="lagrange-multipliers" class="level2">
+<h2 class="anchored" data-anchor-id="lagrange-multipliers">Lagrange Multipliers</h2>
+<p>In this section we take a look at another method for optimizing a function subject to given constraints.</p>
+<p>The basic setup is that, we wish to optimize <span class="math inline">\(f(x, y, z)\)</span> given the constraint <span class="math inline">\(g(x, y, z) = k\)</span>. We then have the following workflow.</p>
+<p>Step 1: Find all values of <span class="math inline">\(x, y, z\)</span> and <span class="math inline">\(\lambda\)</span> such that <span class="math display">\[\nabla f(x,y,z) = \lambda \nabla g(x,y,z), \quad g(x,y,z) = k\]</span> Step 2: Plug in all solutions <span class="math inline">\((x, y, z)\)</span> from the previous step into <span class="math inline">\(f(x,y,z)\)</span> to identify the maximum and minimum values.</p>
+<p>Note this method can also be applied for a function with two variables.</p>
 
 
 </section>
