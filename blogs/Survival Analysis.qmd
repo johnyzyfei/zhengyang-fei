@@ -1,0 +1,21 @@
+---
+title: "Survival Analysis"
+categories: [Survival Analysis]
+description: 'Self-Study Notes for Survival Analysis'
+---
+
+During Janurary to April of 2025, I attended the course [Survival Analysis I](https://www.dlsph.utoronto.ca/course/survival-analysis-i/) at the Dalla Lana School of Public Health, University of Toronto, taught by Professors Olli Saarela and Kevin Thorpe. 
+
+In preparing for a career in biostatistics, I’ve come to appreciate just how crucial survival analysis is for making sense of time-to-event outcomes in clinical studies. To consolidate my learning and support others with similar interests, I’m compiling a series of posts summarizing key concepts and insights from the course—and extending beyond it.
+
+With this goal in mind, my notes aim to compile key concepts in survival analysis while also gathering useful statistical packages and functions, accompanied by mathematical reasoning where appropriate.
+
+
+# Introduction
+
+
+## Censoring
+
+## Survival Function and Hazard Function
+
+## Kaplan Mier

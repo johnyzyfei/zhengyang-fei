@@ -1,13 +1,14 @@
 ---
-title: Teaching
+title: Blogs
 page-layout: full
 
 listing:
-  contents: teaching
+  contents: blogs
   sort: "date desc"
   type: grid
   categories: true
   sort-ui: false
   filter-ui: true
 ---
+
 

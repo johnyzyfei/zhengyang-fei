@@ -16,7 +16,7 @@ website:
         href: resume.qmd
       - href: project.qmd
         text: Projects
-      - href: blog.qmd
+      - href: blogs.qmd
         text: Blog
       - href: teaching.qmd
         text: Teaching

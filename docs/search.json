@@ -28,6 +28,20 @@
     "text": "DIMP Package\n\n\n\nR\n\n\nMultiple Imputation\n\n\n\nA utility to delete imputed outcome values after multiple imputation.\n\n\n\n\n\n\nNov 30, 2024\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
+    "objectID": "blogs.html",
+    "href": "blogs.html",
+    "title": "Blogs",
+    "section": "",
+    "text": "Survival Analysis\n\n\n\nSurvival Analysis\n\n\n\nSelf-Study Notes for Survival Analysis\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blogs/Survival Analysis.html",
+    "href": "blogs/Survival Analysis.html",
+    "title": "Survival Analysis",
+    "section": "",
+    "text": "During Janurary to April of 2025, I attended the course Survival Analysis I at the Dalla Lana School of Public Health, University of Toronto, taught by Professors Olli Saarela and Kevin Thorpe.\nIn preparing for a career in biostatistics, I’ve come to appreciate just how crucial survival analysis is for making sense of time-to-event outcomes in clinical studies. To consolidate my learning and support others with similar interests, I’m compiling a series of posts summarizing key concepts and insights from the course—and extending beyond it."
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Zhengyang (John) Fei",
@@ -151,7 +165,7 @@
     "href": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#maximum-and-minimum-values",
     "title": "MAT232: Calculus of Several Variables",
     "section": "Maximum and Minimum Values",
-    "text": "Maximum and Minimum Values\nA function of two variables has a local maximum at \\((a, b)\\) if \\(f(x,y) \\le f(a, b)\\) when \\((x, y)\\) is near \\((a, b)\\). One can think of this as that \\(f(x, y) \\le f(a, b)\\) for all points \\((x, y)\\) in some disc centered at \\((a, b)\\). The number \\(f(a, b)\\) is called the local/relative maximum value.\nSimilarly, if \\(f(x,y) \\ge f(a, b)\\) when \\((x, y)\\) is near \\((a, b)\\), we call \\(f(a, b)\\) a local/relative minimum.\n\n\n\n\n\n\nNote\n\n\n\nTheorem: Differential Rules of Vector Functions.\nIf \\(f\\) has a local maximum or local minimum at \\((a, b)\\) and the first order partial derivatives of \\(f\\) exist at \\((a, b)\\), then \\(f_x(a, b) = 0\\) and \\(f_y(a, b)=0\\)\n\n\nThe point \\((a, b)\\) is a critical point of \\(f\\) if one of the following is true:\n\n\\(\\nabla f(a,b) = \\vec{0}\\)\n\n\\(f_x(a,b)\\) and/or \\(f_y(a,b)\\) does not exist"
+    "text": "Maximum and Minimum Values\nA function of two variables has a local maximum at \\((a, b)\\) if \\(f(x,y) \\le f(a, b)\\) when \\((x, y)\\) is near \\((a, b)\\). One can think of this as that \\(f(x, y) \\le f(a, b)\\) for all points \\((x, y)\\) in some disc centered at \\((a, b)\\). The number \\(f(a, b)\\) is called the local/relative maximum value.\nSimilarly, if \\(f(x,y) \\ge f(a, b)\\) when \\((x, y)\\) is near \\((a, b)\\), we call \\(f(a, b)\\) a local/relative minimum.\n\n\n\n\n\n\nNote\n\n\n\nTheorem: First Derivative Test for Local Extrema.\nIf \\(f\\) has a local maximum or local minimum at \\((a, b)\\) and the first order partial derivatives of \\(f\\) exist at \\((a, b)\\), then \\(f_x(a, b) = 0\\) and \\(f_y(a, b)=0\\)\n\n\nThe point \\((a, b)\\) is a critical point of \\(f\\) if one of the following is true:\n\n\\(\\nabla f(a,b) = \\vec{0}\\)\n\n\\(f_x(a,b)\\) and/or \\(f_y(a,b)\\) does not exist"
   },
   {
     "objectID": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#second-derivative-test",
@@ -292,5 +306,19 @@
     "title": "STA237: Probability, Statistics and Data Analysis I",
     "section": "Question 4",
     "text": "Question 4\nSuppose \\(1000\\) people are surveyed about their smoking habits and classified as a smoker or non-smoker. The information is summarized in the table below:\n\\[\\begin{array}{|c|c|c|c|}\n\\hline\nSmoker \\backslash Age Group & \\le 18 & 19-54 & 55+ \\\\\n\\hline\nYes & 25 & 125 & 150 \\\\\n\\hline\nNo & 260 & 205 & 235 \\\\\n\\hline\n\\end{array}\\]\na) What is the marginal probability mass function that describes smoking habits and age group among those surveyed? Write down this distribution and define any new notation that you use.\nb) How can we quantify the relationship between smoking and age group using the methods we learned in the course? Interpret what this means in real life terms."
+  },
+  {
+    "objectID": "blogs/Survival Analysis.html#censoring",
+    "href": "blogs/Survival Analysis.html#censoring",
+    "title": "Survival Analysis",
+    "section": "Censoring",
+    "text": "Censoring"
+  },
+  {
+    "objectID": "blogs/Survival Analysis.html#survival-function-density-function-and-hazard-function",
+    "href": "blogs/Survival Analysis.html#survival-function-density-function-and-hazard-function",
+    "title": "Survival Analysis",
+    "section": "Survival Function, Density Function, and Hazard Function",
+    "text": "Survival Function, Density Function, and Hazard Function"
   }
 ]

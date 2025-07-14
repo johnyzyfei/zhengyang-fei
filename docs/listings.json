@@ -12,5 +12,11 @@
     "items": [
       "/projects/dimp.html"
     ]
+  },
+  {
+    "listing": "/blogs.html",
+    "items": [
+      "/blogs/Survival Analysis.html"
+    ]
   }
 ]
