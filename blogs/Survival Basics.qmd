@@ -1,5 +1,5 @@
 ---
 title: "Survival Analysis P2"
-categories: [Survival Analysis, Survival function, Hazard function]
+categories: [Survival Analysis, Survival and Hazard functions]
 description: 'Self-Study Notes for Survival Analysis'
 ---
