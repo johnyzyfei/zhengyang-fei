@@ -6,8 +6,7 @@ description: 'Self-Study Notes for Survival Analysis'
 
 # Survival Function
 
-We often work with the *survival function*, the probability that an individual has not experienced an event by time $t$. It is defined
-$$S(t) = 1 - F(t) = P(T > t)$$ where $F(t)$ is the CDF for a random event time $T$.
+We often work with the *survival function*, the probability that an individual has not experienced an event by time $t$. It is defined $$S(t) = 1 - F(t) = P(T > t)$$ where $F(t)$ is the CDF for a random event time $T$.
 
 ```{r}
 #| echo: false
@@ -41,26 +40,20 @@ survplot$plot +
 ```
 
 At $t = 250$ days, we can calculate the survival function $S(250) = 0.153$, indicating the probability of survival past $250$ days is only $15.3 \%$. Equivalently, $84.7 \%$ of patients died prior to day $t = 250$. Out of the initial $n = 119$ patients, only $18$ are still alive and participating the study.
+
 ```{r}
 summary(fit, times = 250)
 ```
 
 Note the staircase pattern to the survival function. At each occurrence of event, the survival function drops by $1/119$. The crosses indicates the censor times. The survival function does not drop at censored times immediately, but it does influence the size of the drop at the next observed event time as they are no longer in the denominator (the risk set). As time moves forward, the survival probability can either drop or stay the same.
 
-
 # Hazard function
 
-We are often interested in how the instantaneous risk of an event, aka the hazard of an event, changes over time, how it differs between groups, and how it depends on covariates. The individual-level *hazard function* at time $t$, conditioned on covariates $x_i$, and parameterized by a vector $\theta$, is defined as 
-$$h_i(t; \theta) \equiv \lim_{h \to 0} \frac{P(t \leq \tilde{T}_i < t + h \mid \tilde{T}_i \geq t, x_i; \theta)}{h} \tag{1}$$
+We are often interested in how the instantaneous risk of an event, aka the hazard of an event, changes over time, how it differs between groups, and how it depends on covariates. The individual-level *hazard function* at time $t$, conditioned on covariates $x_i$, and parameterized by a vector $\theta$, is defined as $$h_i(t; \theta) \equiv \lim_{h \to 0} \frac{P(t \leq \tilde{T}_i < t + h \mid \tilde{T}_i \geq t, x_i; \theta)}{h} \tag{1}$$
 
+We may also refer to its more generalized version for some derivation $$h(t) = \lim_{\Delta t \to 0} \frac{P(t \leq T < t + \Delta t \mid T \geq t)}{\Delta t} \tag{2}$$
 
-We may also refer to its more generalized version for some derivation
-$$h(t) = \lim_{\Delta t \to 0} \frac{P(t \leq T < t + \Delta t \mid T \geq t)}{\Delta t} \tag{2}$$
-
-This definition captures the instantaneous risk that an event occurs at time $t$ for individual $i$,assuming the individual has survived up to that point. It is:
-- Conditional on the individual's covariates $x_i$, such as age, sex, treatment status
-- Parameterized by a vector $\theta$, and
-- Defined as a limit, where the length of the time interval approaches zero, yielding an instantaneous event rate at time $t$
+This definition captures the instantaneous risk that an event occurs at time $t$ for individual $i$,assuming the individual has survived up to that point. It is: - Conditional on the individual's covariates $x_i$, such as age, sex, treatment status - Parameterized by a vector $\theta$, and - Defined as a limit, where the length of the time interval approaches zero, yielding an instantaneous event rate at time $t$
 
 ```{r}
 #| echo: false
@@ -89,12 +82,22 @@ ggplot(df) +
   theme_minimal()
 ```
 
-Using the same dataset, note the hazard function is flat when the survival function is also flat ($t = 620$ onward) and is greater whenever the survival function is steeper. 
+Using the same dataset, note the hazard function is flat when the survival function is also flat ($t = 620$ onward) and is greater whenever the survival function is steeper.
 
 # Cumulative Hazard Function
 
-# Mathematical Derivations
+The cumulative hazard function $H(t)$ is the accumulated risk of an event occuring up to time $t$. It is defined by $$H(t) = \int_0^t h(x) dx$$
 
-We prove the following: 
+# Relationships between Survival and Hazard Functions
 
+::: callout-note
+**Exercise: Hazard and survival function**.
 
+Show that the hazard function $h(t) = \dfrac{f(t)}{S(t)}$.
+:::
+
+::: callout-note
+**Exercise: Hazard and survival function**.
+
+Show that the survival function $S(t) = \exp{\{- \int_0^t h(x)dx\}}$.
+:::
