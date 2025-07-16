@@ -95,6 +95,6 @@ Using the same dataset, note the hazard function is flat when the survival funct
 
 # Mathematical Derivations
 
-We prove the following:
+We prove the following: 
 
 
