@@ -62,7 +62,7 @@ Use R to compute the KM estimate of the survival function using the Veteran data
 library(survival)
 library(ggplot2)
 
-# surv.veteran <- survfit(Surv(time, status) ~ trt, data = veteran) # Fitting model
+surv.veteran <- survfit(Surv(time, status) ~ trt, data = veteran) # Fitting model
 # print(summary(surv.veteran), digits=4) # Summary model
 ```
 

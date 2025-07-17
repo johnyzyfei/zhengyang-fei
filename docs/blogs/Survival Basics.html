@@ -203,6 +203,8 @@ window.Quarto = {
   <ul>
   <li><a href="#survival-function" id="toc-survival-function" class="nav-link active" data-scroll-target="#survival-function">Survival Function</a></li>
   <li><a href="#hazard-function" id="toc-hazard-function" class="nav-link" data-scroll-target="#hazard-function">Hazard function</a></li>
+  <li><a href="#cumulative-hazard-function" id="toc-cumulative-hazard-function" class="nav-link" data-scroll-target="#cumulative-hazard-function">Cumulative Hazard Function</a></li>
+  <li><a href="#relationships-between-survival-and-hazard-functions" id="toc-relationships-between-survival-and-hazard-functions" class="nav-link" data-scroll-target="#relationships-between-survival-and-hazard-functions">Relationships between Survival and Hazard Functions</a></li>
   </ul>
 </nav>
     </div>
@@ -276,6 +278,41 @@ window.Quarto = {
 </div>
 </div>
 <p>Using the same dataset, note the hazard function is flat when the survival function is also flat (<span class="math inline">\(t = 620\)</span> onward) and is greater whenever the survival function is steeper.</p>
+</section>
+<section id="cumulative-hazard-function" class="level1">
+<h1>Cumulative Hazard Function</h1>
+<p>The cumulative hazard function <span class="math inline">\(H(t)\)</span> is the accumulated risk of an event occuring up to time <span class="math inline">\(t\)</span>. It is defined by <span class="math display">\[H(t) = \int_0^t h(x) dx\]</span></p>
+</section>
+<section id="relationships-between-survival-and-hazard-functions" class="level1">
+<h1>Relationships between Survival and Hazard Functions</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Exercise: Hazard and survival function</strong>.</p>
+<p>Show that the hazard function <span class="math inline">\(h(t) = \dfrac{f(t)}{S(t)}\)</span>.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Exercise: Hazard and survival function</strong>.</p>
+<p>Show that the survival function <span class="math inline">\(S(t) = \exp{\{- \int_0^t h(x)dx\}}\)</span>.</p>
+</div>
+</div>
 
 
 </section>
