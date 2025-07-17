@@ -6,8 +6,7 @@ description: 'Self-Study Notes for Survival Analysis'
 
 The goal of this post is to introduce the **Kaplan-Meier** estimate of the survival function. The Kaplan-Meier estimator makes no assumptions about the shape of the underlying survival distribution, making it a *non-parametric* and hence flexible to adapt to real world data.
 
-If there were no censoring, this would be an easy task as we could directly use the ECDF 
-$$\hat{F_n}(t) = \frac{1}{n} \sum_{i=1}^n I(t_i \le t) \implies \hat{S}_n(t) = 1 - \hat{F}_n(t)$$
+If there were no censoring, this would be an easy task as we could directly use the ECDF $$\hat{F_n}(t) = \frac{1}{n} \sum_{i=1}^n I(t_i \le t) \implies \hat{S}_n(t) = 1 - \hat{F}_n(t)$$
 
 # Derivation of the Kaplan Mier Estimate
 
@@ -15,49 +14,38 @@ To build up the Kaplan-Meier estimator, we assume that time is discrete.
 
 Suppose we observe individual time points $t_0 = 0, t_1, t_2, \cdots$. These may be days, weeks, or any time unit relevant to the study. At each time $t_j$, an individual may experience the event of interest, while others continue on.
 
-Next, define 
+Next, define
 
-- $q_j$ be the probability of failing at time $t_j$, given that the subject survived up to that point, (ie. past time $t_{j-1}$ 
-- $p_j = 1 - q_j$ be the probability of surviving past time $t_j$, given survival up to time $t_{j-1}$
+-   $q_j$ be the probability of failing at time $t_j$, given that the subject survived up to that point, (ie. past time $t_{j-1}$
+-   $p_j = 1 - q_j$ be the probability of surviving past time $t_j$, given survival up to time $t_{j-1}$
 
-To express $p_j$ more formally,
-$$p_j = P(T > t_j| T > t_{j-1}) = \dfrac{P(T > t_j, T > t_{j-1})}{P(T > t_{j-1})} = \dfrac{P(T > t_j)}{P(T > t_{j-1})}$$
-Recall that the survival function is defined as
-$$S(t) = P(T > t)$$
+To express $p_j$ more formally, $$p_j = P(T > t_j| T > t_{j-1}) = \dfrac{P(T > t_j, T > t_{j-1})}{P(T > t_{j-1})} = \dfrac{P(T > t_j)}{P(T > t_{j-1})}$$ Recall that the survival function is defined as $$S(t) = P(T > t)$$
 
-Hence, rewriting $p_j$ results in
-$$p_j = \dfrac{S(t_j)}{S(t_{j-1})} \tag{1}$$
+Hence, rewriting $p_j$ results in $$p_j = \dfrac{S(t_j)}{S(t_{j-1})} \tag{1}$$
 
-We observe a recursive relationship
-$$S(t_0) = S(0) = 1$$
-$$p_1 = \dfrac{S(t_1)}{S(t_0)} = S(t_1)$$
-$$p_2 = \dfrac{S(t_2)}{S(t_1)}$$
-$$p_2 = \dfrac{S(t_3)}{S(t_2)}$$
-$$...$$
-$$p_k = \dfrac{S(t_k)}{S(t_{k-1})}$$
+We observe a recursive relationship $$S(t_0) = S(0) = 1$$ $$p_1 = \dfrac{S(t_1)}{S(t_0)} = S(t_1)$$ $$p_2 = \dfrac{S(t_2)}{S(t_1)}$$ $$p_2 = \dfrac{S(t_3)}{S(t_2)}$$ $$...$$ $$p_k = \dfrac{S(t_k)}{S(t_{k-1})}$$
 
-Hence, continuing from $(1)$
-$$p_j = S(t_1) \dfrac{S(t_2)}{S(t_1)} \dfrac{S(t_3)}{S(t_2)} \cdots  \dfrac{S(t_k)}{S(t_{k-1})} = S(t_k)$$
+Hence, continuing from $(1)$ $$p_j = S(t_1) \dfrac{S(t_2)}{S(t_1)} \dfrac{S(t_3)}{S(t_2)} \cdots  \dfrac{S(t_k)}{S(t_{k-1})} = S(t_k)$$
 
 To estimate the survival function $S(t)$, we need to estimate each of the conditional survival probabilities $p_j$. At each time point $t_j$, define
 
-- $d_j$ as the number of events that occur exactly at time $t_j$
-- $n_j$ as the number of individuals in the risk set just before $t_j$
+-   $d_j$ as the number of events that occur exactly at time $t_j$
+-   $n_j$ as the number of individuals in the risk set just before $t_j$
 
-Note that anyone who was censored before time $t_j$ is no longer in the risk set. 
+Note that anyone who was censored before time $t_j$ is no longer in the risk set.
 
-We can then estimate the conditional probability of failure at time $t_j$ and the conditional probability of survival as
-$$\hat{q}_j = \dfrac{d_j}{n_j}$$
-$$\hat{p}_j = 1 - \hat{q}_j = \dfrac{n_j - d_j}{n_j}$$
+We can then estimate the conditional probability of failure at time $t_j$ and the conditional probability of survival as $$\hat{q}_j = \dfrac{d_j}{n_j}$$ $$\hat{p}_j = 1 - \hat{q}_j = \dfrac{n_j - d_j}{n_j}$$
 
-To estimate the overall survival probability at time $t_k$, we multiply all the conditional probabilities up to that time 
-$$\hat{S}(t) = \prod_{t_j \le t} \left(1 - \frac{d_j}{n_j}\right)$$
+To estimate the overall survival probability at time $t_k$, we multiply all the conditional probabilities up to that time $$\hat{S}(t) = \prod_{t_j \le t} \left(1 - \frac{d_j}{n_j}\right)$$
 
 # Greenwood's Formula
+
+Test test
 
 # Nelson-Aalen
 
 # Application in R
+
 ## Fitting the model
 
 ::: callout-note
@@ -74,11 +62,12 @@ Use R to compute the KM estimate of the survival function using the Veteran data
 library(survival)
 library(ggplot2)
 
-surv.veteran <- survfit(Surv(time, status) ~ trt, data = veteran) # Fitting model
-print(summary(surv.veteran), digits=4) # Summary model
+# surv.veteran <- survfit(Surv(time, status) ~ trt, data = veteran) # Fitting model
+# print(summary(surv.veteran), digits=4) # Summary model
 ```
 
 ## Plotting the survival function
+
 ```{r}
 # Plotting KM survival curve by treatment group
 km <- summary(surv.veteran)
@@ -96,4 +85,3 @@ ggplot(df, aes(x = time, y = surv, color = group)) +
   labs(x = "Time (days)", y = "Survival Probability", color = "Group") +
   theme_minimal()
 ```
-
