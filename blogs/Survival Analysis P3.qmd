@@ -1,12 +1,12 @@
 ---
-title: "Survival Analysis P3"
+title: "Survival Analysis P3: Kaplan Mier Estimate of the Survival Function"
 categories: [Survival Analysis, Kaplan-Meier]
 description: 'Self-Study Notes for Survival Analysis'
 ---
 
 The goal of this post is to introduce the **Kaplan-Meier** estimate of the survival function. The Kaplan-Meier estimator makes no assumptions about the shape of the underlying survival distribution, making it a *non-parametric* and hence flexible to adapt to real world data.
 
-If there were no censoring, this would be an easy task as we could directly use the ECDF $$\hat{F_n}(t) = \frac{1}{n} \sum_{i=1}^n I(t_i \le t) \implies \hat{S}_n(t) = 1 - \hat{F}_n(t)$$
+Note that if there were no censoring, this would be an easy task as we could directly use the ECDF $$\hat{F_n}(t) = \frac{1}{n} \sum_{i=1}^n I(t_i \le t) \implies \hat{S}_n(t) = 1 - \hat{F}_n(t)$$
 
 # Derivation of the Kaplan Mier Estimate
 

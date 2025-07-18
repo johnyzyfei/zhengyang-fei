@@ -257,7 +257,7 @@ window.Quarto = {
 <p>To express <span class="math inline">\(p_j\)</span> more formally, <span class="math display">\[p_j = P(T &gt; t_j| T &gt; t_{j-1}) = \dfrac{P(T &gt; t_j, T &gt; t_{j-1})}{P(T &gt; t_{j-1})} = \dfrac{P(T &gt; t_j)}{P(T &gt; t_{j-1})}\]</span> Recall that the survival function is defined as <span class="math display">\[S(t) = P(T &gt; t)\]</span></p>
 <p>Hence, rewriting <span class="math inline">\(p_j\)</span> results in <span class="math display">\[p_j = \dfrac{S(t_j)}{S(t_{j-1})} \tag{1}\]</span></p>
 <p>We observe a recursive relationship <span class="math display">\[S(t_0) = S(0) = 1\]</span> <span class="math display">\[p_1 = \dfrac{S(t_1)}{S(t_0)} = S(t_1)\]</span> <span class="math display">\[p_2 = \dfrac{S(t_2)}{S(t_1)}\]</span> <span class="math display">\[p_2 = \dfrac{S(t_3)}{S(t_2)}\]</span> <span class="math display">\[...\]</span> <span class="math display">\[p_k = \dfrac{S(t_k)}{S(t_{k-1})}\]</span></p>
-<p>Hence, continuing from <span class="math inline">\((1)\)</span> <span class="math display">\[p_1 \cdot p_2 \cdot p_3 \cdots p_k = S(t_1) \dfrac{S(t_2)}{S(t_1)} \dfrac{S(t_3)}{S(t_2)} \cdots  \dfrac{S(t_k)}{S(t_{k-1})} = S(t_k)\]</span></p>
+<p>Hence, <span class="math display">\[p_1 \cdot p_2 \cdot p_3 \cdots p_k = S(t_1) \dfrac{S(t_2)}{S(t_1)} \dfrac{S(t_3)}{S(t_2)} \cdots  \dfrac{S(t_k)}{S(t_{k-1})} = S(t_k)\]</span></p>
 <p>To estimate the survival function <span class="math inline">\(S(t)\)</span>, we need to estimate each of the conditional survival probabilities <span class="math inline">\(p_j\)</span>. At each time point <span class="math inline">\(t_j\)</span>, define</p>
 <ul>
 <li><span class="math inline">\(d_j\)</span> as the number of events that occur exactly at time <span class="math inline">\(t_j\)</span></li>
@@ -269,7 +269,7 @@ window.Quarto = {
 </section>
 <section id="greenwoods-formula" class="level1">
 <h1>Greenwood’s Formula</h1>
-<p>Test test</p>
+<p>Test test test test</p>
 </section>
 <section id="nelson-aalen" class="level1">
 <h1>Nelson-Aalen</h1>

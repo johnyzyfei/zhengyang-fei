@@ -1,5 +1,5 @@
 ---
-title: "Survival Analysis P1"
+title: "Survival Analysis P1: Censoring"
 categories: [Survival Analysis, Censoring]
 description: 'Self-Study Notes for Survival Analysis'
 ---
@@ -28,6 +28,44 @@ Censoring occurs when we do not have complete information about a subject's time
 -   Left censoring occurs when $T < t$, meaning the event occurred at some unknown time before time $t$. For example, a patient was tested positive for HIV for their first visit, but we don't know when they contracted it.
 
 -   Interval censoring occurs when $t_1 < T < t_2$, meaning the event occurred between times $t_1$ and $t_2$.For example, a patient is tested every 6 months. At month 12, the patient tested positive for some infection. Hence, the event occurred some time between months $6$ and $12$.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+
+# Simulated data
+data <- data.frame(
+  subject = factor(1:5, levels = 5:1),
+  start = rep(0, 5),
+  end = c(NA, 8, NA, 6, 10),
+  censored = c(TRUE, FALSE, TRUE, FALSE, TRUE)
+)
+
+data$stop <- c(10, 8, 3, 6, 10)
+
+ggplot(data) +
+  geom_segment(aes(x = start, xend = stop, y = subject, yend = subject), 
+               size = 1, color = "gray30") +
+  geom_point(aes(x = stop, y = subject, shape = censored, color = censored), 
+             size = 5, stroke = 1.5) +
+  scale_shape_manual(values = c("FALSE" = 4, "TRUE" = 1)) +  # X = event, O = censored
+  scale_color_manual(values = c("FALSE" = "red", "TRUE" = "blue")) +
+  labs(
+    x = "Time", 
+    y = "Subject", 
+    caption = "Figure 1: Right Censoring Study"
+  ) +
+  scale_x_continuous(limits = c(0, 12), breaks = seq(0, 12, 2)) +
+  theme_minimal(base_size = 14) +
+  theme(
+    axis.line = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.caption = element_text(hjust = 0.5, face = "italic", size = 12, margin = margin(t = 10))
+  ) +
+  annotate("text", x = 0, y = 5.5, label = "Time origin", hjust = 0, color = "blue", size = 4) +
+  annotate("text", x = 10, y = 5.5, label = "End of study", hjust = 1, color = "blue", size = 4)
+
+```
+
 
 # Censoring Mechanisms
 

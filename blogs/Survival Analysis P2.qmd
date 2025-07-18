@@ -1,5 +1,5 @@
 ---
-title: "Survival Analysis P2"
+title: "Survival Analysis P2: Survival and Hazard Functions"
 categories: [Survival Analysis, Survival and Hazard functions]
 description: 'Self-Study Notes for Survival Analysis'
 ---
@@ -35,8 +35,14 @@ survplot <- ggsurvplot(
 
 survplot$plot +
   geom_hline(yintercept = c(0, 1), linetype = "dotted") +
-  geom_vline(xintercept = 0, linetype = "dotted") + 
-  ggtitle("Overall Survival Function for All Patients")
+  geom_vline(xintercept = 0, linetype = "dotted") +
+  labs(caption = "Figure 1: Survival Function For all Patients") +
+  theme(
+    axis.line = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.caption = element_text(hjust = 0, face = "italic", size = 12, margin = margin(t = 10))
+  )
+
 ```
 
 At $t = 250$ days, we can calculate the survival function $S(250) = 0.153$, indicating the probability of survival past $250$ days is only $15.3 \%$. Equivalently, $84.7 \%$ of patients died prior to day $t = 250$. Out of the initial $n = 119$ patients, only $18$ are still alive and participating the study.
