@@ -1,5 +1,5 @@
 ---
-title: "Survival Analysis P3: Kaplan Mier Estimate of the Survival Function"
+title: "Survival Analysis P3: Kaplan Mier, Greenwood, Nelson-Aalen"
 categories: [Survival Analysis, Kaplan-Meier]
 description: 'Self-Study Notes for Survival Analysis'
 ---
