@@ -8,7 +8,7 @@
 
 <meta name="description" content="Self-Study Notes for Survival Analysis">
 
-<title>Survival Analysis P2 – Zhengyang (John) Fei</title>
+<title>Survival Analysis P3: Kaplan Mier Estimate of the Survival Function – Zhengyang (John) Fei</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -201,10 +201,14 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#survival-function" id="toc-survival-function" class="nav-link active" data-scroll-target="#survival-function">Survival Function</a></li>
-  <li><a href="#hazard-function" id="toc-hazard-function" class="nav-link" data-scroll-target="#hazard-function">Hazard function</a></li>
-  <li><a href="#cumulative-hazard-function" id="toc-cumulative-hazard-function" class="nav-link" data-scroll-target="#cumulative-hazard-function">Cumulative Hazard Function</a></li>
-  <li><a href="#relationships-between-survival-and-hazard-functions" id="toc-relationships-between-survival-and-hazard-functions" class="nav-link" data-scroll-target="#relationships-between-survival-and-hazard-functions">Relationships between Survival and Hazard Functions</a></li>
+  <li><a href="#derivation-of-the-kaplan-mier-estimate" id="toc-derivation-of-the-kaplan-mier-estimate" class="nav-link active" data-scroll-target="#derivation-of-the-kaplan-mier-estimate">Derivation of the Kaplan Mier Estimate</a></li>
+  <li><a href="#greenwoods-formula" id="toc-greenwoods-formula" class="nav-link" data-scroll-target="#greenwoods-formula">Greenwood’s Formula</a></li>
+  <li><a href="#nelson-aalen" id="toc-nelson-aalen" class="nav-link" data-scroll-target="#nelson-aalen">Nelson-Aalen</a></li>
+  <li><a href="#application-in-r" id="toc-application-in-r" class="nav-link" data-scroll-target="#application-in-r">Application in R</a>
+  <ul class="collapse">
+  <li><a href="#fitting-the-model" id="toc-fitting-the-model" class="nav-link" data-scroll-target="#fitting-the-model">Fitting the model</a></li>
+  <li><a href="#plotting-the-survival-function" id="toc-plotting-the-survival-function" class="nav-link" data-scroll-target="#plotting-the-survival-function">Plotting the survival function</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -213,10 +217,10 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Survival Analysis P2</h1>
+<h1 class="title">Survival Analysis P3: Kaplan Mier Estimate of the Survival Function</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Survival Analysis</div>
-    <div class="quarto-category">Survival and Hazard functions</div>
+    <div class="quarto-category">Kaplan-Meier</div>
   </div>
   </div>
 
@@ -239,82 +243,228 @@ window.Quarto = {
 </header>
 
 
-<section id="survival-function" class="level1">
-<h1>Survival Function</h1>
-<p>We often work with the <em>survival function</em>, the probability that an individual has not experienced an event by time <span class="math inline">\(t\)</span>. It is defined <span class="math display">\[S(t) = 1 - F(t) = P(T &gt; t)\]</span> where <span class="math inline">\(F(t)\)</span> is the CDF for a random event time <span class="math inline">\(T\)</span>.</p>
+<p>The goal of this post is to introduce the <strong>Kaplan-Meier</strong> estimate of the survival function. The Kaplan-Meier estimator makes no assumptions about the shape of the underlying survival distribution, making it a <em>non-parametric</em> and hence flexible to adapt to real world data.</p>
+<p>Note that if there were no censoring, this would be an easy task as we could directly use the ECDF <span class="math display">\[\hat{F_n}(t) = \frac{1}{n} \sum_{i=1}^n I(t_i \le t) \implies \hat{S}_n(t) = 1 - \hat{F}_n(t)\]</span></p>
+<section id="derivation-of-the-kaplan-mier-estimate" class="level1">
+<h1>Derivation of the Kaplan Mier Estimate</h1>
+<p>To build up the Kaplan-Meier estimator, we assume that time is discrete.</p>
+<p>Suppose we observe individual time points <span class="math inline">\(t_0 = 0, t_1, t_2, \cdots\)</span>. These may be days, weeks, or any time unit relevant to the study. At each time <span class="math inline">\(t_j\)</span>, an individual may experience the event of interest, while others continue on.</p>
+<p>Next, define</p>
+<ul>
+<li><span class="math inline">\(q_j\)</span> be the probability of failing at time <span class="math inline">\(t_j\)</span>, given that the subject survived up to that point, (ie. past time <span class="math inline">\(t_{j-1}\)</span></li>
+<li><span class="math inline">\(p_j = 1 - q_j\)</span> be the probability of surviving past time <span class="math inline">\(t_j\)</span>, given survival up to time <span class="math inline">\(t_{j-1}\)</span></li>
+</ul>
+<p>To express <span class="math inline">\(p_j\)</span> more formally, <span class="math display">\[p_j = P(T &gt; t_j| T &gt; t_{j-1}) = \dfrac{P(T &gt; t_j, T &gt; t_{j-1})}{P(T &gt; t_{j-1})} = \dfrac{P(T &gt; t_j)}{P(T &gt; t_{j-1})}\]</span> Recall that the survival function is defined as <span class="math display">\[S(t) = P(T &gt; t)\]</span></p>
+<p>Hence, rewriting <span class="math inline">\(p_j\)</span> results in <span class="math display">\[p_j = \dfrac{S(t_j)}{S(t_{j-1})}\]</span></p>
+<p>We observe a recursive relationship <span class="math display">\[S(t_0) = S(0) = 1\]</span> <span class="math display">\[p_1 = \dfrac{S(t_1)}{S(t_0)} = S(t_1)\]</span> <span class="math display">\[p_2 = \dfrac{S(t_2)}{S(t_1)}\]</span> <span class="math display">\[p_2 = \dfrac{S(t_3)}{S(t_2)}\]</span> <span class="math display">\[...\]</span> <span class="math display">\[p_k = \dfrac{S(t_k)}{S(t_{k-1})}\]</span></p>
+<p>Hence, <span class="math display">\[p_1 \cdot p_2 \cdot p_3 \cdots p_k = S(t_1) \dfrac{S(t_2)}{S(t_1)} \dfrac{S(t_3)}{S(t_2)} \cdots  \dfrac{S(t_k)}{S(t_{k-1})} = S(t_k)\]</span></p>
+<p>To estimate the survival function <span class="math inline">\(S(t)\)</span>, we need to estimate each of the conditional survival probabilities <span class="math inline">\(p_j\)</span>. At each time point <span class="math inline">\(t_j\)</span>, define</p>
+<ul>
+<li><span class="math inline">\(d_j\)</span> as the number of events that occur exactly at time <span class="math inline">\(t_j\)</span></li>
+<li><span class="math inline">\(n_j\)</span> as the number of individuals in the risk set just before <span class="math inline">\(t_j\)</span></li>
+</ul>
+<p>Note that anyone who was censored before time <span class="math inline">\(t_j\)</span> is no longer in the risk set.</p>
+<p>We can then estimate the conditional probability of failure at time <span class="math inline">\(t_j\)</span> and the conditional probability of survival as <span class="math display">\[\hat{q}_j = \dfrac{d_j}{n_j}\]</span> <span class="math display">\[\hat{p}_j = 1 - \hat{q}_j = \dfrac{n_j - d_j}{n_j}\]</span></p>
+<p>Hence to estimate the overall survival probability at time <span class="math inline">\(t_k\)</span>, we essentially multiply all the conditional survival probabilities at each observed failure time up to that time. So we obtain <span class="math display">\[\hat{S}(t) = \prod_{t_j \le t} \left(1 - \frac{d_j}{n_j}\right) \tag{1}\]</span></p>
+</section>
+<section id="greenwoods-formula" class="level1">
+<h1>Greenwood’s Formula</h1>
+<p>To quantify uncertainty around the survival estimate, we need its variance.</p>
+<p>We start from <span class="math display">\[\hat{p}_j = 1 - \hat{q}_j = \dfrac{n_j - d_j}{n_j}\]</span> and recall this represents the probability of surviving past time <span class="math inline">\(t_j\)</span>, given surviving past <span class="math inline">\(t_{j-1}\)</span>. Here, <span class="math inline">\(d_j =\)</span> number of observed events at <span class="math inline">\(t_j\)</span> and <span class="math inline">\(n_j =\)</span> the number of people still in the risk set just before <span class="math inline">\(t_j\)</span>.</p>
+<p>In other words, <span class="math inline">\(\hat{p}_j\)</span> is just the proportion of people at risk who survived up to <span class="math inline">\(t_j\)</span>.</p>
+<p>So if we define <span class="math inline">\(X_j \sim\)</span> Binomial<span class="math inline">\((n_j, p_j)\)</span> to be the total number of survivors at <span class="math inline">\(t_j\)</span>, our estimate becomes <span class="math inline">\(\hat{p_j} = \frac{X_j}{n_j}\)</span> and hence <span class="math display">\[V(\hat{p_j}) = V(\frac{X_j}{n_j}) = \frac{p_j(1-p_j)}{n_j} \tag{1}\]</span></p>
+<p>We wish to find the variance of <span class="math display">\[\hat{S}(t) = \prod_{j \le t} \hat{p_j}\]</span></p>
+<p>This alone is hard to work with directly. So we take logs: <span class="math display">\[\ln{\hat{S}(t)} = \sum_{j \le t}{\ln{\hat{p}_j}}\]</span> We proceed by applying the Delta Method <span class="math display">\[V\left( \ln \hat{p}_j \right)
+= \left( \frac{d}{dp_j} \ln p_j \right)^2 \cdot V(\hat{p}_j)
+= \left( \frac{1}{p_j} \right)^2 \cdot \frac{p_j (1 - p_j)}{n_j}
+= \frac{1 - p_j}{p_j n_j}\]</span></p>
+<p>Then we sum the variances on the log scale <span class="math display">\[V\left( \ln \hat{S}(t) \right)
+= \sum_{j \le t} V\left( \ln \hat{p}_j \right)
+= \sum_{j \le t} \frac{1 - p_j}{p_j n_j}\]</span></p>
+<p>Simplifying using <span class="math inline">\(1 - p_j = \frac{d_j}{n_j}\)</span> and <span class="math inline">\(\hat{p}_j = \frac{n_j - d_j}{n_j}\)</span>, we get <span class="math display">\[V\left[ \log \hat{S}(t) \right] = \sum_{t_j \leq t} \frac{d_j}{n_j (n_j - d_j)}\]</span> Lastly, we apply Delta Method once again to transform back to get Greenwood’s Formula <span class="math display">\[V[\hat{S}(t)] \approx \hat{S}(t)^2 \cdot \sum_{t_j \leq t} \frac{d_j}{n_j(n_j - d_j)}\]</span></p>
+<p>In R’s <code>survival</code> package, the default confidence interval of the Kaplan Mier estimate uses this formula.</p>
+</section>
+<section id="nelson-aalen" class="level1">
+<h1>Nelson-Aalen</h1>
+<p>The Nelson-Aalen estimate estimator of the cumulative hazard is: <span class="math display">\[\hat{H}_{\text{NA}}(t) = \sum_{t_j \leq t} \frac{d_j}{n_j}\]</span></p>
+<p>Recall the Kaplan-Mier estimate is <span class="math display">\[\hat{S}_{\text{KM}}(t) = \prod_{t_j \leq t} \left(1 - \frac{d_j}{n_j}\right)\]</span></p>
+<p>Using the approximation <span class="math display">\[\ln(1 - x) \approx -x\]</span> for small <span class="math inline">\(x\)</span>, we have</p>
+<p><span class="math display">\[\prod_{t_j \leq t} \left(1 - \frac{d_j}{n_j}\right)
+\approx \exp\left( -\sum_{t_j \leq t} \frac{d_j}{n_j} \right)\]</span></p>
+</section>
+<section id="application-in-r" class="level1">
+<h1>Application in R</h1>
+<section id="fitting-the-model" class="level2">
+<h2 class="anchored" data-anchor-id="fitting-the-model">Fitting the model</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Example: KM Estimate in R</strong>.</p>
+<p>Use R to compute the KM estimate of the survival function using the Veteran dataset.</p>
+</div>
+</div>
 <div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Survival-Basics_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>At <span class="math inline">\(t = 250\)</span> days, we can calculate the survival function <span class="math inline">\(S(250) = 0.153\)</span>, indicating the probability of survival past <span class="math inline">\(250\)</span> days is only <span class="math inline">\(15.3 \%\)</span>. Equivalently, <span class="math inline">\(84.7 \%\)</span> of patients died prior to day <span class="math inline">\(t = 250\)</span>. Out of the initial <span class="math inline">\(n = 119\)</span> patients, only <span class="math inline">\(18\)</span> are still alive and participating the study.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit, <span class="at">times =</span> <span class="dv">250</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>surv.veteran <span class="ot">&lt;-</span> <span class="fu">survfit</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> trt, <span class="at">data =</span> veteran) <span class="co"># Fitting model</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">summary</span>(surv.veteran), <span class="at">digits=</span><span class="dv">4</span>) <span class="co"># Summary model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Call: survfit(formula = Surv(time, status) ~ 1, data = veteran, conf.type = "plain")
+<pre><code>Call: survfit(formula = Surv(time, status) ~ trt, data = veteran)
 
+                trt=1 
  time n.risk n.event survival std.err lower 95% CI upper 95% CI
-  250     18     111    0.153  0.0326       0.0892        0.217</code></pre>
+    3     69       1  0.98551 0.01439     0.957708       1.0000
+    4     68       1  0.97101 0.02020     0.932226       1.0000
+    7     67       1  0.95652 0.02455     0.909594       1.0000
+    8     66       2  0.92754 0.03121     0.868338       0.9908
+   10     64       2  0.89855 0.03635     0.830062       0.9727
+   11     62       1  0.88406 0.03854     0.811654       0.9629
+   12     61       2  0.85507 0.04238     0.775918       0.9423
+   13     59       1  0.84058 0.04407     0.758495       0.9315
+   16     58       1  0.82609 0.04563     0.741324       0.9205
+   18     57       2  0.79710 0.04841     0.707642       0.8979
+   20     55       1  0.78261 0.04966     0.691094       0.8862
+   21     54       1  0.76812 0.05081     0.674721       0.8744
+   22     53       1  0.75362 0.05187     0.658511       0.8625
+   27     51       1  0.73885 0.05292     0.642076       0.8502
+   30     50       1  0.72407 0.05389     0.625797       0.8378
+   31     49       1  0.70929 0.05477     0.609667       0.8252
+   35     48       1  0.69452 0.05559     0.593676       0.8125
+   42     47       1  0.67974 0.05634     0.577821       0.7996
+   51     46       1  0.66496 0.05702     0.562095       0.7867
+   52     45       1  0.65018 0.05763     0.546493       0.7736
+   54     44       2  0.62063 0.05868     0.515647       0.7470
+   56     42       1  0.60585 0.05911     0.500396       0.7335
+   59     41       1  0.59108 0.05949     0.485257       0.7200
+   63     40       1  0.57630 0.05981     0.470227       0.7063
+   72     39       1  0.56152 0.06008     0.455304       0.6925
+   82     38       1  0.54675 0.06028     0.440486       0.6786
+   92     37       1  0.53197 0.06044     0.425774       0.6647
+   95     36       1  0.51719 0.06054     0.411165       0.6506
+  100     34       1  0.50198 0.06064     0.396151       0.6361
+  103     32       1  0.48629 0.06074     0.380698       0.6212
+  105     31       1  0.47061 0.06077     0.365374       0.6061
+  110     30       1  0.45492 0.06074     0.350178       0.5910
+  117     29       2  0.42355 0.06046     0.320173       0.5603
+  118     27       1  0.40786 0.06023     0.305365       0.5448
+  122     26       1  0.39217 0.05992     0.290688       0.5291
+  126     24       1  0.37583 0.05961     0.275418       0.5129
+  132     23       1  0.35949 0.05921     0.260306       0.4965
+  139     22       1  0.34315 0.05873     0.245355       0.4799
+  143     21       1  0.32681 0.05817     0.230569       0.4632
+  144     20       1  0.31047 0.05751     0.215952       0.4464
+  151     19       1  0.29413 0.05675     0.201509       0.4293
+  153     18       1  0.27779 0.05590     0.187247       0.4121
+  156     17       1  0.26145 0.05495     0.173173       0.3947
+  162     16       2  0.22877 0.05272     0.145626       0.3594
+  177     14       1  0.21243 0.05142     0.132177       0.3414
+  200     12       1  0.19472 0.05009     0.117612       0.3224
+  216     11       1  0.17702 0.04857     0.103396       0.3031
+  228     10       1  0.15932 0.04682     0.089558       0.2834
+  250      9       1  0.14162 0.04484     0.076135       0.2634
+  260      8       1  0.12392 0.04259     0.063180       0.2430
+  278      7       1  0.10621 0.04001     0.050757       0.2223
+  287      6       1  0.08851 0.03705     0.038962       0.2011
+  314      5       1  0.07081 0.03361     0.027931       0.1795
+  384      4       1  0.05311 0.02950     0.017877       0.1578
+  392      3       1  0.03540 0.02441     0.009167       0.1367
+  411      2       1  0.01770 0.01748     0.002555       0.1226
+  553      1       1  0.00000     NaN           NA           NA
+
+                trt=2 
+ time n.risk n.event survival std.err lower 95% CI upper 95% CI
+    1     68       2  0.97059 0.02049     0.931250       1.0000
+    2     66       1  0.95588 0.02490     0.908298       1.0000
+    7     65       2  0.92647 0.03165     0.866466       0.9906
+    8     63       2  0.89706 0.03685     0.827663       0.9723
+   13     61       1  0.88235 0.03907     0.809004       0.9624
+   15     60       2  0.85294 0.04295     0.772784       0.9414
+   18     58       1  0.83824 0.04466     0.755127       0.9305
+   19     57       2  0.80882 0.04769     0.720559       0.9079
+   20     55       1  0.79412 0.04903     0.703600       0.8963
+   21     54       1  0.77941 0.05028     0.686835       0.8845
+   24     53       2  0.75000 0.05251     0.653831       0.8603
+   25     51       3  0.70588 0.05526     0.605483       0.8229
+   29     48       1  0.69118 0.05603     0.589645       0.8102
+   30     47       1  0.67647 0.05673     0.573936       0.7973
+   31     46       1  0.66176 0.05737     0.558351       0.7843
+   33     45       1  0.64706 0.05795     0.542886       0.7712
+   36     44       1  0.63235 0.05847     0.527536       0.7580
+   43     43       1  0.61765 0.05893     0.512300       0.7447
+   44     42       1  0.60294 0.05933     0.497175       0.7312
+   45     41       1  0.58824 0.05968     0.482157       0.7177
+   48     40       1  0.57353 0.05997     0.467245       0.7040
+   49     39       1  0.55882 0.06021     0.452437       0.6902
+   51     38       2  0.52941 0.06053     0.423130       0.6624
+   52     36       2  0.50000 0.06063     0.394227       0.6342
+   53     34       1  0.48529 0.06061     0.379927       0.6199
+   61     33       1  0.47059 0.06053     0.365726       0.6055
+   73     32       1  0.45588 0.06040     0.351627       0.5910
+   80     31       2  0.42647 0.05997     0.323731       0.5618
+   84     28       1  0.41124 0.05974     0.309351       0.5467
+   87     27       1  0.39601 0.05943     0.295091       0.5314
+   90     25       1  0.38017 0.05913     0.280275       0.5157
+   95     24       1  0.36433 0.05875     0.265604       0.4997
+   99     23       2  0.33265 0.05775     0.236701       0.4675
+  111     20       2  0.29938 0.05657     0.206728       0.4336
+  112     18       1  0.28275 0.05581     0.192033       0.4163
+  133     17       1  0.26612 0.05495     0.177541       0.3989
+  140     16       1  0.24949 0.05398     0.163261       0.3812
+  164     15       1  0.23285 0.05288     0.149203       0.3634
+  186     14       1  0.21622 0.05165     0.135381       0.3453
+  201     13       1  0.19959 0.05029     0.121809       0.3270
+  231     12       1  0.18296 0.04877     0.108506       0.3085
+  242     10       1  0.16466 0.04720     0.093886       0.2888
+  283      9       1  0.14636 0.04536     0.079731       0.2687
+  340      8       1  0.12807 0.04322     0.066094       0.2482
+  357      7       1  0.10977 0.04074     0.053041       0.2272
+  378      6       1  0.09148 0.03783     0.040670       0.2058
+  389      5       1  0.07318 0.03441     0.029121       0.1839
+  467      4       1  0.05489 0.03028     0.018614       0.1618
+  587      3       1  0.03659 0.02511     0.009532       0.1405
+  991      2       1  0.01830 0.01803     0.002652       0.1262
+  999      1       1  0.00000     NaN           NA           NA</code></pre>
 </div>
 </div>
-<p>Note the staircase pattern to the survival function. At each occurrence of event, the survival function drops by <span class="math inline">\(1/119\)</span>. The crosses indicates the censor times. The survival function does not drop at censored times immediately, but it does influence the size of the drop at the next observed event time as they are no longer in the denominator (the risk set). As time moves forward, the survival probability can either drop or stay the same.</p>
+<p>For example, we can verify our KM estimate at <span class="math inline">\(t_1 = 3\)</span> is <span class="math inline">\(1 - \frac{1}{69} = 0.98551\)</span>.</p>
 </section>
-<section id="hazard-function" class="level1">
-<h1>Hazard function</h1>
-<p>We are often interested in how the instantaneous risk of an event, aka the hazard of an event, changes over time, how it differs between groups, and how it depends on covariates. The individual-level <em>hazard function</em> at time <span class="math inline">\(t\)</span>, conditioned on covariates <span class="math inline">\(x_i\)</span>, and parameterized by a vector <span class="math inline">\(\theta\)</span>, is defined as <span class="math display">\[h_i(t; \theta) \equiv \lim_{h \to 0} \frac{P(t \leq \tilde{T}_i &lt; t + h \mid \tilde{T}_i \geq t, x_i; \theta)}{h} \tag{1}\]</span></p>
-<p>We may also refer to its more generalized version for some derivation <span class="math display">\[h(t) = \lim_{\Delta t \to 0} \frac{P(t \leq T &lt; t + \Delta t \mid T \geq t)}{\Delta t} \tag{2}\]</span></p>
-<p>This definition captures the instantaneous risk that an event occurs at time <span class="math inline">\(t\)</span> for individual <span class="math inline">\(i\)</span>,assuming the individual has survived up to that point. It is: - Conditional on the individual’s covariates <span class="math inline">\(x_i\)</span>, such as age, sex, treatment status - Parameterized by a vector <span class="math inline">\(\theta\)</span>, and - Defined as a limit, where the length of the time interval approaches zero, yielding an instantaneous event rate at time <span class="math inline">\(t\)</span></p>
+<section id="plotting-the-survival-function" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-the-survival-function">Plotting the survival function</h2>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting KM survival curve by treatment group</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>km <span class="ot">&lt;-</span> <span class="fu">summary</span>(surv.veteran)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> km<span class="sc">$</span>time,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">surv =</span> km<span class="sc">$</span>surv,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">factor</span>(km<span class="sc">$</span>strata, </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"trt=1"</span>, <span class="st">"trt=2"</span>),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Standard"</span>, <span class="st">"Test"</span>))</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> surv, <span class="at">color =</span> group)) <span class="sc">+</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_step</span>() <span class="sc">+</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Time (days)"</span>, <span class="at">y =</span> <span class="st">"Survival Probability"</span>, <span class="at">color =</span> <span class="st">"Group"</span>) <span class="sc">+</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Survival-Basics_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Survival-Analysis-P3_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Using the same dataset, note the hazard function is flat when the survival function is also flat (<span class="math inline">\(t = 620\)</span> onward) and is greater whenever the survival function is steeper.</p>
-</section>
-<section id="cumulative-hazard-function" class="level1">
-<h1>Cumulative Hazard Function</h1>
-<p>The cumulative hazard function <span class="math inline">\(H(t)\)</span> is the accumulated risk of an event occuring up to time <span class="math inline">\(t\)</span>. It is defined by <span class="math display">\[H(t) = \int_0^t h(x) dx\]</span></p>
-</section>
-<section id="relationships-between-survival-and-hazard-functions" class="level1">
-<h1>Relationships between Survival and Hazard Functions</h1>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Exercise: Hazard and survival function</strong>.</p>
-<p>Show that the hazard function <span class="math inline">\(h(t) = \dfrac{f(t)}{S(t)}\)</span>.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Exercise: Hazard and survival function</strong>.</p>
-<p>Show that the survival function <span class="math inline">\(S(t) = \exp{\{- \int_0^t h(x)dx\}}\)</span>.</p>
-</div>
-</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

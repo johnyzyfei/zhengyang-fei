@@ -8,7 +8,7 @@
 
 <meta name="description" content="Self-Study Notes for Survival Analysis">
 
-<title>Survival Analysis P3 – Zhengyang (John) Fei</title>
+<title>Survival Analysis P1: Censoring – Zhengyang (John) Fei</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -201,14 +167,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#derivation-of-the-kaplan-mier-estimate" id="toc-derivation-of-the-kaplan-mier-estimate" class="nav-link active" data-scroll-target="#derivation-of-the-kaplan-mier-estimate">Derivation of the Kaplan Mier Estimate</a></li>
-  <li><a href="#greenwoods-formula" id="toc-greenwoods-formula" class="nav-link" data-scroll-target="#greenwoods-formula">Greenwood’s Formula</a></li>
-  <li><a href="#nelson-aalen" id="toc-nelson-aalen" class="nav-link" data-scroll-target="#nelson-aalen">Nelson-Aalen</a></li>
-  <li><a href="#application-in-r" id="toc-application-in-r" class="nav-link" data-scroll-target="#application-in-r">Application in R</a>
-  <ul class="collapse">
-  <li><a href="#fitting-the-model" id="toc-fitting-the-model" class="nav-link" data-scroll-target="#fitting-the-model">Fitting the model</a></li>
-  <li><a href="#plotting-the-survival-function" id="toc-plotting-the-survival-function" class="nav-link" data-scroll-target="#plotting-the-survival-function">Plotting the survival function</a></li>
-  </ul></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#censoring" id="toc-censoring" class="nav-link" data-scroll-target="#censoring">Censoring</a></li>
+  <li><a href="#censoring-mechanisms" id="toc-censoring-mechanisms" class="nav-link" data-scroll-target="#censoring-mechanisms">Censoring Mechanisms</a></li>
+  <li><a href="#non-informative-vs.-informative-assumptions" id="toc-non-informative-vs.-informative-assumptions" class="nav-link" data-scroll-target="#non-informative-vs.-informative-assumptions">Non-informative vs.&nbsp;Informative assumptions</a></li>
   </ul>
 </nav>
     </div>
@@ -217,10 +179,10 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Survival Analysis P3</h1>
+<h1 class="title">Survival Analysis P1: Censoring</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Survival Analysis</div>
-    <div class="quarto-category">Kaplan-Meier</div>
+    <div class="quarto-category">Censoring</div>
   </div>
   </div>
 
@@ -243,92 +205,52 @@ window.Quarto = {
 </header>
 
 
-<p>The goal of this post is to introduce the <strong>Kaplan-Meier</strong> estimate of the survival function. The Kaplan-Meier estimator makes no assumptions about the shape of the underlying survival distribution, making it a <em>non-parametric</em> and hence flexible to adapt to real world data.</p>
-<p>If there were no censoring, this would be an easy task as we could directly use the ECDF <span class="math display">\[\hat{F_n}(t) = \frac{1}{n} \sum_{i=1}^n I(t_i \le t) \implies \hat{S}_n(t) = 1 - \hat{F}_n(t)\]</span></p>
-<section id="derivation-of-the-kaplan-mier-estimate" class="level1">
-<h1>Derivation of the Kaplan Mier Estimate</h1>
-<p>To build up the Kaplan-Meier estimator, we assume that time is discrete.</p>
-<p>Suppose we observe individual time points <span class="math inline">\(t_0 = 0, t_1, t_2, \cdots\)</span>. These may be days, weeks, or any time unit relevant to the study. At each time <span class="math inline">\(t_j\)</span>, an individual may experience the event of interest, while others continue on.</p>
-<p>Next, define</p>
+<p>During Janurary to April of 2025, I attended the course <a href="https://www.dlsph.utoronto.ca/course/survival-analysis-i/">Survival Analysis I</a> at the Dalla Lana School of Public Health, University of Toronto, taught by Professors Olli Saarela and Kevin Thorpe.</p>
+<p>In preparing for a career in biostatistics, I’ve come to appreciate just how crucial survival analysis is for making sense of time-to-event outcomes in clinical studies. To consolidate my learning and support others with similar interests, I’m compiling a series of posts summarizing key concepts and insights from the course—and extending beyond it.</p>
+<p>With this goal in mind, my notes aim to compile key concepts in survival analysis while also gathering useful statistical packages and functions, accompanied by mathematical reasoning where appropriate.</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Survival analysis involves the analysis of time to event outcomes. As its name suggests, it is commonly used in studies involving time to death events, although the event could really be anything. Other common applications of survival analysis include time from release to re-offense among first-time juvenile offenders, time from graduation to securing a new job, and duration from marriage to divorce.</p>
+<p>There are two main reasons (I can think of for now) why we need to develop a new set of methods for time to event analysis:</p>
 <ul>
-<li><span class="math inline">\(q_j\)</span> be the probability of failing at time <span class="math inline">\(t_j\)</span>, given that the subject survived up to that point, (ie. past time <span class="math inline">\(t_{j-1}\)</span></li>
-<li><span class="math inline">\(p_j = 1 - q_j\)</span> be the probability of surviving past time <span class="math inline">\(t_j\)</span>, given survival up to time <span class="math inline">\(t_{j-1}\)</span></li>
+<li>Duration times are always positive, making many of the standard models which assumes normality inappropriate.</li>
+<li>Censoring is always an issue for many real world data sets. This will be discussed in details in the following section.</li>
 </ul>
-<p>To express <span class="math inline">\(p_j\)</span> more formally, <span class="math display">\[p_j = P(T &gt; t_j| T &gt; t_{j-1}) = \dfrac{P(T &gt; t_j, T &gt; t_{j-1})}{P(T &gt; t_{j-1})} = \dfrac{P(T &gt; t_j)}{P(T &gt; t_{j-1})}\]</span> Recall that the survival function is defined as <span class="math display">\[S(t) = P(T &gt; t)\]</span></p>
-<p>Hence, rewriting <span class="math inline">\(p_j\)</span> results in <span class="math display">\[p_j = \dfrac{S(t_j)}{S(t_{j-1})} \tag{1}\]</span></p>
-<p>We observe a recursive relationship <span class="math display">\[S(t_0) = S(0) = 1\]</span> <span class="math display">\[p_1 = \dfrac{S(t_1)}{S(t_0)} = S(t_1)\]</span> <span class="math display">\[p_2 = \dfrac{S(t_2)}{S(t_1)}\]</span> <span class="math display">\[p_2 = \dfrac{S(t_3)}{S(t_2)}\]</span> <span class="math display">\[...\]</span> <span class="math display">\[p_k = \dfrac{S(t_k)}{S(t_{k-1})}\]</span></p>
-<p>Hence, <span class="math display">\[p_1 \cdot p_2 \cdot p_3 \cdots p_k = S(t_1) \dfrac{S(t_2)}{S(t_1)} \dfrac{S(t_3)}{S(t_2)} \cdots  \dfrac{S(t_k)}{S(t_{k-1})} = S(t_k)\]</span></p>
-<p>To estimate the survival function <span class="math inline">\(S(t)\)</span>, we need to estimate each of the conditional survival probabilities <span class="math inline">\(p_j\)</span>. At each time point <span class="math inline">\(t_j\)</span>, define</p>
+</section>
+<section id="censoring" class="level1">
+<h1>Censoring</h1>
+<p>Censoring occurs when we do not have complete information about a subject’s time to event <span class="math inline">\(T\)</span>. There are three types of censoring.</p>
 <ul>
-<li><span class="math inline">\(d_j\)</span> as the number of events that occur exactly at time <span class="math inline">\(t_j\)</span></li>
-<li><span class="math inline">\(n_j\)</span> as the number of individuals in the risk set just before <span class="math inline">\(t_j\)</span></li>
+<li><p>Right censoring occurs when <span class="math inline">\(T &gt; t\)</span>, meaning the event has yet to occur as of time <span class="math inline">\(t\)</span> and may not occur for the duration of the study. We don’t observe an exact time of event <span class="math inline">\(T\)</span>, but we know it is after the period of study. For example, a clinical trial where some patients do not experience a stroke. A possible explanation of this is that, the patient may withdrew from the study early on, or that they simply did not experience a stroke.</p></li>
+<li><p>Left censoring occurs when <span class="math inline">\(T &lt; t\)</span>, meaning the event occurred at some unknown time before time <span class="math inline">\(t\)</span>. For example, a patient was tested positive for HIV for their first visit, but we don’t know when they contracted it.</p></li>
+<li><p>Interval censoring occurs when <span class="math inline">\(t_1 &lt; T &lt; t_2\)</span>, meaning the event occurred between times <span class="math inline">\(t_1\)</span> and <span class="math inline">\(t_2\)</span>.For example, a patient is tested every 6 months. At month 12, the patient tested positive for some infection. Hence, the event occurred some time between months <span class="math inline">\(6\)</span> and <span class="math inline">\(12\)</span>.</p></li>
 </ul>
-<p>Note that anyone who was censored before time <span class="math inline">\(t_j\)</span> is no longer in the risk set.</p>
-<p>We can then estimate the conditional probability of failure at time <span class="math inline">\(t_j\)</span> and the conditional probability of survival as <span class="math display">\[\hat{q}_j = \dfrac{d_j}{n_j}\]</span> <span class="math display">\[\hat{p}_j = 1 - \hat{q}_j = \dfrac{n_j - d_j}{n_j}\]</span></p>
-<p>To estimate the overall survival probability at time <span class="math inline">\(t_k\)</span>, we multiply all the conditional probabilities up to that time <span class="math display">\[\hat{S}(t) = \prod_{t_j \le t} \left(1 - \frac{d_j}{n_j}\right)\]</span></p>
-</section>
-<section id="greenwoods-formula" class="level1">
-<h1>Greenwood’s Formula</h1>
-<p>Test test test test</p>
-</section>
-<section id="nelson-aalen" class="level1">
-<h1>Nelson-Aalen</h1>
-</section>
-<section id="application-in-r" class="level1">
-<h1>Application in R</h1>
-<section id="fitting-the-model" class="level2">
-<h2 class="anchored" data-anchor-id="fitting-the-model">Fitting the model</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Example: KM Estimate in R</strong>.</p>
-<p>Use R to compute the KM estimate of the survival function using the Veteran dataset.</p>
-</div>
-</div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>surv.veteran <span class="ot">&lt;-</span> <span class="fu">survfit</span>(<span class="fu">Surv</span>(time, status) <span class="sc">~</span> trt, <span class="at">data =</span> veteran) <span class="co"># Fitting model</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># print(summary(surv.veteran), digits=4) # Summary model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="plotting-the-survival-function" class="level2">
-<h2 class="anchored" data-anchor-id="plotting-the-survival-function">Plotting the survival function</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting KM survival curve by treatment group</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>km <span class="ot">&lt;-</span> <span class="fu">summary</span>(surv.veteran)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">time =</span> km<span class="sc">$</span>time,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">surv =</span> km<span class="sc">$</span>surv,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">factor</span>(km<span class="sc">$</span>strata, </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"trt=1"</span>, <span class="st">"trt=2"</span>),</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Standard"</span>, <span class="st">"Test"</span>))</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> surv, <span class="at">color =</span> group)) <span class="sc">+</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_step</span>() <span class="sc">+</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Time (days)"</span>, <span class="at">y =</span> <span class="st">"Survival Probability"</span>, <span class="at">color =</span> <span class="st">"Group"</span>) <span class="sc">+</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="KM_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Survival-Analysis-P1_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-
-
 </section>
+<section id="censoring-mechanisms" class="level1">
+<h1>Censoring Mechanisms</h1>
+<p>There are three mechanisms that can generate censored data.</p>
+<ul>
+<li><p>Type I censoring: The end of study time is specified in advance, regardless of whether the event has occurred and the remaining subjects is right censored. For example, a company runs tests for 100 light bulbs, keeping them on for 1000 hours. Any light bulb still working after 1000 hours are right censored.</p></li>
+<li><p>Type II censoring: The experiment continues until a pre-specified number of events have occurred and the remaining subjects is right censored. For example, using the same scenario above, but the company decides to stop the experiment whenever the 50th light bulb fails.</p></li>
+<li><p>Competing risks: A subject is removed from the risk set due to the occurrence of another event. For example, using the same scenario above, power shortage could interfere with the study resulting in all light bulbs to fail.</p></li>
+</ul>
+</section>
+<section id="non-informative-vs.-informative-assumptions" class="level1">
+<h1>Non-informative vs.&nbsp;Informative assumptions</h1>
+<p>For the methods discussed, we will assume that the censoring is non-informative.</p>
+<p>In short, the non-informative assumption means that the reason a subject is censored is unrelated to their risk of experiencing the event. For example, a patient drops out of the study after a treatment because they need to move to another country for reasons unrelated to their condition.</p>
+<p>On the other hand, informative censoring happens when the reason for censoring is related to the subject’s risk of the event. In this case, the censorship itself carries information about the occurrence of the event. For example, a cancer patient drops out of a study due to their condition worsening.</p>
+
+
 </section>
 
 </main> <!-- /main -->

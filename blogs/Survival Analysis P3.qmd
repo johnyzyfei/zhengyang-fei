@@ -21,7 +21,7 @@ Next, define
 
 To express $p_j$ more formally, $$p_j = P(T > t_j| T > t_{j-1}) = \dfrac{P(T > t_j, T > t_{j-1})}{P(T > t_{j-1})} = \dfrac{P(T > t_j)}{P(T > t_{j-1})}$$ Recall that the survival function is defined as $$S(t) = P(T > t)$$
 
-Hence, rewriting $p_j$ results in $$p_j = \dfrac{S(t_j)}{S(t_{j-1})} \tag{1}$$
+Hence, rewriting $p_j$ results in $$p_j = \dfrac{S(t_j)}{S(t_{j-1})}$$
 
 We observe a recursive relationship $$S(t_0) = S(0) = 1$$ $$p_1 = \dfrac{S(t_1)}{S(t_0)} = S(t_1)$$ $$p_2 = \dfrac{S(t_2)}{S(t_1)}$$ $$p_2 = \dfrac{S(t_3)}{S(t_2)}$$ $$...$$ $$p_k = \dfrac{S(t_k)}{S(t_{k-1})}$$
 
@@ -36,16 +36,57 @@ Note that anyone who was censored before time $t_j$ is no longer in the risk set
 
 We can then estimate the conditional probability of failure at time $t_j$ and the conditional probability of survival as $$\hat{q}_j = \dfrac{d_j}{n_j}$$ $$\hat{p}_j = 1 - \hat{q}_j = \dfrac{n_j - d_j}{n_j}$$
 
-To estimate the overall survival probability at time $t_k$, we multiply all the conditional probabilities up to that time $$\hat{S}(t) = \prod_{t_j \le t} \left(1 - \frac{d_j}{n_j}\right)$$
+Hence to estimate the overall survival probability at time $t_k$, we essentially multiply all the conditional survival probabilities at each observed failure time up to that time. So we obtain $$\hat{S}(t) = \prod_{t_j \le t} \left(1 - \frac{d_j}{n_j}\right) \tag{1}$$
+
 
 # Greenwood's Formula
 
-Test test test test
+To quantify uncertainty around the survival estimate, we need its variance. 
+
+We start from $$\hat{p}_j = 1 - \hat{q}_j = \dfrac{n_j - d_j}{n_j}$$ and recall this represents the probability of surviving past time $t_j$, given surviving past $t_{j-1}$. Here, $d_j =$ number of observed events at $t_j$ and $n_j =$ the number of people still in the risk set just before $t_j$.
+
+In other words, $\hat{p}_j$ is just the proportion of people at risk who survived up to $t_j$. 
+
+So if we define $X_j \sim$ Binomial$(n_j, p_j)$ to be the total number of survivors at $t_j$, our estimate becomes $\hat{p_j} = \frac{X_j}{n_j}$ and hence $$V(\hat{p_j}) = V(\frac{X_j}{n_j}) = \frac{p_j(1-p_j)}{n_j} \tag{1}$$
+
+We wish to find the variance of $$\hat{S}(t) = \prod_{j \le t} \hat{p_j}$$ 
+
+This alone is hard to work with directly. So we take logs:
+$$\ln{\hat{S}(t)} = \sum_{j \le t}{\ln{\hat{p}_j}}$$
+We proceed by applying the Delta Method
+$$V\left( \ln \hat{p}_j \right)
+= \left( \frac{d}{dp_j} \ln p_j \right)^2 \cdot V(\hat{p}_j)
+= \left( \frac{1}{p_j} \right)^2 \cdot \frac{p_j (1 - p_j)}{n_j}
+= \frac{1 - p_j}{p_j n_j}$$
+
+Then we sum the variances on the log scale
+$$V\left( \ln \hat{S}(t) \right)
+= \sum_{j \le t} V\left( \ln \hat{p}_j \right)
+= \sum_{j \le t} \frac{1 - p_j}{p_j n_j}$$
+
+Simplifying using $1 - p_j = \frac{d_j}{n_j}$ and $\hat{p}_j = \frac{n_j - d_j}{n_j}$, we get
+$$V\left[ \log \hat{S}(t) \right] = \sum_{t_j \leq t} \frac{d_j}{n_j (n_j - d_j)}$$
+Lastly, we apply Delta Method once again to transform back to get Greenwood's Formula
+$$V[\hat{S}(t)] \approx \hat{S}(t)^2 \cdot \sum_{t_j \leq t} \frac{d_j}{n_j(n_j - d_j)}$$
+
+In R's `survival` package, the default confidence interval of the Kaplan Mier estimate uses this formula.
 
 # Nelson-Aalen
 
-# Application in R
+The Nelson-Aalen estimate estimator of the cumulative hazard is:
+$$\hat{H}_{\text{NA}}(t) = \sum_{t_j \leq t} \frac{d_j}{n_j}$$
 
+Recall the Kaplan-Mier estimate is
+$$\hat{S}_{\text{KM}}(t) = \prod_{t_j \leq t} \left(1 - \frac{d_j}{n_j}\right)$$
+
+
+Using the approximation
+$$\ln(1 - x) \approx -x$$ for small $x$, we have
+
+$$\prod_{t_j \leq t} \left(1 - \frac{d_j}{n_j}\right) 
+\approx \exp\left( -\sum_{t_j \leq t} \frac{d_j}{n_j} \right)$$
+
+# Application in R
 ## Fitting the model
 
 ::: callout-note
@@ -63,8 +104,11 @@ library(survival)
 library(ggplot2)
 
 surv.veteran <- survfit(Surv(time, status) ~ trt, data = veteran) # Fitting model
-# print(summary(surv.veteran), digits=4) # Summary model
+print(summary(surv.veteran), digits=4) # Summary model
 ```
+
+For example, we can verify our KM estimate at $t_1 = 3$ is $1 - \frac{1}{69} = 0.98551$.
+
 
 ## Plotting the survival function
 
