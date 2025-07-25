@@ -280,17 +280,22 @@ Week 6 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week6.pdf){download=
 
 ## Multivariable Functions
 
-A function $f$ of two variables is a rule that assigns to each ordered pair of real numbers $(x, y)$ in a set $D$ a unique real number denoted by $f(x, y)$. The set $D$ is the domain of $f$ and its range is the set of values that $f$ takes on, that is, $$\{f(x,y) | (x,y) \in D\}$$ The graph of $f$ is the set of all points $(x, y, z) \in R^3$ such that $z = f(x, y)$ and $(x, y) \in D$.
+A function $f$ of two variables assigns a unique real number $f(x,y)$ to each ordered pair $(x, y)$ within a set $D$. This set $D$ is called the domain of the function. The range of $f$ consists of all output values the function takes, that is $$\{f(x,y) | (x,y) \in D\}$$ 
+
+The graph of $f$ is the set of all points $(x, y, z) \in R^3$ such that $z = f(x, y)$ and $(x, y) \in D$.
 
 To visualize $z = f(x,y)$, one method is to set the equation $f(x, y) = k$ where $k$ is a constant. Geometrically, they are like elevation lines on a topographic map where each level marks a specific height.
 
 ## Derivatives of Multivariable Functions
 
-For a function $f(x, y)$, we define its first partial derivatives $f_x$ and $f_y$ as $$
+For a function $f(x, y)$, the first partial derivatives with respect to $x$ and $y$, denoted $f_x$ and $f_y$, are defined as follows (provided that the limit(s) exists):
+$$
 f_x(x, y) = \lim_{h \to 0} \frac{f(x + h, y) - f(x, y)}{h}
 \qquad
 f_y(x, y) = \lim_{h \to 0} \frac{f(x, y + h) - f(x, y)}{h}
-$$ provided that the limit(s) exists. Note its similarity to the definitions of the single variable case.
+$$  
+
+These definitions are analogous to the derivative in single-variable calculus, but here we vary only one variable at a time while keeping the other fixed.
 
 There are many alternate notations for partial derivatives. Below are some most common ones used
 
@@ -334,6 +339,8 @@ Week 7 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week7.pdf){download=
 
 ## Chain Rule
 
+Let's look at the chain rule for multivariable functions. There are a couple of cases.
+
 **Case 1:** $z = f(x, y)$, $x = g(t)$, $y = h(t)$ and compute $\frac{dz}{dt}$.
 
 This case is analogous to the standard chain rule from MAT135. Since $z$ is a function of only $t$ through $x$ and $y$, the chain rule for this case is $$\frac{dz}{dt} = \frac{\partial f}{\partial x} \frac{dx}{dt} + \frac{\partial f}{\partial y} \frac{dy}{dt}$$
@@ -366,11 +373,15 @@ $$
 
 ## Gradient
 
-If $f$ is a function of two variables $x$ and $y$, then the gradient of $f$ is the vector function $\nabla f$ defined by
+The gradient of a two variable function $f(x,y)$ is the vector function $\nabla f$ defined by
 
 $$
 \nabla f(x, y) = \langle f_x(x, y), f_y(x, y) \rangle = \frac{\partial f}{\partial x} \vec{i} + \frac{\partial f}{\partial y} \vec{j}
-$$ Note that $$D_{\vec{u}} f(x_0, y_0) = \nabla f(x_0, y_0) \cdot \vec{u}$$ Again, the directional derivative and the gradient can be extended to functions of three or more variables.
+$$ 
+
+Note that 
+$$D_{\vec{u}} f(x_0, y_0) = \nabla f(x_0, y_0) \cdot \vec{u}$$ 
+Again, the directional derivative and the gradient can be extended to functions of three or more variables.
 
 # Week 8
 
@@ -378,7 +389,7 @@ Week 8 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week8.pdf){download=
 
 ## Maximum and Minimum Values
 
-A function of two variables has a local maximum at $(a, b)$ if $f(x,y) \le f(a, b)$ when $(x, y)$ is near $(a, b)$. One can think of this as that $f(x, y) \le f(a, b)$ for all points $(x, y)$ in some disc centered at $(a, b)$. The number $f(a, b)$ is called the local/relative maximum value.
+A function of two variables has a local maximum at $(a, b)$ if $f(x,y) \le f(a, b)$ for all points $(x, y)$ close to $(a, b)$. One can think of this as that $f(x, y) \le f(a, b)$ for all points $(x, y)$ in some disc centered at $(a, b)$. The value $f(a, b)$ is called the local/relative maximum value.
 
 Similarly, if $f(x,y) \ge f(a, b)$ when $(x, y)$ is near $(a, b)$, we call $f(a, b)$ a local/relative minimum.
 
@@ -423,3 +434,46 @@ The basic setup is that, we wish to optimize $f(x, y, z)$ given the constraint $
 Step 1: Find all values of $x, y, z$ and $\lambda$ such that $$\nabla f(x,y,z) = \lambda \nabla g(x,y,z), \quad g(x,y,z) = k$$ Step 2: Plug in all solutions $(x, y, z)$ from the previous step into $f(x,y,z)$ to identify the maximum and minimum values.
 
 Note this method can also be applied for a function with two variables.
+
+
+# Week 9
+
+Week 9 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week9.pdf){download="week9"}
+
+## Double Integral
+
+The double integral of a function $f$ over a rectangle $R = [a, b] \times [c, d]$ is defined as the limit of a Riemann sum: 
+$$
+\iint_R f(x, y)\, dA = \lim_{m,n \to \infty} \sum_{i=1}^m \sum_{j=1}^n f(x_{i,j}^*, y_{i,j}^*) \, \Delta A
+$$
+where $(x_{i,j}^*, y_{i,j}^*)$ are sample points in $\mathbb{R}$, and 
+$$\Delta A = \Delta x \Delta y = \left( \frac{b - a}{m} \right)\left( \frac{d - c}{n} \right)$$
+If $f(x, y) \ge 0$ for all points in $\mathbb{R}$, then the volume $V$ of the solid lying above the rectangle $R$ and below the surface $z = f(x, y)$ is:
+$$
+V = \iint_R f(x, y)\, dA
+$$
+## Iterated Integrals
+Note that the above definition is hard to compute in practice. So let us introduce a more intuitive way to compute double integrals. We will continue to assume that we wish to integrate $f(x,y)$ over a rectangular region $R = [a, b] \times [c, d]$. 
+
+Then, we can write 
+$$\int_a^b \int_c^d f(x, y)\, dy\, dx 
+= \int_a^b \left[ \int_c^d f(x, y)\, dy \right] dx$$
+or
+$$\int_c^d \int_a^b f(x, y)\, dx\, dy 
+= \int_c^d \left[ \int_a^b f(x, y)\, dx \right] dy$$
+
+::: callout-note
+**Theorem: Fubini's Theorem **.
+
+If $f$ is continuous on $R = [a, b] \times [c, d]$ then, 
+$$\iint_R f(x, y)\, dA 
+= \int_a^b \int_c^d f(x, y)\, dy\, dx 
+= \int_c^d \int_a^b f(x, y)\, dx\, dy$$
+:::
+
+Note that, if $f(x,y) = f(x) g(y)$ can be written as a product like such, then we can rewrite our integral as 
+$$\iint_R f(x, y)\, dA = \iint_R g(x)\, h(y)\, dA 
+= \left( \int_a^b g(x)\, dx \right) \left( \int_c^d h(y)\, dy \right)$$
+
+## Over General Regions
+
