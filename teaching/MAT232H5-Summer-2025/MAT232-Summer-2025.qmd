@@ -476,3 +476,25 @@ $$D = \{(x, y) \mid h_1(y) \le x \le h_2(y), \, c \le y \le d\}$$
 The corresponding integral is
 $$\iint_{D} f(x,y) \, dA = \int_{c}^{d} \int_{h_1(y)}^{h_2(y)} f(x,y) \, dx \, dy$$
 
+# Week 10
+
+Week 10 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week10.pdf){download="week10"}
+
+## Double Integrals in Polar Coordinates
+
+In some cases, it will be easier to describe the region in terms of polar coordinates. In these cases, it will be harder to describe using rectangular coordinates. A simple example to visualize is when $D$ is given by a disc with radius of $2$. 
+
+Recall that 
+$$x = r \cos \theta, \space y = r \sin \theta, \space x^2 + y^2 = r^2$$
+Then, the conversion is given by
+$$\iint_D f(x, y) \, dA = \int_{\alpha}^{\beta} \int_{h_1(\theta)}^{h_2(\theta)} f(r \cos \theta, r \sin \theta) \, r \, dr \, d\theta$$
+Note it is important not to forget to multiply by the $r$ term during the conversion. The relation $dA = r dr d \theta$ can be seen through the change of variables method to be discussed soon. 
+
+## The Jacobian
+
+Suppose $T(u,v) = (x,y)$ is a one-to-one transformation from the $u,v$ plane onto the $x,y$ plane, then it has an inverse transformation $T^{-1}$ from the $x,y$ plane to the $u,v$ plane represented by $T^{-1}$. This transformation is given by 
+$$\dfrac{\partial(x,y)}{\partial(u,v)} = 
+\det \begin{pmatrix}
+\dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v} \\
+\dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v}
+\end{pmatrix}$$
