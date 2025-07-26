@@ -175,6 +175,9 @@ window.Quarto = {
   <li><a href="#week-6" id="toc-week-6" class="nav-link" data-scroll-target="#week-6">Week 6</a></li>
   <li><a href="#week-7" id="toc-week-7" class="nav-link" data-scroll-target="#week-7">Week 7</a></li>
   <li><a href="#week-8" id="toc-week-8" class="nav-link" data-scroll-target="#week-8">Week 8</a></li>
+  <li><a href="#week-9" id="toc-week-9" class="nav-link" data-scroll-target="#week-9">Week 9</a></li>
+  <li><a href="#week-10" id="toc-week-10" class="nav-link" data-scroll-target="#week-10">Week 10</a></li>
+  <li><a href="#week-11" id="toc-week-11" class="nav-link" data-scroll-target="#week-11">Week 11</a></li>
   </ul>
 </nav>
     </div>
@@ -242,15 +245,15 @@ L = \int_{\alpha}^{\beta} \sqrt{ \left( \frac{dx}{dt} \right)^2 + \left( \frac{d
 <section id="polar-coordinates" class="level2">
 <h2 class="anchored" data-anchor-id="polar-coordinates">Polar Coordinates</h2>
 <p>So far we have been working exclusively in the Cartesian/rectangular coordinate system. As we will see in the near future, this is not always the easiest coordinate system to work in. In this section, we will introduce the polar coordinate system.</p>
-<p><span class="math display">\[\begin{align*}
+<span class="math display">\[\begin{align*}
 x &amp;= r \cos{\theta}, \hspace{0.5cm} y = r \sin{\theta} \\
 r^2 &amp;= x^2 + y^2, \hspace{0.5cm} \tan{\theta} = \frac{y}{x}
-\end{align*}\]</span></p>
+\end{align*}\]</span>
 <p>The second line of equation is used to help convert back and forth from the Cartesian coordinate system and the polar coordinate system.</p>
 <p>To find a tangent line to the polar curve <span class="math inline">\(r = f{(\theta)}\)</span>, we regard <span class="math inline">\(\theta\)</span> as a parameter and write its parametric equations as</p>
-<p><span class="math display">\[\begin{align*}
+<span class="math display">\[\begin{align*}
 x = r \cos{\theta} = f(\theta) \cos{\theta}, \hspace{0.5cm} y = r \sin{\theta}\sin{(\theta)} \\
-\end{align*}\]</span></p>
+\end{align*}\]</span>
 <p>Then following the equation of slope for parametric curves and the product rule,</p>
 <p><span class="math display">\[\frac{dy}{dx} = \frac{dy/d \theta}{dx/ d \theta} = \frac{\frac{dr}{d \theta} \sin{\theta} + r \cos{\theta}}{\frac{dr}{d \theta} \cos{\theta} - r \sin{\theta}}\]</span></p>
 <p>We can locate horizontal tangents by finding points where <span class="math inline">\(dy/d\theta = 0\)</span> given that <span class="math inline">\(dx/d\theta \ne 0\)</span>. Likewise, vertical tangents can be found where <span class="math inline">\(dx/d\theta = 0\)</span> given that <span class="math inline">\(dy/d\theta \ne 0\)</span>.</p>
@@ -484,16 +487,18 @@ L &amp;= \int_a^b \sqrt{[f'(t)]^2 + [g'(t)]^2 + [h'(t)]^2} \, dt \\
 <p>Week 6 tutorial notes <a href="../../teaching/MAT232H5-Summer-2025/week6.pdf" download="week6">Here</a></p>
 <section id="multivariable-functions" class="level2">
 <h2 class="anchored" data-anchor-id="multivariable-functions">Multivariable Functions</h2>
-<p>A function <span class="math inline">\(f\)</span> of two variables is a rule that assigns to each ordered pair of real numbers <span class="math inline">\((x, y)\)</span> in a set <span class="math inline">\(D\)</span> a unique real number denoted by <span class="math inline">\(f(x, y)\)</span>. The set <span class="math inline">\(D\)</span> is the domain of <span class="math inline">\(f\)</span> and its range is the set of values that <span class="math inline">\(f\)</span> takes on, that is, <span class="math display">\[\{f(x,y) | (x,y) \in D\}\]</span> The graph of <span class="math inline">\(f\)</span> is the set of all points <span class="math inline">\((x, y, z) \in R^3\)</span> such that <span class="math inline">\(z = f(x, y)\)</span> and <span class="math inline">\((x, y) \in D\)</span>.</p>
+<p>A function <span class="math inline">\(f\)</span> of two variables assigns a unique real number <span class="math inline">\(f(x,y)\)</span> to each ordered pair <span class="math inline">\((x, y)\)</span> within a set <span class="math inline">\(D\)</span>. This set <span class="math inline">\(D\)</span> is called the domain of the function. The range of <span class="math inline">\(f\)</span> consists of all output values the function takes, that is <span class="math display">\[\{f(x,y) | (x,y) \in D\}\]</span></p>
+<p>The graph of <span class="math inline">\(f\)</span> is the set of all points <span class="math inline">\((x, y, z) \in R^3\)</span> such that <span class="math inline">\(z = f(x, y)\)</span> and <span class="math inline">\((x, y) \in D\)</span>.</p>
 <p>To visualize <span class="math inline">\(z = f(x,y)\)</span>, one method is to set the equation <span class="math inline">\(f(x, y) = k\)</span> where <span class="math inline">\(k\)</span> is a constant. Geometrically, they are like elevation lines on a topographic map where each level marks a specific height.</p>
 </section>
 <section id="derivatives-of-multivariable-functions" class="level2">
 <h2 class="anchored" data-anchor-id="derivatives-of-multivariable-functions">Derivatives of Multivariable Functions</h2>
-<p>For a function <span class="math inline">\(f(x, y)\)</span>, we define its first partial derivatives <span class="math inline">\(f_x\)</span> and <span class="math inline">\(f_y\)</span> as <span class="math display">\[
+<p>For a function <span class="math inline">\(f(x, y)\)</span>, the first partial derivatives with respect to <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, denoted <span class="math inline">\(f_x\)</span> and <span class="math inline">\(f_y\)</span>, are defined as follows (provided that the limit(s) exists): <span class="math display">\[
 f_x(x, y) = \lim_{h \to 0} \frac{f(x + h, y) - f(x, y)}{h}
 \qquad
 f_y(x, y) = \lim_{h \to 0} \frac{f(x, y + h) - f(x, y)}{h}
-\]</span> provided that the limit(s) exists. Note its similarity to the definitions of the single variable case.</p>
+\]</span></p>
+<p>These definitions are analogous to the derivative in single-variable calculus, but here we vary only one variable at a time while keeping the other fixed.</p>
 <p>There are many alternate notations for partial derivatives. Below are some most common ones used</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -538,6 +543,7 @@ Note
 <p>Week 7 tutorial notes <a href="../../teaching/MAT232H5-Summer-2025/week7.pdf" download="week7">Here</a></p>
 <section id="chain-rule" class="level2">
 <h2 class="anchored" data-anchor-id="chain-rule">Chain Rule</h2>
+<p>Let’s look at the chain rule for multivariable functions. There are a couple of cases.</p>
 <p><strong>Case 1:</strong> <span class="math inline">\(z = f(x, y)\)</span>, <span class="math inline">\(x = g(t)\)</span>, <span class="math inline">\(y = h(t)\)</span> and compute <span class="math inline">\(\frac{dz}{dt}\)</span>.</p>
 <p>This case is analogous to the standard chain rule from MAT135. Since <span class="math inline">\(z\)</span> is a function of only <span class="math inline">\(t\)</span> through <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, the chain rule for this case is <span class="math display">\[\frac{dz}{dt} = \frac{\partial f}{\partial x} \frac{dx}{dt} + \frac{\partial f}{\partial y} \frac{dy}{dt}\]</span></p>
 <p><strong>Case 2:</strong> <span class="math inline">\(z = f(x, y)\)</span>, <span class="math inline">\(x = g(s, t)\)</span>, <span class="math inline">\(y = h(s, t)\)</span> and compute <span class="math inline">\(\frac{\partial z}{\partial s}\)</span> and <span class="math inline">\(\frac{\partial z}{\partial t}\)</span>.</p>
@@ -571,10 +577,11 @@ D_{\vec{u}} f(x_0, y_0) = f_x(x_0, y_0)a + f_y(x_0, y_0)b.
 </section>
 <section id="gradient" class="level2">
 <h2 class="anchored" data-anchor-id="gradient">Gradient</h2>
-<p>If <span class="math inline">\(f\)</span> is a function of two variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, then the gradient of <span class="math inline">\(f\)</span> is the vector function <span class="math inline">\(\nabla f\)</span> defined by</p>
+<p>The gradient of a two variable function <span class="math inline">\(f(x,y)\)</span> is the vector function <span class="math inline">\(\nabla f\)</span> defined by</p>
 <p><span class="math display">\[
 \nabla f(x, y) = \langle f_x(x, y), f_y(x, y) \rangle = \frac{\partial f}{\partial x} \vec{i} + \frac{\partial f}{\partial y} \vec{j}
-\]</span> Note that <span class="math display">\[D_{\vec{u}} f(x_0, y_0) = \nabla f(x_0, y_0) \cdot \vec{u}\]</span> Again, the directional derivative and the gradient can be extended to functions of three or more variables.</p>
+\]</span></p>
+<p>Note that <span class="math display">\[D_{\vec{u}} f(x_0, y_0) = \nabla f(x_0, y_0) \cdot \vec{u}\]</span> Again, the directional derivative and the gradient can be extended to functions of three or more variables.</p>
 </section>
 </section>
 <section id="week-8" class="level1">
@@ -582,7 +589,7 @@ D_{\vec{u}} f(x_0, y_0) = f_x(x_0, y_0)a + f_y(x_0, y_0)b.
 <p>Week 8 tutorial notes <a href="../../teaching/MAT232H5-Summer-2025/week8.pdf" download="week8">Here</a></p>
 <section id="maximum-and-minimum-values" class="level2">
 <h2 class="anchored" data-anchor-id="maximum-and-minimum-values">Maximum and Minimum Values</h2>
-<p>A function of two variables has a local maximum at <span class="math inline">\((a, b)\)</span> if <span class="math inline">\(f(x,y) \le f(a, b)\)</span> when <span class="math inline">\((x, y)\)</span> is near <span class="math inline">\((a, b)\)</span>. One can think of this as that <span class="math inline">\(f(x, y) \le f(a, b)\)</span> for all points <span class="math inline">\((x, y)\)</span> in some disc centered at <span class="math inline">\((a, b)\)</span>. The number <span class="math inline">\(f(a, b)\)</span> is called the local/relative maximum value.</p>
+<p>A function of two variables has a local maximum at <span class="math inline">\((a, b)\)</span> if <span class="math inline">\(f(x,y) \le f(a, b)\)</span> for all points <span class="math inline">\((x, y)\)</span> close to <span class="math inline">\((a, b)\)</span>. One can think of this as that <span class="math inline">\(f(x, y) \le f(a, b)\)</span> for all points <span class="math inline">\((x, y)\)</span> in some disc centered at <span class="math inline">\((a, b)\)</span>. The value <span class="math inline">\(f(a, b)\)</span> is called the local/relative maximum value.</p>
 <p>Similarly, if <span class="math inline">\(f(x,y) \ge f(a, b)\)</span> when <span class="math inline">\((x, y)\)</span> is near <span class="math inline">\((a, b)\)</span>, we call <span class="math inline">\(f(a, b)\)</span> a local/relative minimum.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -633,9 +640,72 @@ Note
 <p>The basic setup is that, we wish to optimize <span class="math inline">\(f(x, y, z)\)</span> given the constraint <span class="math inline">\(g(x, y, z) = k\)</span>. We then have the following workflow.</p>
 <p>Step 1: Find all values of <span class="math inline">\(x, y, z\)</span> and <span class="math inline">\(\lambda\)</span> such that <span class="math display">\[\nabla f(x,y,z) = \lambda \nabla g(x,y,z), \quad g(x,y,z) = k\]</span> Step 2: Plug in all solutions <span class="math inline">\((x, y, z)\)</span> from the previous step into <span class="math inline">\(f(x,y,z)\)</span> to identify the maximum and minimum values.</p>
 <p>Note this method can also be applied for a function with two variables.</p>
-
-
 </section>
+</section>
+<section id="week-9" class="level1">
+<h1>Week 9</h1>
+<p>Week 9 tutorial notes <a href="../../teaching/MAT232H5-Summer-2025/week9.pdf" download="week9">Here</a></p>
+<section id="double-integral" class="level2">
+<h2 class="anchored" data-anchor-id="double-integral">Double Integral</h2>
+<p>The double integral of a function <span class="math inline">\(f\)</span> over a rectangle <span class="math inline">\(R = [a, b] \times [c, d]\)</span> is defined as the limit of a Riemann sum: <span class="math display">\[
+\iint_R f(x, y)\, dA = \lim_{m,n \to \infty} \sum_{i=1}^m \sum_{j=1}^n f(x_{i,j}^*, y_{i,j}^*) \, \Delta A
+\]</span> where <span class="math inline">\((x_{i,j}^*, y_{i,j}^*)\)</span> are sample points in <span class="math inline">\(\mathbb{R}\)</span>, and <span class="math display">\[\Delta A = \Delta x \Delta y = \left( \frac{b - a}{m} \right)\left( \frac{d - c}{n} \right)\]</span> If <span class="math inline">\(f(x, y) \ge 0\)</span> for all points in <span class="math inline">\(\mathbb{R}\)</span>, then the volume <span class="math inline">\(V\)</span> of the solid lying above the rectangle <span class="math inline">\(R\)</span> and below the surface <span class="math inline">\(z = f(x, y)\)</span> is: <span class="math display">\[
+V = \iint_R f(x, y)\, dA
+\]</span></p>
+</section>
+<section id="iterated-integrals" class="level2">
+<h2 class="anchored" data-anchor-id="iterated-integrals">Iterated Integrals</h2>
+<p>Note that the above definition is hard to compute in practice. So let us introduce a more intuitive way to compute double integrals. We will continue to assume that we wish to integrate <span class="math inline">\(f(x,y)\)</span> over a rectangular region <span class="math inline">\(R = [a, b] \times [c, d]\)</span>.</p>
+<p>Then, we can write <span class="math display">\[\int_a^b \int_c^d f(x, y)\, dy\, dx
+= \int_a^b \left[ \int_c^d f(x, y)\, dy \right] dx\]</span> or <span class="math display">\[\int_c^d \int_a^b f(x, y)\, dx\, dy
+= \int_c^d \left[ \int_a^b f(x, y)\, dx \right] dy\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Theorem: Fubini’s Theorem</strong> .</p>
+<p>If <span class="math inline">\(f\)</span> is continuous on <span class="math inline">\(R = [a, b] \times [c, d]\)</span> then, <span class="math display">\[\iint_R f(x, y)\, dA
+= \int_a^b \int_c^d f(x, y)\, dy\, dx
+= \int_c^d \int_a^b f(x, y)\, dx\, dy\]</span></p>
+</div>
+</div>
+<p>Note that, if <span class="math inline">\(f(x,y) = f(x) g(y)\)</span> can be written as a product like such, then we can rewrite our integral as <span class="math display">\[\iint_R f(x, y)\, dA = \iint_R g(x)\, h(y)\, dA
+= \left( \int_a^b g(x)\, dx \right) \left( \int_c^d h(y)\, dy \right)\]</span></p>
+</section>
+<section id="over-general-regions" class="level2">
+<h2 class="anchored" data-anchor-id="over-general-regions">Over General Regions</h2>
+<p>Now we proceed with integrating over regions which might not necessarily be a rectangle. We consider two cases.</p>
+<p>In the first case, we are interested in integrating over the domain <span class="math display">\[D = \{(x, y) \mid a \le x \le b, \, g_1(x) \le y \le g_2(x)\}\]</span></p>
+<p>The corresponding integral is <span class="math display">\[\iint_{D} f(x,y) \, dA = \int_{a}^{b} \int_{g_1(x)}^{g_2(x)} f(x,y) \, dy \, dx\]</span> In the second case, the domain is <span class="math display">\[D = \{(x, y) \mid h_1(y) \le x \le h_2(y), \, c \le y \le d\}\]</span> The corresponding integral is <span class="math display">\[\iint_{D} f(x,y) \, dA = \int_{c}^{d} \int_{h_1(y)}^{h_2(y)} f(x,y) \, dx \, dy\]</span></p>
+</section>
+</section>
+<section id="week-10" class="level1">
+<h1>Week 10</h1>
+<p>Week 10 tutorial notes <a href="../../teaching/MAT232H5-Summer-2025/week10.pdf" download="week10">Here</a></p>
+<section id="double-integrals-in-polar-coordinates" class="level2">
+<h2 class="anchored" data-anchor-id="double-integrals-in-polar-coordinates">Double Integrals in Polar Coordinates</h2>
+<p>In some cases, it will be easier to describe the region in terms of polar coordinates. In these cases, it will be harder to describe using rectangular coordinates. A simple example to visualize is when <span class="math inline">\(D\)</span> is given by a disc with radius of <span class="math inline">\(2\)</span>.</p>
+<p>Recall that <span class="math display">\[x = r \cos \theta, \space y = r \sin \theta, \space x^2 + y^2 = r^2\]</span> Then, the conversion is given by <span class="math display">\[\iint_D f(x, y) \, dA = \int_{\alpha}^{\beta} \int_{h_1(\theta)}^{h_2(\theta)} f(r \cos \theta, r \sin \theta) \, r \, dr \, d\theta\]</span> Note it is important not to forget to multiply by the <span class="math inline">\(r\)</span> term during the conversion. The relation <span class="math inline">\(dA = r dr d \theta\)</span> can be seen through the change of variables method to be discussed soon.</p>
+</section>
+<section id="the-jacobian" class="level2">
+<h2 class="anchored" data-anchor-id="the-jacobian">The Jacobian</h2>
+<p>Suppose <span class="math inline">\(T(u,v) = (x,y)\)</span> is a one-to-one transformation from the <span class="math inline">\(u,v\)</span> plane onto the <span class="math inline">\(x,y\)</span> plane, then it has an inverse transformation <span class="math inline">\(T^{-1}\)</span> from the <span class="math inline">\(x,y\)</span> plane to the <span class="math inline">\(u,v\)</span> plane represented by <span class="math inline">\(T^{-1}\)</span>. This transformation is given by <span class="math display">\[\dfrac{\partial(x,y)}{\partial(u,v)} =
+\det \begin{pmatrix}
+\dfrac{\partial x}{\partial u} &amp; \dfrac{\partial x}{\partial v} \\
+\dfrac{\partial y}{\partial u} &amp; \dfrac{\partial y}{\partial v}
+\end{pmatrix}\]</span></p>
+</section>
+</section>
+<section id="week-11" class="level1">
+<h1>Week 11</h1>
+
+
 </section>
 
 </main> <!-- /main -->
