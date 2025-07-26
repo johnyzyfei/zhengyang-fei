@@ -445,7 +445,11 @@ The double integral of a function $f$ over a rectangle $R = [a, b] \times [c, d]
 \iint_R f(x, y)\, dA = \lim_{m,n \to \infty} \sum_{i=1}^m \sum_{j=1}^n f(x_{i,j}^*, y_{i,j}^*) \, \Delta A
 $$ where $(x_{i,j}^*, y_{i,j}^*)$ are sample points in $\mathbb{R}$, and $$\Delta A = \Delta x \Delta y = \left( \frac{b - a}{m} \right)\left( \frac{d - c}{n} \right)$$ If $f(x, y) \ge 0$ for all points in $\mathbb{R}$, then the volume $V$ of the solid lying above the rectangle $R$ and below the surface $z = f(x, y)$ is: $$
 V = \iint_R f(x, y)\, dA
-$$ \## Iterated Integrals Note that the above definition is hard to compute in practice. So let us introduce a more intuitive way to compute double integrals. We will continue to assume that we wish to integrate $f(x,y)$ over a rectangular region $R = [a, b] \times [c, d]$.
+$$ 
+
+## Iterated Integrals 
+
+Note that the above definition is hard to compute in practice. So let us introduce a more intuitive way to compute double integrals. We will continue to assume that we wish to integrate $f(x,y)$ over a rectangular region $R = [a, b] \times [c, d]$.
 
 Then, we can write $$\int_a^b \int_c^d f(x, y)\, dy\, dx 
 = \int_a^b \left[ \int_c^d f(x, y)\, dy \right] dx$$ or $$\int_c^d \int_a^b f(x, y)\, dx\, dy 
