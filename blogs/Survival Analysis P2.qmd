@@ -13,8 +13,9 @@ We often work with the *survival function*, the probability that an individual h
 #| message: false
 #| warning: false
 #| paged-print: false
-library(survival)
 library(survminer)
+library(survival)
+library(ggplot2)
 
 fit <- survfit(Surv(time, status) ~ 1, data = veteran, conf.type = "plain")
 
@@ -66,8 +67,6 @@ This definition captures the instantaneous risk that an event occurs at time $t$
 #| message: false
 #| warning: false
 #| paged-print: false
-library(survival)
-library(ggplot2)
 
 fit <- survfit(Surv(time, status) ~ 1, data = veteran)
 km <- summary(fit)
