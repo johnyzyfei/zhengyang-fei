@@ -704,8 +704,24 @@ Note
 </section>
 <section id="week-11" class="level1">
 <h1>Week 11</h1>
+<p>Week 11 tutorial notes <a href="../../teaching/MAT232H5-Summer-2025/week11.pdf" download="week11">Here</a></p>
+<section id="change-of-variables" class="level2">
+<h2 class="anchored" data-anchor-id="change-of-variables">Change of Variables</h2>
+<p>Back in MAT135, we discussed the method of u-substitution which allowed us to take an integral in terms of <span class="math inline">\(x\)</span> and change it in terms of <span class="math inline">\(u\)</span>. Now, we wish to do something similar, but in terms of multivariable functions. The rationale behind using the change of variables technique is similar to that of switching to polar coordinates: it transforms a complex region of integration into a simpler one to work with.</p>
+<p>Suppose that <span class="math inline">\(T\)</span> is a one-to-one transformation, given by <span class="math inline">\(x = g(u, v)\)</span>, <span class="math inline">\(y = h(u,v)\)</span>, with nonzero Jacobian that maps the region <span class="math inline">\(S\)</span> in the uv-plane onto the region <span class="math inline">\(R\)</span> in xy-plane. If <span class="math inline">\(f\)</span> is continuous on <span class="math inline">\(R\)</span>, then <span class="math display">\[\iint_R f(x, y) \, dA = \iint_S f\big(g(u, v), h(u, v)\big)
+\left| \frac{\partial(x, y)}{\partial(u, v)} \right| \, dudv\]</span></p>
+</section>
+<section id="vector-fields" class="level2">
+<h2 class="anchored" data-anchor-id="vector-fields">Vector Fields</h2>
+<p>Let’s begin by introducing a definition that will be vital in the following weeks.</p>
+<p>A vector field on three dimensional space is a function <span class="math inline">\(\vec{F}\)</span> that assigns to each point <span class="math inline">\((x,y,z)\)</span> a three dimensional vector given by <span class="math inline">\(\vec{F}(x,y)\)</span>. Note this definition also applies in the two dimensional case.</p>
+</section>
+<section id="gradient-1" class="level2">
+<h2 class="anchored" data-anchor-id="gradient-1">Gradient</h2>
+<p>Given <span class="math inline">\(f\)</span> to be a scalar function of three variables, then its gradient <span class="math inline">\(\nabla f\)</span> is defined by <span class="math display">\[\nabla f = f_x(x,y,z) \bar{i} + f_y(x,y,z) \bar{j} + f_z(x,y,z) \bar{k}\]</span>, where <span class="math inline">\(\nabla f\)</span> is a vector in <span class="math inline">\(\mathbb{R}^3\)</span>.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

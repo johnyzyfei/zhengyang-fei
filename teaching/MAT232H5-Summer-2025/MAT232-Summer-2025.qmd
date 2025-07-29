@@ -44,19 +44,21 @@ Week 3 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week3.pdf){download=
 
 So far we have been working exclusively in the Cartesian/rectangular coordinate system. As we will see in the near future, this is not always the easiest coordinate system to work in. In this section, we will introduce the polar coordinate system.
 
+```{=tex}
 \begin{align*}
 x &= r \cos{\theta}, \hspace{0.5cm} y = r \sin{\theta} \\
 r^2 &= x^2 + y^2, \hspace{0.5cm} \tan{\theta} = \frac{y}{x}
 \end{align*}
-
+```
 The second line of equation is used to help convert back and forth from the Cartesian coordinate system and the polar coordinate system.
 
 To find a tangent line to the polar curve $r = f{(\theta)}$, we regard $\theta$ as a parameter and write its parametric equations as
 
+```{=tex}
 \begin{align*}
 x = r \cos{\theta} = f(\theta) \cos{\theta}, \hspace{0.5cm} y = r \sin{\theta}\sin{(\theta)} \\
 \end{align*}
-
+```
 Then following the equation of slope for parametric curves and the product rule,
 
 $$\frac{dy}{dx} = \frac{dy/d \theta}{dx/ d \theta} = \frac{\frac{dr}{d \theta} \sin{\theta} + r \cos{\theta}}{\frac{dr}{d \theta} \cos{\theta} - r \sin{\theta}}$$
@@ -185,12 +187,13 @@ $$r = \vec{r}_0 + t \vec{v} = \langle x_0, y_0, z_0 \rangle + t \langle a, b, c 
 
 Alternatively, the line can also be represented using its parametric equations, given by:
 
+```{=tex}
 \begin{aligned}
 x &= x_0 + ta \\
 y &= y_0 + tb \\
 z &= z_0 + tc
 \end{aligned}
-
+```
 where
 
 -   $(x_0, y_0, z_0)$: a known point on the line (starting point).\
@@ -493,21 +496,19 @@ Suppose $T(u,v) = (x,y)$ is a one-to-one transformation from the $u,v$ plane ont
 
 Week 11 tutorial notes [Here](/teaching/MAT232H5-Summer-2025/week11.pdf){download="week11"}
 
-## Change of Variables 
+## Change of Variables
 
 Back in MAT135, we discussed the method of u-substitution which allowed us to take an integral in terms of $x$ and change it in terms of $u$. Now, we wish to do something similar, but in terms of multivariable functions. The rationale behind using the change of variables technique is similar to that of switching to polar coordinates: it transforms a complex region of integration into a simpler one to work with.
 
-Suppose that $T$ is a one-to-one transformation, given by $x = g(u, v)$, $y = h(u,v)$, with nonzero Jacobian that maps the region $S$ in the uv-plane onto the region $R$ in xy-plane. If $f$ is continuous on $R$, then
-$$\iint_R f(x, y) \, dA = \iint_S f\big(g(u, v), h(u, v)\big) 
+Suppose that $T$ is a one-to-one transformation, given by $x = g(u, v)$, $y = h(u,v)$, with nonzero Jacobian that maps the region $S$ in the uv-plane onto the region $R$ in xy-plane. If $f$ is continuous on $R$, then $$\iint_R f(x, y) \, dA = \iint_S f\big(g(u, v), h(u, v)\big) 
 \left| \frac{\partial(x, y)}{\partial(u, v)} \right| \, dudv$$
 
 ## Vector Fields
 
 Let's begin by introducing a definition that will be vital in the following weeks.
 
-A vector field on three dimensional space is a function $\vec{F}$ that assigns to each point $(x,y,z)$ a three dimensional vector given by $\vec{F}(x,y)$. Note this definition also applies in the two dimensional case. 
+A vector field on three dimensional space is a function $\vec{F}$ that assigns to each point $(x,y,z)$ a three dimensional vector given by $\vec{F}(x,y)$. Note this definition also applies in the two dimensional case.
 
 ## Gradient
 
-Given $f$ to be a scalar function of three variables, then its gradient $\nabla f$ is defined by 
-$$\nabla f = f_x(x,y,z) \bar{i} + f_y(x,y,z) \bar{j} + f_z(x,y,z) \bar{k}$$, where $\nabla f$ is a vector in $\mathbb{R}^3$.
+Given $f$ to be a scalar function of three variables, then its gradient $\nabla f$ is defined by $$\nabla f = f_x(x,y,z) \bar{i} + f_y(x,y,z) \bar{j} + f_z(x,y,z) \bar{k}$$, where $\nabla f$ is a vector in $\mathbb{R}^3$.
