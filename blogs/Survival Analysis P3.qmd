@@ -1,6 +1,7 @@
 ---
 title: "Survival Analysis P3: Kaplan Mier, Greenwood, Nelson-Aalen"
 categories: [Survival Analysis, Kaplan-Meier]
+date: July 21, 2025
 description: 'Self-Study Notes for Survival Analysis'
 ---
 
@@ -117,3 +118,5 @@ ggplot(df, aes(x = time, y = surv, color = group)) +
   labs(x = "Time (days)", y = "Survival Probability", color = "Group") +
   theme_minimal()
 ```
+
+
