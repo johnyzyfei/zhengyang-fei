@@ -178,6 +178,7 @@ window.Quarto = {
   <li><a href="#week-9" id="toc-week-9" class="nav-link" data-scroll-target="#week-9">Week 9</a></li>
   <li><a href="#week-10" id="toc-week-10" class="nav-link" data-scroll-target="#week-10">Week 10</a></li>
   <li><a href="#week-11" id="toc-week-11" class="nav-link" data-scroll-target="#week-11">Week 11</a></li>
+  <li><a href="#week-12" id="toc-week-12" class="nav-link" data-scroll-target="#week-12">Week 12</a></li>
   </ul>
 </nav>
     </div>
@@ -214,6 +215,7 @@ window.Quarto = {
 
 
 <p>This page contains tutorial notes for <a href="https://utm.calendar.utoronto.ca/course/mat232h5%5D">MAT232H5 Calculus of Several Variables</a> Summer 2025 under the instruction of <a href="https://www.utm.utoronto.ca/math-cs-stats/people/elio-mazzeo">Dr.&nbsp;Elio Mazzeo</a>.</p>
+<p>The notes are completed as of June 13, 2025. If you have any feedback based on your experience over the course of this semester, please share it using this link, which contains 8 short questions. Your input would be greatly appreciated—thank you!</p>
 <section id="week-1" class="level1">
 <h1>Week 1</h1>
 <p>Week 1 tutorial notes <a href="../../teaching/MAT232H5-Summer-2025/week1.pdf" download="week1">Here</a></p>
@@ -245,15 +247,15 @@ L = \int_{\alpha}^{\beta} \sqrt{ \left( \frac{dx}{dt} \right)^2 + \left( \frac{d
 <section id="polar-coordinates" class="level2">
 <h2 class="anchored" data-anchor-id="polar-coordinates">Polar Coordinates</h2>
 <p>So far we have been working exclusively in the Cartesian/rectangular coordinate system. As we will see in the near future, this is not always the easiest coordinate system to work in. In this section, we will introduce the polar coordinate system.</p>
-<span class="math display">\[\begin{align*}
+<p><span class="math display">\[\begin{align*}
 x &amp;= r \cos{\theta}, \hspace{0.5cm} y = r \sin{\theta} \\
 r^2 &amp;= x^2 + y^2, \hspace{0.5cm} \tan{\theta} = \frac{y}{x}
-\end{align*}\]</span>
+\end{align*}\]</span></p>
 <p>The second line of equation is used to help convert back and forth from the Cartesian coordinate system and the polar coordinate system.</p>
 <p>To find a tangent line to the polar curve <span class="math inline">\(r = f{(\theta)}\)</span>, we regard <span class="math inline">\(\theta\)</span> as a parameter and write its parametric equations as</p>
-<span class="math display">\[\begin{align*}
+<p><span class="math display">\[\begin{align*}
 x = r \cos{\theta} = f(\theta) \cos{\theta}, \hspace{0.5cm} y = r \sin{\theta}\sin{(\theta)} \\
-\end{align*}\]</span>
+\end{align*}\]</span></p>
 <p>Then following the equation of slope for parametric curves and the product rule,</p>
 <p><span class="math display">\[\frac{dy}{dx} = \frac{dy/d \theta}{dx/ d \theta} = \frac{\frac{dr}{d \theta} \sin{\theta} + r \cos{\theta}}{\frac{dr}{d \theta} \cos{\theta} - r \sin{\theta}}\]</span></p>
 <p>We can locate horizontal tangents by finding points where <span class="math inline">\(dy/d\theta = 0\)</span> given that <span class="math inline">\(dx/d\theta \ne 0\)</span>. Likewise, vertical tangents can be found where <span class="math inline">\(dx/d\theta = 0\)</span> given that <span class="math inline">\(dy/d\theta \ne 0\)</span>.</p>
@@ -719,6 +721,42 @@ Note
 <section id="gradient-1" class="level2">
 <h2 class="anchored" data-anchor-id="gradient-1">Gradient</h2>
 <p>Given <span class="math inline">\(f\)</span> to be a scalar function of three variables, then its gradient <span class="math inline">\(\nabla f\)</span> is defined by <span class="math display">\[\nabla f = f_x(x,y,z) \bar{i} + f_y(x,y,z) \bar{j} + f_z(x,y,z) \bar{k}\]</span>, where <span class="math inline">\(\nabla f\)</span> is a vector in <span class="math inline">\(\mathbb{R}^3\)</span>.</p>
+</section>
+</section>
+<section id="week-12" class="level1">
+<h1>Week 12</h1>
+<p>Week 12 tutorial notes <a href="../../teaching/MAT232H5-Summer-2025/week12.pdf" download="week12">Here</a></p>
+<section id="line-integrals-in-space" class="level2">
+<h2 class="anchored" data-anchor-id="line-integrals-in-space">Line Integrals (in space)</h2>
+<p>Let <span class="math inline">\(C\)</span> be a smooth curve parameterized by <span class="math inline">\(\vec{r}(t) = \langle x(t), y(t), z(t) \rangle\)</span>, for <span class="math inline">\(t \in [a, b]\)</span>.<br>
+Then the line integral of a scalar function <span class="math inline">\(f\)</span> along curve <span class="math inline">\(C\)</span> is defined by:</p>
+<p><span class="math display">\[
+\int_C f(x, y, z) \, ds = \int_a^b f(\vec{r}(t)) \left\| \frac{d\vec{r}}{dt} \right\| \, dt
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\left\| \frac{d\vec{r}}{dt} \right\| = \sqrt{ \left( \frac{dx}{dt} \right)^2 + \left( \frac{dy}{dt} \right)^2 + \left( \frac{dz}{dt} \right)^2 }
+\]</span></p>
+<p>Note that the above can also be applied for functions of two variables.</p>
+</section>
+<section id="line-integrals-in-vector-fields" class="level2">
+<h2 class="anchored" data-anchor-id="line-integrals-in-vector-fields">Line Integrals in Vector Fields</h2>
+<p>Instead of line integrals of functions, we will now focus on evaluating line integrals of vector fields. Let the vector field be given by <span class="math display">\[\vec{F}(x, y, z) = P(x, y, z)\,\vec{i} + Q(x, y, z)\,\vec{j} + R(x, y, z)\,\vec{k}\]</span> and the three-dimensional smooth curve by <span class="math display">\[\vec{r}(t) = x(t)\,\vec{i} + y(t)\,\vec{j} + z(t)\,\vec{k} \qquad a \leq t \leq b\]</span></p>
+<p>The line integral of <span class="math inline">\(\vec{F}\)</span> along curve <span class="math inline">\(C\)</span> is <span class="math display">\[\int_C \vec{F} \cdot d\vec{r} = \int_a^b \vec{F}(\vec{r}(t)) \cdot \vec{r}\,'(t) \, dt = \int_C  \vec{F} \cdot \vec{T} ds\]</span> where <span class="math inline">\(\vec{T}(t)\)</span> is the unit tangent vector given by <span class="math display">\[\vec{T}(t) = \frac{\vec{r}\,'(t)}{\left\| \vec{r}\,'(t) \right\|}\]</span></p>
+<p>The latter part of the line integral in the above definition is equivalent to the middle part, which can be seen simply by subbing in <span class="math inline">\(\vec{T}(t)\)</span>.</p>
+</section>
+<section id="the-fundamental-theorem-for-line-integrals" class="level2">
+<h2 class="anchored" data-anchor-id="the-fundamental-theorem-for-line-integrals">The Fundamental Theorem for Line Integrals</h2>
+<p>In MAT135 we learned about the Fundamental Theorem of Calculus, which gave us a way to evaluate integrals. It turns out a similar version exists for line integrals, when evaluated over certain vector fields.</p>
+<p>Given a conservative vector field <span class="math inline">\(\vec{F}\)</span> along a smooth curve <span class="math inline">\(C\)</span> given by <span class="math inline">\(\vec{r}(t) = \left\langle x(t), y(t), z(t) \right\rangle\)</span> for <span class="math inline">\(a \le t \le b\)</span>, then our line integral can be evaluated as</p>
+<p><span class="math display">\[
+\int_C \nabla f \cdot d\vec{r} = f(\vec{r}(b)) - f(\vec{r}(a))
+\]</span></p>
+<p>This means the line integral of <span class="math inline">\(\vec{F}\)</span> along <span class="math inline">\(C\)</span> depends only on the endpoints, not on the path taken.</p>
+</section>
+<section id="independent-path" class="level2">
+<h2 class="anchored" data-anchor-id="independent-path">Independent Path</h2>
+<p>A line integral <span class="math display">\[\int_C \vec{F} \cdot d\vec{r}\]</span> is said to be independent of path if the value of the integral only depends on the starting and ending points of the curve <span class="math inline">\(C\)</span>, not on the specific route taken between them.</p>
 
 
 </section>

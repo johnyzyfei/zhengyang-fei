@@ -11,7 +11,7 @@
     "href": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html",
     "title": "MAT232: Calculus of Several Variables",
     "section": "",
-    "text": "This page contains tutorial notes for MAT232H5 Calculus of Several Variables Summer 2025 under the instruction of Dr. Elio Mazzeo."
+    "text": "This page contains tutorial notes for MAT232H5 Calculus of Several Variables Summer 2025 under the instruction of Dr. Elio Mazzeo.\nThe notes are completed as of June 13, 2025. If you have any feedback based on your experience over the course of this semester, please share it using this link, which contains 8 short questions. Your input would be greatly appreciated—thank you!"
   },
   {
     "objectID": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#parametric-equations",
@@ -173,6 +173,34 @@
     "title": "MAT232: Calculus of Several Variables",
     "section": "Gradient",
     "text": "Gradient\nGiven \\(f\\) to be a scalar function of three variables, then its gradient \\(\\nabla f\\) is defined by \\[\\nabla f = f_x(x,y,z) \\bar{i} + f_y(x,y,z) \\bar{j} + f_z(x,y,z) \\bar{k}\\], where \\(\\nabla f\\) is a vector in \\(\\mathbb{R}^3\\)."
+  },
+  {
+    "objectID": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#line-integrals-in-space",
+    "href": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#line-integrals-in-space",
+    "title": "MAT232: Calculus of Several Variables",
+    "section": "Line Integrals (in space)",
+    "text": "Line Integrals (in space)\nLet \\(C\\) be a smooth curve parameterized by \\(\\vec{r}(t) = \\langle x(t), y(t), z(t) \\rangle\\), for \\(t \\in [a, b]\\).\nThen the line integral of a scalar function \\(f\\) along curve \\(C\\) is defined by:\n\\[\n\\int_C f(x, y, z) \\, ds = \\int_a^b f(\\vec{r}(t)) \\left\\| \\frac{d\\vec{r}}{dt} \\right\\| \\, dt\n\\]\nwhere\n\\[\n\\left\\| \\frac{d\\vec{r}}{dt} \\right\\| = \\sqrt{ \\left( \\frac{dx}{dt} \\right)^2 + \\left( \\frac{dy}{dt} \\right)^2 + \\left( \\frac{dz}{dt} \\right)^2 }\n\\]\nNote that the above can also be applied for functions of two variables."
+  },
+  {
+    "objectID": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#line-integrals-in-vector-fields",
+    "href": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#line-integrals-in-vector-fields",
+    "title": "MAT232: Calculus of Several Variables",
+    "section": "Line Integrals in Vector Fields",
+    "text": "Line Integrals in Vector Fields\nInstead of line integrals of functions, we will now focus on evaluating line integrals of vector fields. Let the vector field be given by \\[\\vec{F}(x, y, z) = P(x, y, z)\\,\\vec{i} + Q(x, y, z)\\,\\vec{j} + R(x, y, z)\\,\\vec{k}\\] and the three-dimensional smooth curve by \\[\\vec{r}(t) = x(t)\\,\\vec{i} + y(t)\\,\\vec{j} + z(t)\\,\\vec{k} \\qquad a \\leq t \\leq b\\]\nThe line integral of \\(\\vec{F}\\) along curve \\(C\\) is \\[\\int_C \\vec{F} \\cdot d\\vec{r} = \\int_a^b \\vec{F}(\\vec{r}(t)) \\cdot \\vec{r}\\,'(t) \\, dt = \\int_C  \\vec{F} \\cdot \\vec{T} ds\\] where \\(\\vec{T}(t)\\) is the unit tangent vector given by \\[\\vec{T}(t) = \\frac{\\vec{r}\\,'(t)}{\\left\\| \\vec{r}\\,'(t) \\right\\|}\\]\nThe latter part of the line integral in the above definition is equivalent to the middle part, which can be seen simply by subbing in \\(\\vec{T}(t)\\)."
+  },
+  {
+    "objectID": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#the-fundamental-theorem-for-line-integrals",
+    "href": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#the-fundamental-theorem-for-line-integrals",
+    "title": "MAT232: Calculus of Several Variables",
+    "section": "The Fundamental Theorem for Line Integrals",
+    "text": "The Fundamental Theorem for Line Integrals\nIn MAT135 we learned about the Fundamental Theorem of Calculus, which gave us a way to evaluate integrals. It turns out a similar version exists for line integrals, when evaluated over certain vector fields.\nGiven a conservative vector field \\(\\vec{F}\\) along a smooth curve \\(C\\) given by \\(\\vec{r}(t) = \\left\\langle x(t), y(t), z(t) \\right\\rangle\\) for \\(a \\le t \\le b\\), then our line integral can be evaluated as\n\\[\n\\int_C \\nabla f \\cdot d\\vec{r} = f(\\vec{r}(b)) - f(\\vec{r}(a))\n\\]\nThis means the line integral of \\(\\vec{F}\\) along \\(C\\) depends only on the endpoints, not on the path taken."
+  },
+  {
+    "objectID": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#independent-path",
+    "href": "teaching/MAT232H5-Summer-2025/MAT232-Summer-2025.html#independent-path",
+    "title": "MAT232: Calculus of Several Variables",
+    "section": "Independent Path",
+    "text": "Independent Path\nA line integral \\[\\int_C \\vec{F} \\cdot d\\vec{r}\\] is said to be independent of path if the value of the integral only depends on the starting and ending points of the curve \\(C\\), not on the specific route taken between them."
   },
   {
     "objectID": "index.html",
